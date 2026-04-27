@@ -105,6 +105,16 @@ export default {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" },
         },
+        "float-arrow": {
+          "0%, 100%": {
+            transform: "translate(0, 0) rotate(0deg)",
+            filter: "drop-shadow(0 0 10px hsl(var(--primary))) drop-shadow(0 0 20px hsl(var(--primary)))",
+          },
+          "50%": {
+            transform: "translate(8px, 12px) rotate(-2deg)",
+            filter: "drop-shadow(0 0 15px hsl(var(--primary))) drop-shadow(0 0 30px hsl(var(--primary)))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -115,6 +125,7 @@ export default {
         "gradient-shift": "gradient-shift 12s ease infinite",
         "pulse-glow": "pulse-glow 4s ease-in-out infinite",
         shimmer: "shimmer 2.5s ease-in-out infinite",
+        "float-arrow": "float-arrow 3s ease-in-out infinite",
       },
     },
   },

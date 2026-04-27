@@ -25,18 +25,14 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "glass border-b border-border/50 py-3" : "py-5"
+        "fixed z-50 transition-all duration-300 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl rounded-full overflow-visible",
+        "top-4 md:top-6 glass border border-border/50 py-2 px-2 md:px-0 shadow-lg shadow-black/20",
+        scrolled ? "bg-surface/80 backdrop-blur-md" : "bg-surface/40 backdrop-blur-sm"
       )}
     >
       <div className="container flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
-          <div className="h-8 w-8 rounded-lg bg-gradient-brand grid place-items-center shadow-[0_0_24px_hsl(var(--primary)/0.5)] transition-transform group-hover:scale-110">
-            <span className="text-primary-foreground font-display font-black text-sm">D</span>
-          </div>
-          <span className="font-display font-bold text-lg tracking-tight">
-            {SITE.name}
-          </span>
+        <a href="#top" className="flex items-center group">
+          <img src="/daurer-logo.png" alt="Daurer Tech" className="h-10 w-auto scale-[2.8] origin-left ml-4" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -70,14 +66,14 @@ export const Header = () => {
       </div>
 
       {open && (
-        <div className="md:hidden glass border-t border-border/50 animate-fade-in">
-          <div className="container py-6 flex flex-col gap-5">
+        <div className="absolute top-[calc(100%+12px)] left-0 right-0 glass rounded-3xl border border-border/50 animate-fade-in md:hidden overflow-hidden shadow-xl shadow-black/20 mx-4">
+          <div className="p-6 flex flex-col gap-5">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-base text-foreground/90 hover:text-primary transition-colors"
+                className="text-base text-foreground/90 hover:text-primary transition-colors font-medium"
               >
                 {l.label}
               </a>
