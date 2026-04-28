@@ -1,6 +1,6 @@
 import { whatsappUrl } from "@/lib/site";
 import { ShinyButton } from "@/components/ui/shiny-button";
-import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
+import AuroraBackgroundHero from "@/components/ui/aurora-section-hero";
 
 export const Hero = () => {
   const handleCtaClick = () => {
@@ -8,32 +8,28 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-[#000005]">
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-32 bg-[#000005] overflow-hidden">
+      {/* FUNDO AURORA ANIMADO REACT (z-index 0) */}
       <div className="absolute inset-0 z-0">
-        <CanvasRevealEffect
-          animationSpeed={3}
-          containerClassName="bg-[#000005]"
-          colors={[
-            [0, 180, 255],
-            [0, 255, 200],
-          ]}
-          dotSize={4}
-        />
-
-        {/* Overlay pra dar contraste e profundidade */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_0%,rgba(0,0,5,0.9)_100%)]" />
-
-        {/* Glow sutil azul */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(0,150,255,0.15),transparent_60%)]" />
+        <AuroraBackgroundHero />
       </div>
+
+      {/* OVERLAY ESCURO pra dar contraste — fade forte no bottom para não vazar */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at center, transparent 20%, #000005 85%), linear-gradient(to bottom, transparent 55%, #000005 92%)",
+        }}
+      />
 
       <div className="container relative z-10 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] leading-[1.05] mb-8 animate-fade-in-up text-white">
-            Um site bonito chama atenção.
+            Sites <span className="text-glow-animated">bonitos</span> chamam atenção.
             <br />
             <span className="text-3xl md:text-5xl lg:text-6xl mt-4 block text-white/90 leading-[1.1] tracking-tight">
-              Um site estratégico gera vendas.
+              Sites <span className="text-glow-animated">estratégicos</span> vendem.
             </span>
           </h1>
 
@@ -49,26 +45,13 @@ export const Hero = () => {
             />
             
             <div className="relative z-10">
-              <ShinyButton onClick={handleCtaClick}>
+              <ShinyButton onClick={handleCtaClick} className="px-10 py-5 text-xl font-bold uppercase tracking-wide">
                 Quero vender mais
               </ShinyButton>
             </div>
           </div>
 
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-xs text-muted-foreground animate-fade-in" style={{ animationDelay: "400ms" }}>
-            <div className="flex items-center gap-2">
-              <div className="h-1 w-1 rounded-full bg-primary" />
-              <span>Alta Performance</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="h-1 w-1 rounded-full bg-primary" />
-              <span>Design Premium</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="h-1 w-1 rounded-full bg-primary" />
-              <span>Foco em Conversão</span>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

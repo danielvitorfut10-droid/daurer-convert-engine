@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SITE, whatsappUrl } from "@/lib/site";
+import { LimelightNav, type NavItem } from "@/components/ui/limelight-nav";
+import { whatsappUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
+const navItems: NavItem[] = [
+  { id: "solucoes", label: "Soluções", href: "#solucoes" },
+  { id: "projetos", label: "Projetos", href: "#projetos" },
+  { id: "diferencial", label: "Por que a Daurer?", href: "#diferencial" },
+  { id: "feedbacks", label: "Feedbacks", href: "#feedbacks" },
 ];
 
 export const Header = () => {
@@ -31,27 +32,18 @@ export const Header = () => {
       )}
     >
       <div className="container flex items-center justify-between">
-        <a href="#top" className="flex items-center group">
-          <img src="/daurer-logo.png" alt="Daurer Tech" className="h-10 w-auto scale-[2.8] origin-left ml-4" />
+        <a href="#top" className="flex items-center group shrink-0">
+          <img src="/daurer-logo.png" alt="Daurer Tech" className="h-[46px] w-auto scale-[2.8] origin-left ml-2 md:ml-6" />
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
+        <div className="hidden md:flex justify-center flex-1 mx-4">
+          <LimelightNav items={navItems} />
+        </div>
 
         <div className="hidden md:block">
-          <Button asChild variant="hero" size="sm">
+          <Button asChild variant="hero" size="sm" className="shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition-shadow">
             <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-1" />
-              Falar com especialista
+              Contato
             </a>
           </Button>
         </div>
@@ -68,20 +60,19 @@ export const Header = () => {
       {open && (
         <div className="absolute top-[calc(100%+12px)] left-0 right-0 glass rounded-3xl border border-border/50 animate-fade-in md:hidden overflow-hidden shadow-xl shadow-black/20 mx-4">
           <div className="p-6 flex flex-col gap-5">
-            {links.map((l) => (
+            {navItems.map((l) => (
               <a
-                key={l.href}
+                key={l.id}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-base text-foreground/90 hover:text-primary transition-colors font-medium"
+                className="text-lg text-white hover:text-primary transition-colors font-medium"
               >
                 {l.label}
               </a>
             ))}
-            <Button asChild variant="hero" className="w-full">
-              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-1" />
-                Falar com especialista
+            <Button asChild variant="hero" className="w-full shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+                Contato
               </a>
             </Button>
           </div>

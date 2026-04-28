@@ -1,8 +1,7 @@
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
+import { SkillsMarquee } from "@/components/sections/SkillsMarquee";
 import { Problema } from "@/components/sections/Problema";
-import { Solucao } from "@/components/sections/Solucao";
-import { Servicos } from "@/components/sections/Servicos";
 import { Diferencial } from "@/components/sections/Diferencial";
 import { Projetos } from "@/components/sections/Projetos";
 import { Depoimentos } from "@/components/sections/Depoimentos";
@@ -15,11 +14,10 @@ const Index = () => {
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       <Hero />
+      <SkillsMarquee />
       <Problema />
-      <Solucao />
-      <Servicos />
-      <Diferencial />
       <Projetos />
+      <Diferencial />
       <Depoimentos />
       <CtaFinal />
       <Faq />

@@ -22,10 +22,10 @@ const depoimentos = [
 export const Depoimentos = () => {
   const { ref, visible } = useReveal();
   return (
-    <section ref={ref} className="relative py-24 md:py-32 bg-surface/30 border-y border-border">
+    <section id="feedbacks" ref={ref} className="relative py-24 md:py-32 bg-surface/30 border-y border-border">
       <div className="container">
         <div className={`max-w-2xl mx-auto text-center mb-16 ${visible ? "animate-fade-in-up" : "opacity-0"}`}>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">Prova social</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">Feedbacks</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight">
             Quem confiou, <span className="text-gradient">cresceu.</span>
           </h2>

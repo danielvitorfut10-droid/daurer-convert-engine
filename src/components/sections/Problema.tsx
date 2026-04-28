@@ -1,4 +1,4 @@
-import { TrendingDown, Users, ShieldAlert, Clock } from "lucide-react";
+import { Monitor, MousePointerClick, ShoppingCart, Server } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 import {
   FaReact, FaGithub, FaTwitter, FaLinkedin, FaInstagram, FaFacebook, FaWhatsapp
@@ -24,11 +24,11 @@ const iconConfigs = [
 
 
 
-const dores = [
-  { icon: Users, title: "Poucos clientes chegando", desc: "Seu site existe, mas não trabalha. Visitantes entram, olham e somem sem deixar contato." },
-  { icon: TrendingDown, title: "Baixa conversão", desc: "Sem estrutura estratégica e copy direto, cada visita vira oportunidade perdida." },
-  { icon: ShieldAlert, title: "Falta de credibilidade", desc: "Site ultrapassado passa a impressão errada e afasta clientes que procuram profissionalismo." },
-  { icon: Clock, title: "Tempo e dinheiro desperdiçados", desc: "Soluções genéricas não foram pensadas para o seu negócio — e o crescimento trava." },
+const servicos = [
+  { icon: Monitor, title: "Site Institucional", desc: "Apresente sua empresa com autoridade e profissionalismo. Um site pensado para gerar confiança e atrair novos clientes." },
+  { icon: MousePointerClick, title: "Landing Page", desc: "Páginas focadas em conversão, ideais para campanhas e anúncios que transformam visitantes em contatos." },
+  { icon: ShoppingCart, title: "E-commerce", desc: "Venda online 24 horas por dia com uma loja rápida, segura e otimizada para gerar mais pedidos." },
+  { icon: Server, title: "Hospedagem e Suporte", desc: "Seu site sempre online, rápido e protegido. Cuidamos de tudo para você focar no crescimento." },
 ];
 
 export const Problema = () => {
@@ -38,30 +38,33 @@ export const Problema = () => {
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section id="sobre" ref={ref} className="relative py-24 md:py-32 overflow-hidden">
+    <section id="solucoes" ref={ref} className="relative py-24 md:py-32 overflow-hidden">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* LADO ESQUERDO: TEXTO E CARDS */}
           <div className={`${visible ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="max-w-2xl mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">O problema</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-                Você está perdendo clientes <span className="text-gradient">todos os dias</span> — e nem percebe.
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">SOLUÇÕES</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4">
+                Nossos <span className="text-gradient">Serviços</span>
               </h2>
+              <p className="text-lg text-muted-foreground">
+                Soluções estratégicas para atrair, converter e vender mais todos os dias.
+              </p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              {dores.map((d, i) => (
+              {servicos.map((s, i) => (
                 <div
-                  key={d.title}
+                  key={s.title}
                   className="group relative rounded-2xl border border-border bg-surface/40 p-5 hover:border-primary/40 hover:bg-surface transition-all duration-500"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
                   <div className="h-10 w-10 rounded-lg bg-primary/10 border border-primary/20 grid place-items-center text-primary mb-4 group-hover:bg-primary/20 transition-colors">
-                    <d.icon className="h-5 w-5" />
+                    <s.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display font-semibold text-base mb-1">{d.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>
+                  <h3 className="font-display font-semibold text-base mb-1">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -99,20 +102,24 @@ export const Problema = () => {
                         return (
                           <div
                             key={iconIdx}
-                            className="absolute bg-surface rounded-full p-2 border border-border shadow-soft"
+                            className="absolute rounded-full p-2.5"
                             style={{
                               left: `${x}%`,
                               top: `${y}%`,
                               transform: "translate(-50%, -50%)",
+                              background: "rgba(6, 182, 212, 0.08)",
+                              border: "1.5px solid rgba(0, 212, 255, 0.55)",
+                              boxShadow: "0 0 12px rgba(0,212,255,0.3), inset 0 0 6px rgba(0,212,255,0.08)",
+                              backdropFilter: "blur(8px)",
                             }}
                           >
                             {cfg.Icon ? (
-                              <cfg.Icon className="w-5 h-5 text-foreground/80" style={{ color: cfg.color }} />
+                              <cfg.Icon className="w-8 h-8" style={{ color: cfg.color }} />
                             ) : (
                               <img
                                 src={cfg.img}
                                 alt="icon"
-                                className="w-5 h-5 object-contain"
+                                className="w-8 h-8 object-contain"
                               />
                             )}
                           </div>

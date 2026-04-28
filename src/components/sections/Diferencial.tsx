@@ -11,7 +11,7 @@ const itens = [
 export const Diferencial = () => {
   const { ref, visible } = useReveal();
   return (
-    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
+    <section id="diferencial" ref={ref} className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-hero opacity-50" />
       <div className="container relative">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
