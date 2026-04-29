@@ -1,67 +1,83 @@
-import { Globe, Zap, LayoutTemplate, Search, ArrowUpRight } from "lucide-react";
+import { Monitor, MousePointer2, ShoppingCart, Database, ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 const servicos = [
   {
-    icon: Globe,
-    title: "Criação de sites",
-    desc: "Sites institucionais e personalizados que comunicam autoridade e geram oportunidade desde a primeira visita.",
+    icon: Monitor,
+    title: "Site Institucional",
+    desc: "Apresente sua empresa com autoridade e profissionalismo. Um site pensado para gerar confiança e atrair novos clientes.",
   },
   {
-    icon: Zap,
-    title: "Landing pages",
-    desc: "Páginas focadas em uma única ação — perfeitas para campanhas, lançamentos e captação de leads qualificados.",
+    icon: MousePointer2,
+    title: "Landing Page",
+    desc: "Páginas focadas em conversão, ideais para campanhas e anúncios que transformam visitantes em contatos.",
   },
   {
-    icon: LayoutTemplate,
-    title: "Design estratégico",
-    desc: "Estrutura visual que guia o olhar, organiza a mensagem e conduz o visitante naturalmente até a conversão.",
+    icon: ShoppingCart,
+    title: "E-commerce",
+    desc: "Venda online 24 horas por dia com uma loja rápida, segura e otimizada para gerar mais pedidos.",
   },
   {
-    icon: Search,
-    title: "Otimização e SEO",
-    desc: "Performance, responsividade e SEO básico para o seu site carregar rápido e ser encontrado pelos clientes certos.",
+    icon: Database,
+    title: "Hospedagem e Suporte",
+    desc: "Seu site sempre online, rápido e protegido. Cuidamos de tudo para você focar no crescimento.",
   },
 ];
 
 export const Servicos = () => {
   const { ref, visible } = useReveal();
   return (
-    <section id="servicos" ref={ref} className="relative py-24 md:py-32">
-      <div className="container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <section id="servicos" ref={ref} className="relative py-24 md:py-32 overflow-hidden">
+      <div className="container relative z-10">
+        <div className="flex flex-col gap-6 mb-16">
           <div className={visible ? "animate-fade-in-up" : "opacity-0"}>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">Serviços</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight max-w-2xl">
-              O que entregamos para o seu negócio crescer.
+            <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400 mb-4">Soluções</p>
+            <h2 className="font-display text-5xl md:text-6xl font-bold tracking-tight leading-tight max-w-2xl mb-6">
+              Nossos <span className="text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">Serviços</span>
             </h2>
+            <p className="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
+              Soluções estratégicas para atrair, converter e vender mais todos os dias.
+            </p>
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {servicos.map((s, i) => (
             <div
               key={s.title}
-              className={`group relative rounded-2xl border border-border bg-surface/40 p-8 overflow-hidden hover:border-primary/50 hover:bg-surface transition-all duration-500 hover:-translate-y-1 ${
+              className={`group ${
                 visible ? "animate-fade-in-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${i * 100}ms` }}
+              style={{ animationDelay: `${i * 150}ms` }}
             >
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="flex items-start justify-between gap-6">
-                <div className="flex-1">
-                  <div className="h-12 w-12 rounded-xl bg-primary/10 border border-primary/20 grid place-items-center text-primary mb-5 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_24px_hsl(var(--primary)/0.5)] transition-all duration-500">
-                    <s.icon className="h-6 w-6" />
+              <GlowCard className="h-full hover:-translate-y-2 transition-all duration-500">
+                <div className="flex items-start justify-between gap-6 h-full">
+                  <div className="flex-1 flex flex-col h-full">
+                    <div className="w-[50px] h-[50px] rounded-[12px] flex items-center justify-center bg-[rgba(34,211,238,0.1)] border border-[rgba(34,211,238,0.2)] shadow-[0_0_20px_rgba(34,211,238,0.3),inset_0_0_10px_rgba(34,211,238,0.2)]">
+                      <s.icon className="text-[#67e8f9] h-[22px] w-[22px]" />
+                    </div>
+                    
+                    <div className="mt-auto">
+                      <h3 className="font-display text-white mt-[20px] mb-[8px] text-2xl font-bold group-hover:text-cyan-400 transition-colors duration-300">
+                        {s.title}
+                      </h3>
+                      <p className="text-[#94a3b8] text-[14px] leading-relaxed">
+                        {s.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-display text-2xl font-semibold mb-3">{s.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <ArrowUpRight className="h-6 w-6 text-slate-600 group-hover:text-cyan-400 group-hover:rotate-12 transition-all duration-300 transform" />
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:rotate-12 transition-all" />
-              </div>
+              </GlowCard>
             </div>
           ))}
         </div>
       </div>
+      
+      {/* Background decoration to match the premium feel */}
+      <div className="absolute top-1/2 -right-64 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-64 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
     </section>
   );
 };

@@ -8,7 +8,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-32 bg-[#000005] overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-32 bg-[#0A1121] overflow-hidden">
       {/* FUNDO AURORA ANIMADO REACT (z-index 0) */}
       <div className="absolute inset-0 z-0">
         <AuroraBackgroundHero />

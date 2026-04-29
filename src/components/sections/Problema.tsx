@@ -1,5 +1,6 @@
-import { Monitor, MousePointerClick, ShoppingCart, Server } from "lucide-react";
+import { Monitor, MousePointer2, ShoppingCart, Database } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
+import { GlowCard } from "@/components/ui/spotlight-card";
 import {
   FaReact, FaGithub, FaTwitter, FaLinkedin, FaInstagram, FaFacebook, FaWhatsapp
 } from "react-icons/fa";
@@ -26,9 +27,9 @@ const iconConfigs = [
 
 const servicos = [
   { icon: Monitor, title: "Site Institucional", desc: "Apresente sua empresa com autoridade e profissionalismo. Um site pensado para gerar confiança e atrair novos clientes." },
-  { icon: MousePointerClick, title: "Landing Page", desc: "Páginas focadas em conversão, ideais para campanhas e anúncios que transformam visitantes em contatos." },
+  { icon: MousePointer2, title: "Landing Page", desc: "Páginas focadas em conversão, ideais para campanhas e anúncios que transformam visitantes em contatos." },
   { icon: ShoppingCart, title: "E-commerce", desc: "Venda online 24 horas por dia com uma loja rápida, segura e otimizada para gerar mais pedidos." },
-  { icon: Server, title: "Hospedagem e Suporte", desc: "Seu site sempre online, rápido e protegido. Cuidamos de tudo para você focar no crescimento." },
+  { icon: Database, title: "Hospedagem e Suporte", desc: "Seu site sempre online, rápido e protegido. Cuidamos de tudo para você focar no crescimento." },
 ];
 
 export const Problema = () => {
@@ -44,27 +45,35 @@ export const Problema = () => {
           {/* LADO ESQUERDO: TEXTO E CARDS */}
           <div className={`${visible ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="max-w-2xl mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">SOLUÇÕES</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4">
-                Nossos <span className="text-gradient">Serviços</span>
+              <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400 mb-4">Soluções</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
+                Nossos <span className="text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.2)]">Serviços</span>
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-slate-400">
                 Soluções estratégicas para atrair, converter e vender mais todos os dias.
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-5">
               {servicos.map((s, i) => (
                 <div
                   key={s.title}
-                  className="group relative rounded-2xl border border-border bg-surface/40 p-5 hover:border-primary/40 hover:bg-surface transition-all duration-500"
+                  className={`group ${visible ? "animate-fade-in-up" : "opacity-0"}`}
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
-                  <div className="h-10 w-10 rounded-lg bg-primary/10 border border-primary/20 grid place-items-center text-primary mb-4 group-hover:bg-primary/20 transition-colors">
-                    <s.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="font-display font-semibold text-base mb-1">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <GlowCard className="h-full hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex flex-col h-full">
+                      <div className="h-10 w-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 grid place-items-center text-cyan-400 mb-4 group-hover:bg-cyan-400 group-hover:text-black transition-all duration-300">
+                        <s.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="font-display font-bold text-lg mb-2 text-white group-hover:text-cyan-400 transition-colors">
+                        {s.title}
+                      </h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </GlowCard>
                 </div>
               ))}
             </div>

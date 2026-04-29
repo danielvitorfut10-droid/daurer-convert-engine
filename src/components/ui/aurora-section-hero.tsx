@@ -34,7 +34,7 @@ export const AuroraBackgroundHero: React.FC<BackgroundSceneProps> = ({
   }, [beamCount])
 
   return (
-    <div className="scene absolute inset-0 z-0 overflow-hidden bg-[#000005]" role="img" aria-label="Animated digital data background">
+    <div className="scene absolute inset-0 z-0 overflow-hidden bg-[#0A1121]" role="img" aria-label="Animated digital data background">
       <div className="floor absolute bottom-[-100px] left-1/2 w-[100vw] h-[300px] -translate-x-1/2 rounded-full pointer-events-none" />
       <div className="main-column absolute inset-0 mx-auto w-[50vw] max-w-[500px] h-full pointer-events-none" />
       <div className="light-stream-container absolute inset-0 pointer-events-none">
