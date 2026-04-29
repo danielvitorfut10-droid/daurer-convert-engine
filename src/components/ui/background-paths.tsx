@@ -18,7 +18,7 @@ export function FloatingPaths({ position }: { position: number }) {
     return (
         <div className="absolute inset-0 pointer-events-none">
             <svg
-                className="w-full h-full text-cyan-400 opacity-60"
+                className="w-full h-full text-cyan-400"
                 viewBox="0 0 696 316"
                 fill="none"
             >
@@ -28,16 +28,16 @@ export function FloatingPaths({ position }: { position: number }) {
                         key={path.id}
                         d={path.d}
                         stroke="currentColor"
-                        strokeWidth={path.width}
-                        strokeOpacity={0.03 + path.id * 0.01}
-                        initial={{ pathLength: 0.3, opacity: 0.4 }}
+                        strokeWidth={path.width * 1.5}
+                        strokeOpacity={0.1 + path.id * 0.02}
+                        initial={{ pathLength: 0.3, opacity: 0.6 }}
                         animate={{
                             pathLength: 1,
-                            opacity: [0.1, 0.4, 0.1],
+                            opacity: [0.3, 0.7, 0.3],
                             pathOffset: [0, 1, 0],
                         }}
                         transition={{
-                            duration: 25 + Math.random() * 15,
+                            duration: 20 + Math.random() * 15,
                             repeat: Number.POSITIVE_INFINITY,
                             ease: "linear",
                         }}

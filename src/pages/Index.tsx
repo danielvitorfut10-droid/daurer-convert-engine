@@ -9,6 +9,8 @@ import { CtaFinal } from "@/components/sections/CtaFinal";
 import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
 
+import { Banner } from "@/components/ui/banner";
+
 const Index = () => {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -17,6 +19,9 @@ const Index = () => {
       <SkillsMarquee />
       <Problema />
       <Projetos />
+      <Banner variant="rainbow" height="4.5rem">
+        🚀 Transforme visitantes em clientes com um site estratégico
+      </Banner>
       <Diferencial />
       <Depoimentos />
       <CtaFinal />

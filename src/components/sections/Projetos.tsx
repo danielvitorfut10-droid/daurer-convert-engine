@@ -5,47 +5,39 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FloatingPaths } from "@/components/ui/background-paths";
 
-// Projetos data structure
+// Projetos data structure atualizado com os nomes de arquivo corretos encontrados na pasta public
 const projetos = [
   {
     id: 1,
-    title: "Barça Academy Pro",
-    category: "Site Institucional",
-    score: "A",
-    description: "Plataforma oficial da FC Barcelona Academy no Brasil. Foco em performance e conversão de novos alunos com design esportivo premium.",
-    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200",
+    title: "Ola pet",
+    category: "Site institucional - Pet shop",
+    description: "Uma solução completa para clínicas veterinárias, com atendimento ágil, gestão eficiente e produtos de qualidade, garantindo o cuidado ideal para o seu pet em todas as etapas.",
+    image: "/project-1.jpg.jpeg",
+    link: "https://olapetfarma.com.br/",
   },
   {
     id: 2,
-    title: "Clínica Médica",
-    category: "Site Institucional",
-    score: "A",
-    description: "Presença digital profissional que transmite confiança e autoridade. Inclui área para os pacientes e sistema de agendamento ágil totalmente integrado.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200",
+    title: "Doce lar",
+    category: "Sistema de Encomendas - Confeitaria",
+    description: "Um site moderno e envolvente, desenvolvido para destacar produtos, facilitar pedidos e proporcionar uma experiência intuitiva, conectando clientes à marca de forma prática e atrativa.",
+    image: "/project-2.jpg.jpeg",
+    link: "https://www.docelardacarol.com/",
   },
   {
     id: 3,
-    title: "E-commerce Premium",
-    category: "Loja Virtual",
-    score: "98/100",
-    description: "Foco total na experiência de compra do usuário com checkout otimizado, design minimalista e moderno, projetado para aumentar as vendas.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+    title: "Óticas Théo",
+    category: "E-commerce PRO - Ótica",
+    description: "Uma experiência online pensada para atrair e converter, com design estratégico, organização eficiente dos produtos e navegação simples para aproximar clientes da marca.",
+    image: "/project-3.jpg.jpeg",
+    link: "https://xn--oticasthotavares-iqb.com.br/",
   },
   {
     id: 4,
-    title: "Plataforma SaaS",
-    category: "Dashboard / Web App",
-    score: "A",
-    description: "Um sistema completo para gestão de frotas com análise de dados em tempo real e relatórios automatizados, entregando informações cruciais.",
-    image: "https://images.unsplash.com/photo-1551288049-bbdac8a28a1e?auto=format&fit=crop&q=80&w=1200",
-  },
-  {
-    id: 5,
-    title: "Restaurante Conceitual",
-    category: "Landing Page",
-    score: "A",
-    description: "Uma imersão visual no menu e ambiente do restaurante, focado em alta gastronomia, com seções dedicadas à captação de reservas VIP.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200",
+    title: "Ximendes Artesanal",
+    category: "Sistema de Delivery - Artesanal",
+    description: "Uma plataforma digital pensada para valorizar o artesanal, com design atrativo, navegação simples e estrutura otimizada para transformar visitantes em clientes.",
+    image: "/project-4.jpg.jpeg",
+    link: "https://www.ximendesartesanal.com.br/",
   },
 ];
 
@@ -82,109 +74,110 @@ export const Projetos = () => {
   };
 
   return (
-    <section id="projetos" ref={ref} className="relative py-24 md:py-40 overflow-hidden bg-[#0A1121]">
+    <section id="projetos" ref={ref} className="relative py-24 md:py-40 overflow-hidden bg-[#000005]">
       {/* Background Animated Paths */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 opacity-80">
          <FloatingPaths position={1} />
          <FloatingPaths position={-1} />
       </div>
 
-      {/* Profundidade suave: escurece só as bordas para mesclar suavemente com o fundo e não sumir no meio */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A1121] via-transparent to-[#0A1121] z-0 pointer-events-none" />
-
-      {/* Background Deep Blue Glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#22d3ee]/5 to-transparent opacity-50 z-0 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[1200px] w-[1200px] rounded-full bg-[#22d3ee]/5 blur-[250px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none z-0" />
 
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
           
           {/* LADO ESQUERDO: Conteúdo */}
-          <div className={`${visible ? "animate-fade-in-up" : "opacity-0"} space-y-12`}>
+          <div className={`${visible ? "animate-fade-in-up" : "opacity-0"} space-y-10`}>
             <div className="space-y-4 text-center lg:text-left">
-              <p className="text-xs font-bold uppercase tracking-[0.5em] text-blue-400">Portfólio</p>
-              <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] text-white">
+              <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Projetos</p>
+              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] text-white">
                 Resultado real,{" "}
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 drop-shadow-sm">na tela.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">na tela.</span>
               </h2>
-              <p className="text-xl text-slate-300/70 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+              <p className="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
                 Cada pixel é planejado estrategicamente para transformar visitantes em oportunidades reais de negócio.
               </p>
             </div>
 
-            {/* Project Info Card */}
-            <div className="relative bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-[40px] p-10 md:p-14 shadow-[0_32px_64px_rgba(0,0,0,0.5)] overflow-hidden group">
-               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-400/20 transition-all duration-700" />
+            {/* Project Info Card - Fundo Fosco e Borda Neon */}
+            <div className="relative bg-black/60 backdrop-blur-2xl border border-cyan-500/20 rounded-[32px] p-8 md:p-12 shadow-[0_0_50px_rgba(34,211,238,0.1)] overflow-hidden group">
+               {/* Brilho interno sutil */}
+               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-3xl rounded-full" />
+               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/5 blur-3xl rounded-full" />
               <AnimatePresence mode="wait">
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="space-y-6"
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.5 }}
+                  className="space-y-4"
                 >
-                  <p className="text-sm font-bold uppercase tracking-[0.3em] text-blue-400/90 font-display">
-                    {projetos[index].category}
-                  </p>
-                  <h3 className="text-4xl md:text-6xl font-display font-bold text-white tracking-tighter">
+                  <a href={projetos[index].link} target="_blank" rel="noopener noreferrer" className="inline-block group/link">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400/80 group-hover/link:text-cyan-300 transition-colors">
+                      {projetos[index].category} (Ver Site →)
+                    </p>
+                  </a>
+                  <h3 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight">
                     {projetos[index].title}
                   </h3>
-                  <p className="text-lg text-slate-400/90 leading-relaxed max-w-lg">
+                  <p className="text-base text-slate-400 leading-relaxed max-w-lg">
                     {projetos[index].description}
                   </p>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center">
               <a href="#contato">
-                <ShinyButton className="px-16 py-6 text-xl rounded-full font-bold">Solicitar Orçamento</ShinyButton>
+                <ShinyButton className="px-16 py-5 text-xl rounded-full font-bold !bg-gradient-to-r !from-cyan-400 !to-blue-500 !text-black shadow-[0_0_25px_rgba(34,211,238,0.4)] hover:shadow-[0_0_40px_rgba(34,211,238,0.6)] transition-all duration-300">
+                  Solicitar Orçamento
+                </ShinyButton>
               </a>
             </div>
           </div>
 
-          {/* LADO DIREITO: Mockup Macbook Pro Silver (Clean & Realista - Igual Imagem 2) */}
+          {/* LADO DIREITO: Mockup Macbook Carousel */}
           <div className={`relative flex flex-col items-center pt-10 ${visible ? "animate-fade-in delay-300" : "opacity-0"}`}>
             
             <div className="relative w-full max-w-[850px] mx-auto">
               
-              {/* Macbook Structure - SILVER MINIMAL */}
               <div className="relative z-20 group">
                 
-                {/* Upper Screen (Bezel Silver Slim) */}
                 <div className="relative bg-[#d1d5db] rounded-t-[22px] p-[6px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-t border-x border-white/30">
                   <div className="bg-[#0a0a0a] rounded-[16px] p-3 md:p-4 overflow-hidden relative">
                     
-                    {/* Display */}
+                    {/* Display - Carrossel Sincronizado */}
                     <div className="relative bg-[#000] rounded-lg overflow-hidden aspect-[16/10] shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
                       <AnimatePresence mode="wait">
-                        <motion.div
+                        <motion.a
                           key={index}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
+                          href={projetos[index].link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ opacity: 0, scale: 1.1 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.95 }}
                           transition={{ duration: 0.8, ease: "easeInOut" }}
-                          className="w-full h-full"
+                          className="block w-full h-full cursor-pointer hover:scale-105 transition-transform duration-700"
                         >
                           <img 
                             src={projetos[index].image} 
                             alt={projetos[index].title} 
                             className="w-full h-full object-cover object-top"
                           />
-                        </motion.div>
+                        </motion.a>
                       </AnimatePresence>
-                      {/* Realistic Subtle Reflection */}
+                      
                       <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent opacity-30 pointer-events-none" />
                     </div>
 
-                    {/* Camera Dot */}
                     <div className="absolute top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#111] border border-white/5" />
                   </div>
                 </div>
 
-                {/* Base (Corpo do Macbook - Fino e Prateado) */}
+                {/* Base */}
                 <div className="relative w-[110%] -left-[5%] h-[12px] md:h-[18px] bg-gradient-to-b from-[#e5e7eb] via-[#d1d5db] to-[#9ca3af] rounded-b-[24px] shadow-[0_15px_35px_rgba(0,0,0,0.4)] z-10 border-t border-white/40" />
                 
                 {/* Notch central da base */}
