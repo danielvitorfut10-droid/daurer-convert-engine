@@ -93,7 +93,7 @@ export const CtaFinal = () => {
             <button
               key={s.id}
               onClick={() => setActiveTab(s)}
-              className={`whitespace-nowrap px-6 py-3 rounded-xl text-sm md:text-base font-bold transition-all duration-300 border h-12 md:h-14 min-w-[120px] flex items-center justify-center text-center ${
+              className={`whitespace-nowrap px-4 md:px-6 py-3 rounded-xl text-[13px] md:text-base font-bold transition-all duration-300 border h-11 md:h-14 min-w-[100px] md:min-w-[120px] flex items-center justify-center text-center ${
                 activeTab.id === s.id 
                   ? "bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.1)]" 
                   : "bg-black text-white border-white/5 hover:border-white/20"
@@ -152,6 +152,8 @@ export const CtaFinal = () => {
                     <img 
                       src={activeTab.image} 
                       alt={activeTab.title} 
+                      loading="lazy"
+                      decoding="async"
                       className={`w-full h-full transition-all duration-700 ${activeTab.id === 'lp' || activeTab.id === 'eco' || activeTab.id === 'pv' ? 'object-contain' : 'object-cover opacity-90'}`} 
                     />
                     {activeTab.id !== 'lp' && activeTab.id !== 'eco' && activeTab.id !== 'pv' && (

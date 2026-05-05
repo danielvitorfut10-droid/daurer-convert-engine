@@ -171,7 +171,7 @@ export const StickyFeatures = () => {
 
                   {/* Title with horizontal line */}
                   <div className="flex items-center gap-6 mb-6 w-full group/title">
-                     <h3 className="text-2xl md:text-3xl font-['Playfair_Display'] italic font-medium text-white whitespace-nowrap leading-tight">
+                     <h3 className="text-xl md:text-3xl font-['Playfair_Display'] italic font-medium text-white md:whitespace-nowrap leading-tight">
                        {feature.title}
                      </h3>
                      <div className="h-[0.5px] flex-grow bg-white/10 transition-all duration-700 group-hover/title:bg-white/30" />

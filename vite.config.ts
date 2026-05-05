@@ -16,4 +16,22 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
+          ui: ['@radix-ui/react-accordion', '@radix-ui/react-tooltip', '@radix-ui/react-toast'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
 }));

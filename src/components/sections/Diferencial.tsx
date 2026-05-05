@@ -23,15 +23,15 @@ export const Diferencial = () => {
           <div className="flex flex-col items-center text-center">
             <div className={`max-w-4xl mb-16 ${visible ? "animate-fade-in-up" : "opacity-0"}`}>
               {/* Glowing Badge */}
-              <div className="inline-flex items-center justify-center gap-2 px-5 py-2 mb-8 rounded-full border border-blue-500/40 bg-blue-900/10 backdrop-blur-sm shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-                <div className="relative flex h-2 w-2 items-center justify-center">
+              <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 md:px-5 md:py-2 mb-8 rounded-full border border-blue-500/40 bg-blue-900/20 backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.2)] max-w-[90vw]">
+                <div className="relative flex h-2 w-2 items-center justify-center flex-shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_8px_2px_rgba(59,130,246,0.8)]"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
                 </div>
-                <span className="text-sm font-medium text-blue-300">Uma entrega diferente do mercado</span>
+                <span className="text-[11px] xs:text-[12px] md:text-sm font-bold text-blue-300 uppercase tracking-wider whitespace-nowrap">Uma entrega diferente do mercado</span>
               </div>
 
-              <h2 className={`font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6 whitespace-nowrap ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
+              <h2 className={`font-display text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6 md:whitespace-nowrap ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
                 Seja sincero... <span className="font-['Playfair_Display'] italic font-medium">o que você prefere?</span>
               </h2>
               <p className={`text-lg md:text-xl text-slate-200 leading-relaxed font-medium ${visible ? "animate-reveal-left" : "opacity-0"}`} style={{ animationDelay: "150ms" }}>
@@ -244,10 +244,10 @@ export const Diferencial = () => {
                     contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
                   }
                 }}
-                className="px-10 py-4 text-base font-bold uppercase tracking-wider !bg-black"
+                className="px-10 py-4 text-base font-bold uppercase tracking-wider !bg-black border border-white/20 hover:border-blue-500/50 transition-all duration-300"
                 style={{ 
                   "--shiny-cta-bg": "#000000",
-                  boxShadow: "0 0 25px rgba(59, 130, 246, 0.5), inset 0 0 0 1px rgba(255,255,255,0.1)"
+                  boxShadow: "0 0 35px rgba(59, 130, 246, 0.4), inset 0 0 0 1px rgba(255,255,255,0.05)"
                 } as any}
               >
                 <div className="flex items-center justify-center gap-3">
