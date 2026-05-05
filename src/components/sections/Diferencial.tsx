@@ -71,16 +71,16 @@ export const Diferencial = () => {
                 bottom: 0;
                 left: 0;
                 right: 0;
-                height: 350px;
+                height: 400px;
                 background: linear-gradient(
                   to bottom,
                   transparent 0%,
-                  rgba(0, 10, 50, 0) 40%,
-                  rgba(0, 71, 255, 0.2) 65%,
-                  rgba(59, 130, 246, 0.4) 85%,
-                  rgba(59, 130, 246, 0.6) 100%
+                  rgba(0, 71, 255, 0.1) 30%,
+                  rgba(59, 130, 246, 0.4) 60%,
+                  rgba(6, 182, 212, 0.7) 85%,
+                  rgba(6, 182, 212, 0.9) 100%
                 );
-                filter: blur(40px);
+                filter: blur(50px);
                 pointer-events: none;
                 z-index: 5;
               }
@@ -244,10 +244,11 @@ export const Diferencial = () => {
                     contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
                   }
                 }}
-                className="px-10 py-4 text-base font-bold uppercase tracking-wider !bg-black border border-white/20 hover:border-blue-500/50 transition-all duration-300"
+                className="px-10 py-5 text-base font-bold uppercase tracking-wider"
                 style={{ 
-                  "--shiny-cta-bg": "#000000",
-                  boxShadow: "0 0 35px rgba(59, 130, 246, 0.4), inset 0 0 0 1px rgba(255,255,255,0.05)"
+                  "--duration": "6s",
+                  "--shiny-cta-highlight": "#06b6d4",
+                  boxShadow: "0 0 60px rgba(6, 182, 212, 0.4), 0 0 100px rgba(59, 130, 246, 0.2)"
                 } as any}
               >
                 <div className="flex items-center justify-center gap-3">

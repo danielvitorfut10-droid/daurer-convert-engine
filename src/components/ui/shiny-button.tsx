@@ -10,11 +10,7 @@ interface ShinyButtonProps {
 
 export function ShinyButton({ children, onClick, className = "", style }: ShinyButtonProps) {
   return (
-    <button 
-      className={`shinyCta ${className}`} 
-      onClick={onClick}
-      style={style}
-    >
+    <button className={`shiny-cta ${className}`} onClick={onClick} style={style}>
       <span>{children}</span>
     </button>
   );

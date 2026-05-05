@@ -254,9 +254,7 @@
     animation: prints-slider 60s linear infinite;
   }
 
-  .animate-prints-slider:hover {
-    animation-play-state: paused;
-  }
+  /* Removed hover pause as requested */
 
   .animate-marquee {
     animation: marquee var(--duration) infinite linear;

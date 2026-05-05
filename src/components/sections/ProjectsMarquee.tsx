@@ -21,59 +21,23 @@ const MarqueeTrack = ({ images, speed }: MarqueeTrackProps) => {
     let rafId: number;
 
     const animate = () => {
-      if (!isDragging) {
-        scrollPos -= speed;
-        
-        const halfWidth = items.scrollWidth / 2;
-        
-        // TELETRANSPORTE: Se passar da metade, volta pro zero sem o usuário notar
-        if (speed > 0 && Math.abs(scrollPos) >= halfWidth) {
-          scrollPos = 0;
-        } else if (speed < 0 && scrollPos >= 0) {
-          scrollPos = -halfWidth;
-        }
-        
-        items.style.transform = `translateX(${scrollPos}px)`;
-      }
-      rafId = requestAnimationFrame(animate);
-    };
-
-    const handleMouseDown = (e: MouseEvent) => {
-      isDragging = true;
-      startX = e.pageX;
-      const style = window.getComputedStyle(items);
-      const matrix = new DOMMatrixReadOnly(style.transform);
-      currentTranslate = matrix.m41;
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging) return;
-      const x = e.pageX;
-      const walk = (x - startX) * 1.5; // Multiplicador de sensibilidade de arraste
-      scrollPos = currentTranslate + walk;
+      scrollPos -= speed;
       
-      // MANTÉM O ARRASTO DENTRO DOS LIMITES DO LOOP
       const halfWidth = items.scrollWidth / 2;
-      if (scrollPos <= -halfWidth) scrollPos += halfWidth;
-      if (scrollPos >= 0) scrollPos -= halfWidth;
+      
+      if (speed > 0 && Math.abs(scrollPos) >= halfWidth) {
+        scrollPos = 0;
+      } else if (speed < 0 && scrollPos >= 0) {
+        scrollPos = -halfWidth;
+      }
       
       items.style.transform = `translateX(${scrollPos}px)`;
+      rafId = requestAnimationFrame(animate);
     };
-
-    const handleMouseUp = () => {
-      isDragging = false;
-    };
-
-    track.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
 
     rafId = requestAnimationFrame(animate);
 
     return () => {
-      track.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
       cancelAnimationFrame(rafId);
     };
   }, [speed]);

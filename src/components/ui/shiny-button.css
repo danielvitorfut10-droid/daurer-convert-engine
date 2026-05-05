@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500&display=swap");
+
 @property --gradient-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -22,14 +24,14 @@
   inherits: false;
 }
 
-.shinyCta {
+.shiny-cta {
   --shiny-cta-bg: #000000;
   --shiny-cta-bg-subtle: #1a1818;
   --shiny-cta-fg: #ffffff;
-  --shiny-cta-highlight: #3b82f6; /* Changed to blue to match project */
+  --shiny-cta-highlight: #3b82f6;
   --shiny-cta-highlight-subtle: #8484ff;
   --animation: gradient-angle linear infinite;
-  --duration: 3s;
+  --duration: 4s;
   --shadow-size: 2px;
   --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
   
@@ -39,7 +41,7 @@
   cursor: pointer;
   outline-offset: 4px;
   padding: 1.25rem 2.5rem;
-  font-family: inherit;
+  font-family: "Inter", sans-serif;
   font-size: 1.125rem;
   line-height: 1.2;
   font-weight: 500;
@@ -64,9 +66,9 @@
   gap: 1rem;
 }
 
-.shinyCta::before,
-.shinyCta::after,
-.shinyCta span::before {
+.shiny-cta::before,
+.shiny-cta::after,
+.shiny-cta span::before {
   content: "";
   pointer-events: none;
   position: absolute;
@@ -76,12 +78,12 @@
   z-index: -1;
 }
 
-.shinyCta:active {
+.shiny-cta:active {
   translate: 0 1px;
 }
 
 /* Dots pattern */
-.shinyCta::before {
+.shiny-cta::before {
   --size: calc(100% - var(--shadow-size) * 3);
   --position: 2px;
   --space: calc(var(--position) * 2);
@@ -106,7 +108,7 @@
 }
 
 /* Inner shimmer */
-.shinyCta::after {
+.shiny-cta::after {
   --animation: shimmer linear infinite;
   width: 100%;
   aspect-ratio: 1;
@@ -120,14 +122,34 @@
   opacity: 0.6;
 }
 
-.shinyCta span {
+.shiny-cta,
+.shiny-cta::before,
+.shiny-cta::after {
+  animation: var(--animation) var(--duration),
+    var(--animation) calc(var(--duration) / 0.4) reverse paused;
+  animation-composition: add;
+}
+
+.shiny-cta:is(:hover, :focus-visible) {
+  --gradient-percent: 20%;
+  --gradient-angle-offset: 95deg;
+  --gradient-shine: var(--shiny-cta-highlight-subtle);
+}
+
+.shiny-cta:is(:hover, :focus-visible),
+.shiny-cta:is(:hover, :focus-visible)::before,
+.shiny-cta:is(:hover, :focus-visible)::after {
+  animation-play-state: running;
+}
+
+.shiny-cta span {
   z-index: 1;
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.shinyCta span::before {
+.shiny-cta span::before {
   --size: calc(100% + 1rem);
   width: var(--size);
   height: var(--size);
@@ -137,28 +159,7 @@
   animation: calc(var(--duration) * 1.5) breathe linear infinite;
 }
 
-/* Animate */
-.shinyCta,
-.shinyCta::before,
-.shinyCta::after {
-  animation: var(--animation) var(--duration),
-    var(--animation) calc(var(--duration) / 0.4) reverse paused;
-  animation-composition: add;
-}
-
-.shinyCta:is(:hover, :focus-visible) {
-  --gradient-percent: 20%;
-  --gradient-angle-offset: 95deg;
-  --gradient-shine: var(--shiny-cta-highlight-subtle);
-}
-
-.shinyCta:is(:hover, :focus-visible),
-.shinyCta:is(:hover, :focus-visible)::before,
-.shinyCta:is(:hover, :focus-visible)::after {
-  animation-play-state: running;
-}
-
-.shinyCta:is(:hover, :focus-visible) span::before {
+.shiny-cta:is(:hover, :focus-visible) span::before {
   opacity: 1;
 }
 
