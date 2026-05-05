@@ -19,8 +19,7 @@ const iconConfigs = [
   { Icon: FaInstagram, color: "#E4405F" },
   { Icon: FaGithub, color: "#ffffff" },
   { Icon: SiAnthropic, color: "#D97757" }, // Claude.ai
-  { Icon: null, img: "https://lovable.dev/favicon.ico", color: "#ffffff" }, // Lovable
-  { Icon: FaReact, color: "#61DAFB" }, // Antigravity placeholder or React
+  { Icon: FaReact, color: "#61DAFB" }, // React
 ];
 
 
@@ -46,10 +45,10 @@ export const Problema = () => {
           <div className={`${visible ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="max-w-2xl mb-12">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400 mb-4">Soluções</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
+              <h2 className={`font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6 ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
                 Nossos <span className="text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.2)]">Serviços</span>
               </h2>
-              <p className="text-lg text-slate-400">
+              <p className={`text-lg text-slate-400 ${visible ? "animate-reveal-left" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
                 Soluções estratégicas para atrair, converter e vender mais todos os dias.
               </p>
             </div>

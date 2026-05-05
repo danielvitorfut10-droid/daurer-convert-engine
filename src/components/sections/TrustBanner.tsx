@@ -31,7 +31,7 @@ export const TrustBanner = () => {
             </div>
             <div className="flex flex-col items-center relative overflow-hidden group">
               <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent relative z-10">
-                <Counter target={10} />
+                <Counter target={7} />
               </h3>
               <p className="font-serif italic text-white/70 mt-2 text-sm uppercase tracking-widest">dias para entrega</p>
             </div>

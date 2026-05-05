@@ -31,10 +31,10 @@ export const Diferencial = () => {
                 <span className="text-sm font-medium text-blue-300">Uma entrega diferente do mercado</span>
               </div>
 
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6 whitespace-nowrap">
+              <h2 className={`font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6 whitespace-nowrap ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
                 Seja sincero... <span className="font-['Playfair_Display'] italic font-medium">o que você prefere?</span>
               </h2>
-              <p className="text-lg md:text-xl text-slate-200 leading-relaxed font-medium">
+              <p className={`text-lg md:text-xl text-slate-200 leading-relaxed font-medium ${visible ? "animate-reveal-left" : "opacity-0"}`} style={{ animationDelay: "150ms" }}>
                 Dois tipos de entrega. Um único resultado que importa: <span className="font-bold text-white">vender.</span>
               </p>
             </div>
@@ -238,7 +238,12 @@ export const Diferencial = () => {
                 Não é sobre página. É sobre construir a estrutura certa para converter mais e aumentar suas conversões.
               </p>
               <ShinyButton 
-                onClick={() => window.open(whatsappUrl(), "_blank")}
+                onClick={() => {
+                  const contactSection = document.getElementById("contato");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
+                  }
+                }}
                 className="px-10 py-4 text-base font-bold uppercase tracking-wider !bg-black"
                 style={{ 
                   "--shiny-cta-bg": "#000000",

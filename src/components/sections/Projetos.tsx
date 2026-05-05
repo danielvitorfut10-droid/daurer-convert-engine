@@ -90,12 +90,12 @@ export const Projetos = () => {
           <div className={`${visible ? "animate-fade-in-up" : "opacity-0"} space-y-10`}>
             <div className="space-y-4 text-center lg:text-left">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400">Projetos</p>
-              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] text-white">
+              <h2 className={`font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] text-white ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
                 Resultado real,{" "}
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">na tela.</span>
               </h2>
-              <p className="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+              <p className={`text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light ${visible ? "animate-reveal-left" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
                 Cada pixel é planejado estrategicamente para transformar visitantes em oportunidades reais de negócio.
               </p>
             </div>

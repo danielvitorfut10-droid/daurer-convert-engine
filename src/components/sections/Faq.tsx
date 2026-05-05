@@ -39,7 +39,7 @@ export const Faq = () => {
     <section ref={ref} className="relative py-24 md:py-32 bg-transparent">
       <div className="container">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-start">
-          <div className={visible ? "animate-fade-in-up" : "opacity-0"}>
+          <div className={visible ? "animate-reveal-fall" : "opacity-0"}>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">FAQ</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight leading-tight">
               Dúvidas <span className="text-gradient">frequentes</span>.
@@ -49,7 +49,7 @@ export const Faq = () => {
             </p>
           </div>
 
-          <div className={visible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: "120ms" }}>
+          <div className={visible ? "animate-reveal-left" : "opacity-0"} style={{ animationDelay: "200ms" }}>
             <Accordion type="single" collapsible className="space-y-3">
               {faqs.map((f, i) => (
                 <AccordionItem

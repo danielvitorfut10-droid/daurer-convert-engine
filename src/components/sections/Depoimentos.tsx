@@ -107,7 +107,7 @@ export const Depoimentos = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6 mb-8">
-        <div className={`max-w-3xl mx-auto text-center ${visible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div className={`max-w-3xl mx-auto text-center ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm mb-6 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
              <div className="size-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_8px_#3b82f6]" />
              <span className="text-[10px] font-bold text-blue-400 lg:text-xs uppercase tracking-[0.2em]">Cases de sucesso</span>

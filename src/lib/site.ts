@@ -1,7 +1,7 @@
 // Daurer Tech — site-wide config
 export const SITE = {
   name: "Daurer Tech",
-  whatsappNumber: "5500000000000", // TODO: substituir pelo número real
+  whatsappNumber: "5519982395193",
   whatsappMessage: "Olá! Vim pelo site da Daurer Tech e quero falar com um especialista.",
 };
 

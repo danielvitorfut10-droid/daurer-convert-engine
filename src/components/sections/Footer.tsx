@@ -25,7 +25,7 @@ export const Footer = () => {
 
             {/* Instagram */}
             <a
-              href="#"
+              href="https://instagram.com/daurertech"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center hover:bg-white/[0.08] hover:border-[#E1306C]/30 transition-all duration-300 group"
@@ -35,7 +35,7 @@ export const Footer = () => {
 
             {/* Email */}
             <a
-              href="mailto:contato@daurertech.com"
+              href="mailto:daurer.sistemas@gmail.com"
               className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center hover:bg-white/[0.08] hover:border-[#4285F4]/30 transition-all duration-300 group"
             >
               <Mail className="w-5 h-5 text-[#4285F4] transition-transform group-hover:scale-110" />

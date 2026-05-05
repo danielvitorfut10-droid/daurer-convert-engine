@@ -31,12 +31,12 @@ export const Servicos = () => {
     <section id="servicos" ref={ref} className="relative py-24 md:py-32 overflow-hidden">
       <div className="container relative z-10">
         <div className="flex flex-col gap-6 mb-16">
-          <div className={visible ? "animate-fade-in-up" : "opacity-0"}>
+          <div className={visible ? "animate-reveal-left" : "opacity-0"}>
             <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-400 mb-4">Soluções</p>
             <h2 className="font-display text-5xl md:text-6xl font-bold tracking-tight leading-tight max-w-2xl mb-6">
               Nossos <span className="text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">Serviços</span>
             </h2>
-            <p className="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
+            <p className={`text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed ${visible ? "animate-reveal-right" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
               Soluções estratégicas para atrair, converter e vender mais todos os dias.
             </p>
           </div>

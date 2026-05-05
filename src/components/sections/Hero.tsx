@@ -4,7 +4,10 @@ import { ShinyButton } from "@/components/ui/shiny-button";
 
 export const Hero = () => {
   const handleCtaClick = () => {
-    window.open(whatsappUrl(), "_blank");
+    const contactSection = document.getElementById("contato");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
   };
 
   return (
@@ -12,7 +15,7 @@ export const Hero = () => {
       <TubesCursor>
         <div className="container relative z-10 px-4 min-h-screen flex flex-col justify-center py-24">
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center pt-10">
-            <h1 className="font-sans text-3xl md:text-5xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.2] mb-10 animate-fade-in-up text-white max-w-3xl">
+            <h1 className="font-sans text-3xl md:text-5xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.2] mb-10 animate-reveal-fall text-white max-w-3xl">
               Seu concorrente entrega menos,
               <br className="hidden md:block" />
               mas cobra mais caro. O que te falta
@@ -20,7 +23,7 @@ export const Hero = () => {
               não é qualidade. <span className="text-glow-animated italic font-['Lora',_serif] font-normal inline-block">É posicionamento.</span>
             </h1>
 
-            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-16 leading-relaxed animate-fade-in-up font-medium text-balance" style={{ animationDelay: "120ms" }}>
+            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-16 leading-relaxed animate-reveal-right font-medium text-balance" style={{ animationDelay: "200ms" }}>
               Enquanto sua presença digital não sustentar seu valor, 
               <br className="hidden md:block" />
               você continuará atraindo curiosos <span className="font-bold whitespace-nowrap">Não compradores.</span>

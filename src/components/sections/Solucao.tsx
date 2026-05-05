@@ -17,12 +17,12 @@ export const Solucao = () => {
           <p className={`text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4 ${visible ? "animate-fade-in" : "opacity-0"}`}>
             A solução
           </p>
-          <h2 className={`font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-6 ${visible ? "animate-fade-in-up" : "opacity-0"}`}>
+          <h2 className={`font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-6 ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
             Não é só um site.
             <br />
             É uma <span className="text-gradient">ferramenta de venda</span>.
           </h2>
-          <p className={`text-lg text-muted-foreground leading-relaxed ${visible ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: "120ms" }}>
+          <p className={`text-lg text-muted-foreground leading-relaxed ${visible ? "animate-reveal-right" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
             A Daurer Tech combina design moderno, estrutura estratégica e copy persuasivo
             para transformar a sua presença digital em uma máquina ativa de geração de clientes.
           </p>

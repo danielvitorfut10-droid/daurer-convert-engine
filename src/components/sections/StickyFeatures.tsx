@@ -84,7 +84,7 @@ const AnimatedHeader = () => {
     <div className="text-center max-w-5xl mx-auto mb-10 md:mb-16 pb-8">
       <h2 
         ref={headerRef as any}
-        className={`text-2xl md:text-5xl font-extrabold text-white leading-[1.1] mb-6 transition-all duration-700 ease-out ${headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`text-2xl md:text-5xl font-extrabold text-white leading-[1.1] mb-6 transition-all duration-700 ease-out ${headerInView ? 'animate-reveal-fall' : 'opacity-0'}`}
         style={{ transformStyle: 'preserve-3d' }}
       >
         A verdadeira diferença é uma página projetada com fundamentos.{" "}
@@ -94,7 +94,7 @@ const AnimatedHeader = () => {
       </h2>
       <p 
         ref={pRef as any}
-        className={`text-base md:text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed transition-all duration-700 ease-out delay-200 ${pInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`text-base md:text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed transition-all duration-700 ease-out delay-200 ${pInView ? 'animate-reveal-left' : 'opacity-0'}`}
         style={{ transformStyle: 'preserve-3d' }}
       >
         Mais retenção, mais engajamento, mais resultados. Seu projeto deixa de ser um custo estético para ser um investimento de alta performance.
