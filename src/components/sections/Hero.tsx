@@ -33,7 +33,7 @@ export const Hero = () => {
 
             <div className="relative inline-flex flex-col items-center justify-center gap-14 animate-fade-in-up" style={{ animationDelay: "240ms" }}>
               <div className="relative z-10">
-                <ShinyButton onClick={handleCtaClick} className="px-10 py-4 text-base font-bold uppercase tracking-wider">
+                <ShinyButton onClick={handleCtaClick} className="px-6 md:px-10 py-4 text-[13px] md:text-base font-bold uppercase tracking-wider">
                   Melhorar meu posicionamento
                 </ShinyButton>
               </div>
