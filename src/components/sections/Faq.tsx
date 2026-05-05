@@ -36,7 +36,7 @@ const faqs = [
 export const Faq = () => {
   const { ref, visible } = useReveal();
   return (
-    <section ref={ref} className="relative py-24 md:py-32">
+    <section ref={ref} className="relative py-24 md:py-32 bg-transparent">
       <div className="container">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-start">
           <div className={visible ? "animate-fade-in-up" : "opacity-0"}>

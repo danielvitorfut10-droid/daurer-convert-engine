@@ -10,10 +10,7 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            setVisible(true);
-            obs.disconnect();
-          }
+          setVisible(e.isIntersecting);
         });
       },
       { threshold: 0.15 }

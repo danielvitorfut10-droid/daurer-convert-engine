@@ -115,6 +115,18 @@ export default {
             filter: "drop-shadow(0 0 15px hsl(var(--primary))) drop-shadow(0 0 30px hsl(var(--primary)))",
           },
         },
+        "scroll-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(calc(-50% - 12px))" },
+        },
+        "scroll-right": {
+          "0%": { transform: "translateX(calc(-50% - 12px))" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "reveal-fall": {
+          "0%": { opacity: "0", transform: "translateY(-50px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -126,6 +138,9 @@ export default {
         "pulse-glow": "pulse-glow 4s ease-in-out infinite",
         shimmer: "shimmer 2.5s ease-in-out infinite",
         "float-arrow": "float-arrow 3s ease-in-out infinite",
+        "scroll-left": "scroll-left 40s linear infinite",
+        "scroll-right": "scroll-right 40s linear infinite",
+        "reveal-fall": "reveal-fall 1.2s cubic-bezier(0.22, 1, 0.36, 1) both",
       },
     },
   },

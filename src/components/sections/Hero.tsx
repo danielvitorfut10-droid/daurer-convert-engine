@@ -1,6 +1,6 @@
+import TubesCursor from "@/components/ui/tubes-curor";
 import { whatsappUrl } from "@/lib/site";
 import { ShinyButton } from "@/components/ui/shiny-button";
-import AuroraBackgroundHero from "@/components/ui/aurora-section-hero";
 
 export const Hero = () => {
   const handleCtaClick = () => {
@@ -8,52 +8,61 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-32 bg-[#0A1121] overflow-hidden">
-      {/* FUNDO AURORA ANIMADO REACT (z-index 0) */}
-      <div className="absolute inset-0 z-0">
-        <AuroraBackgroundHero />
-      </div>
+    <section className="relative overflow-hidden">
+      <TubesCursor>
+        <div className="container relative z-10 px-4 min-h-screen flex flex-col justify-center py-24">
+          <div className="max-w-4xl mx-auto text-center flex flex-col items-center pt-10">
+            <h1 className="font-sans text-3xl md:text-5xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.2] mb-10 animate-fade-in-up text-white max-w-3xl">
+              Seu concorrente entrega menos,
+              <br className="hidden md:block" />
+              mas cobra mais caro. O que te falta
+              <br className="hidden md:block" />
+              não é qualidade. <span className="text-glow-animated italic font-['Lora',_serif] font-normal inline-block">É posicionamento.</span>
+            </h1>
 
-      {/* OVERLAY ESCURO pra dar contraste — fade forte no bottom para não vazar */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at center, transparent 20%, #000005 85%), linear-gradient(to bottom, transparent 55%, #000005 92%)",
-        }}
-      />
+            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-16 leading-relaxed animate-fade-in-up font-medium text-balance" style={{ animationDelay: "120ms" }}>
+              Enquanto sua presença digital não sustentar seu valor, 
+              <br className="hidden md:block" />
+              você continuará atraindo curiosos <span className="font-bold whitespace-nowrap">Não compradores.</span>
+              <br className="hidden md:block" />
+              Nós construímos estruturas feitas para escalar resultados.
+            </p>
 
-      <div className="container relative z-10 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] leading-[1.05] mb-8 animate-fade-in-up text-white">
-            Sites <span className="text-glow-animated">bonitos</span> chamam atenção.
-            <br />
-            <span className="text-3xl md:text-5xl lg:text-6xl mt-4 block text-white/90 leading-[1.1] tracking-tight">
-              Sites <span className="text-glow-animated">estratégicos</span> vendem.
-            </span>
-          </h1>
+            <div className="relative inline-flex flex-col items-center justify-center gap-14 animate-fade-in-up" style={{ animationDelay: "240ms" }}>
+              <div className="relative z-10">
+                <ShinyButton onClick={handleCtaClick} className="px-10 py-4 text-base font-bold uppercase tracking-wider">
+                  Melhorar meu posicionamento
+                </ShinyButton>
+              </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: "120ms" }}>
-            A Daurer Tech cria sites e landing pages com design moderno, copy estratégico e estrutura inteligente — pensados para gerar resultado real.
-          </p>
+              {/* Badges e info extra */}
+              <div className="flex flex-col items-center gap-10 mt-2">
+                <div className="bg-black/40 backdrop-blur-sm border border-white/10 px-5 py-2.5 rounded-full flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full border border-primary/50 flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  </div>
+                  <p className="text-[12px] md:text-[13px] text-white/80">
+                    Projetos exclusivos com investimento a partir de <span className="text-white font-bold">R$ 497</span>
+                  </p>
+                </div>
 
-          <div className="relative inline-flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "240ms" }}>
-            <img 
-              src="/arrow-neon.png" 
-              alt="" 
-              className="absolute hidden lg:block -left-48 -top-32 w-48 h-auto animate-float-arrow pointer-events-none z-10" 
-            />
-            
-            <div className="relative z-10">
-              <ShinyButton onClick={handleCtaClick} className="px-10 py-5 text-xl font-bold uppercase tracking-wide">
-                Quero vender mais
-              </ShinyButton>
+                <div className="text-center space-y-1.5">
+                  <p className="text-[16px] md:text-[18px] text-white font-medium">Pare de queimar seu tráfego.</p>
+                  <p className="text-[14px] md:text-[15px] text-white/60">Tenha uma estrutura que aproveita seu investimento.</p>
+                </div>
+
+                <div className="mt-4">
+                  <div className="w-12 h-12 rounded-full border-2 border-primary/40 bg-primary/10 flex items-center justify-center animate-bounce shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                    <svg viewBox="0 0 24 24" className="w-6 h-6 text-primary fill-none stroke-current" strokeWidth="2.5" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 13l5 5 5-5M7 6l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-
         </div>
-      </div>
+      </TubesCursor>
     </section>
   );
 };

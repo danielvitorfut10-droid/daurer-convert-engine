@@ -2,98 +2,54 @@ import React from "react";
 
 // Fileira 1 → esquerda
 const items = [
-  "VENDAS",
-  "WORDPRESS",
-  "HTML",
+  "PERSONALIZAÇÃO",
+  "OTIMIZAÇÃO",
+  "PROFISSIONALISMO",
+  "CONVERSÃO",
+  "COMUNICAÇÃO",
 ];
 
 // Fileira 2 → direita
 const itemsRow2 = [
-  "ESTRATÉGIAS",
-  "LEADS",
+  "OTIMIZAÇÃO",
   "CONVERSÃO",
+  "PERSONALIZAÇÃO",
+  "COMUNICAÇÃO",
+  "PROFISSIONALISMO",
 ];
 
-export const SkillsMarquee = () => {
+interface SkillsMarqueeProps {
+  variant?: "blue" | "white";
+}
+
+export const SkillsMarquee = ({ variant = "blue" }: SkillsMarqueeProps) => {
   return (
     <section
       style={{
         width: "100%",
         overflow: "hidden",
         padding: "0",
-        background: "transparent",
+        background: variant === "white" ? "#000000" : "transparent",
         position: "relative",
-        marginTop: "-60px",
-        paddingTop: "60px",
-        paddingBottom: "60px",
+        marginTop: variant === "white" ? "-2px" : "-60px",
+        paddingTop: variant === "white" ? "60px" : "60px",
+        paddingBottom: "120px",
         zIndex: 5,
       }}
     >
-      {/* Fade vertical TOPO — funde com o hero acima */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "80px",
-          background: "linear-gradient(to bottom, #000005, transparent)",
-          zIndex: 3,
-          pointerEvents: "none",
-        }}
-      />
-      {/* Fade vertical BAIXO — funde com a próxima seção */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "80px",
-          background: "linear-gradient(to top, #020617, transparent)",
-          zIndex: 3,
-          pointerEvents: "none",
-        }}
-      />
-      {/* Fade lateral esquerdo */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "120px",
-          height: "100%",
-          background: "linear-gradient(to right, #000005, transparent)",
-          zIndex: 3,
-          pointerEvents: "none",
-        }}
-      />
-      {/* Fade lateral direito */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: "120px",
-          height: "100%",
-          background: "linear-gradient(to left, #020617, transparent)",
-          zIndex: 3,
-          pointerEvents: "none",
-        }}
-      />
-
+      {/* Transition removed as requested */}
       {/* Fileira 1 — vai para a ESQUERDA */}
       <div style={{ display: "flex", width: "100%", overflow: "hidden", marginBottom: "14px" }}>
         <div
           style={{
             display: "flex",
             gap: "14px",
-            animation: "skills-scroll-left 20s linear infinite",
+            animation: "skills-scroll-left 25s linear infinite",
           }}
         >
-          {/* 6 sets para garantir que nunca haja espaço vazio */}
-          {[...items, ...items, ...items, ...items, ...items, ...items].map((item, i) => (
-            <MarqueeItem key={`r1-${i}`} label={item} />
+          {/* Multi sets para garantir que nunca haja espaço vazio */}
+          {[...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items].map((item, i) => (
+            <MarqueeItem key={`r1-${i}`} label={item} variant={variant} />
           ))}
         </div>
       </div>
@@ -104,15 +60,14 @@ export const SkillsMarquee = () => {
           style={{
             display: "flex",
             gap: "14px",
-            animation: "skills-scroll-right 24s linear infinite",
+            animation: "skills-scroll-right 30s linear infinite",
           }}
         >
-          {[...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2].map((item, i) => (
-            <MarqueeItem key={`r2-${i}`} label={item} />
+          {[...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2].map((item, i) => (
+            <MarqueeItem key={`r2-${i}`} label={item} variant={variant} />
           ))}
         </div>
       </div>
-
 
       <style>{`
         @keyframes skills-scroll-left {
@@ -128,44 +83,36 @@ export const SkillsMarquee = () => {
   );
 };
 
-const MarqueeItem = ({ label }: { label: string }) => (
-  <span
-    style={{
-      width: "220px",
-      height: "64px",
-      display: "inline-flex",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: "14px",
-      border: "1.5px solid rgba(0, 212, 255, 0.5)",
-      background: "rgba(0, 212, 255, 0.05)",
-      color: "#e0f8ff",
-      fontSize: "15px",
-      letterSpacing: "2px",
-      fontWeight: 700,
-      whiteSpace: "nowrap",
-      backdropFilter: "blur(12px)",
-      boxShadow: "0 0 14px rgba(0,212,255,0.18), inset 0 0 8px rgba(0,212,255,0.07)",
-      transition: "all 0.3s ease",
-      cursor: "default",
-      flexShrink: 0,
-      textTransform: "uppercase" as const,
-    }}
-    onMouseEnter={(e) => {
-      const el = e.currentTarget as HTMLSpanElement;
-      el.style.borderColor = "#00d4ff";
-      el.style.boxShadow = "0 0 28px rgba(0,212,255,0.6), inset 0 0 14px rgba(0,212,255,0.12)";
-      el.style.color = "#00d4ff";
-      el.style.transform = "translateY(-4px)";
-    }}
-    onMouseLeave={(e) => {
-      const el = e.currentTarget as HTMLSpanElement;
-      el.style.borderColor = "rgba(0, 212, 255, 0.5)";
-      el.style.boxShadow = "0 0 14px rgba(0,212,255,0.18), inset 0 0 8px rgba(0,212,255,0.07)";
-      el.style.color = "#e0f8ff";
-      el.style.transform = "translateY(0)";
-    }}
-  >
-    {label}
-  </span>
-);
+const MarqueeItem = ({ label, variant }: { label: string; variant: "blue" | "white" }) => {
+  const isWhite = variant === "white";
+
+  return (
+    <span
+      className="marquee-item"
+      style={{
+        minWidth: "200px",
+        height: "56px",
+        padding: "0 36px",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "9999px",
+        border: isWhite ? "1px solid rgba(255, 255, 255, 0.1)" : "1.5px solid rgba(0, 212, 255, 0.5)",
+        background: isWhite ? "#ffffff" : "rgba(0, 212, 255, 0.05)",
+        color: isWhite ? "#000000" : "#e0f8ff",
+        fontSize: "13px",
+        letterSpacing: "1.5px",
+        fontWeight: 900,
+        whiteSpace: "nowrap",
+        backdropFilter: isWhite ? "none" : "blur(12px)",
+        boxShadow: isWhite ? "0 8px 24px rgba(0,0,0,0.12)" : "0 0 14px rgba(0,212,255,0.18), inset 0 0 8px rgba(0,212,255,0.07)",
+        transition: "all 0.4s cubic-bezier(0.23, 1, 0.32, 1)",
+        cursor: "default",
+        flexShrink: 0,
+        textTransform: "uppercase",
+      }}
+    >
+      {label}
+    </span>
+  );
+};
