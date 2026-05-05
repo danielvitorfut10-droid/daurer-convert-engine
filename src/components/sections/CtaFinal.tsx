@@ -152,8 +152,6 @@ export const CtaFinal = () => {
                     <img 
                       src={activeTab.image} 
                       alt={activeTab.title} 
-                      loading="lazy"
-                      decoding="async"
                       className={`w-full h-full transition-all duration-700 ${activeTab.id === 'lp' || activeTab.id === 'eco' || activeTab.id === 'pv' ? 'object-contain' : 'object-cover opacity-90'}`} 
                     />
                     {activeTab.id !== 'lp' && activeTab.id !== 'eco' && activeTab.id !== 'pv' && (
