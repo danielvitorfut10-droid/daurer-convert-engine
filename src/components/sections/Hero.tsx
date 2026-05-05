@@ -32,9 +32,14 @@ export const Hero = () => {
             </p>
 
             <div className="relative inline-flex flex-col items-center justify-center gap-14 animate-fade-in-up" style={{ animationDelay: "240ms" }}>
-              <div className="relative z-10">
-                <ShinyButton onClick={handleCtaClick} className="w-[90vw] sm:w-auto px-4 md:px-10 py-5 text-[14px] md:text-base font-bold uppercase tracking-wider whitespace-nowrap">
-                  Melhorar meu posicionamento
+              <div className="relative z-10 w-[90vw] sm:w-auto">
+                {/* Background fix para garantir PRETO TOTAL */}
+                <div className="absolute inset-0 bg-[#000000] rounded-full" style={{ backgroundColor: "#000000", opacity: 1 }} />
+                <ShinyButton 
+                  onClick={handleCtaClick} 
+                  className="relative z-10 w-full px-4 md:px-10 py-5 text-[14px] md:text-base font-bold uppercase tracking-wider whitespace-nowrap !bg-[#000000]"
+                >
+                  <span className="text-white">Melhorar meu posicionamento</span>
                 </ShinyButton>
               </div>
 

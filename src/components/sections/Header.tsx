@@ -41,7 +41,7 @@ export const Header = () => {
         </div>
 
         <div className="hidden md:block">
-          <Button asChild variant="hero" size="sm" className="shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] transition-shadow">
+          <Button asChild variant="hero" size="sm">
             <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
               Contato
             </a>
