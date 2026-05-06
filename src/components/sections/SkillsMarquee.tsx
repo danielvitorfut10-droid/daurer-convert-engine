@@ -32,19 +32,18 @@ export const SkillsMarquee = ({ variant = "blue" }: SkillsMarqueeProps) => {
         background: variant === "white" ? "#000000" : "transparent",
         position: "relative",
         marginTop: variant === "white" ? "-2px" : "-60px",
-        paddingTop: variant === "white" ? "60px" : "60px",
-        paddingBottom: "120px",
+        paddingTop: variant === "white" ? "30px" : "30px",
+        paddingBottom: variant === "white" ? "30px" : "30px",
         zIndex: 5,
       }}
     >
-      {/* Transition removed as requested */}
       {/* Fileira 1 — vai para a ESQUERDA */}
       <div style={{ display: "flex", width: "100%", overflow: "hidden", marginBottom: "14px" }}>
         <div
           style={{
             display: "flex",
             gap: "14px",
-            animation: "skills-scroll-left 25s linear infinite",
+            animation: "skills-scroll-left 60s linear infinite",
           }}
         >
           {/* Multi sets para garantir que nunca haja espaço vazio */}
@@ -60,7 +59,7 @@ export const SkillsMarquee = ({ variant = "blue" }: SkillsMarqueeProps) => {
           style={{
             display: "flex",
             gap: "14px",
-            animation: "skills-scroll-right 30s linear infinite",
+            animation: "skills-scroll-right 70s linear infinite",
           }}
         >
           {[...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2].map((item, i) => (

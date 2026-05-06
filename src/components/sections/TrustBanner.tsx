@@ -7,8 +7,12 @@ export const TrustBanner = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section ref={ref} className="relative pt-4 pb-8 md:pt-6 md:pb-12 bg-transparent overflow-hidden">
-
+    <section ref={ref} className="relative pt-8 pb-12 md:pt-12 md:pb-16 bg-transparent overflow-hidden">
+      {/* Imagem de Fundo (Exclusiva da Mini Aba) */}
+      <div 
+        className="absolute inset-0 z-0 opacity-25 mix-blend-screen pointer-events-none bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: "url('/fundo-miniaba.png')" }}
+      />
       
       {/* Background Effect */}
       <BackgroundTextEffect text="DAURER" />
@@ -24,22 +28,22 @@ export const TrustBanner = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
             <div className="flex flex-col items-center relative overflow-hidden group">
-              <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent relative z-10">
+              <h3 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md relative z-10">
                 <Counter target={50} prefix="+" />
               </h3>
-              <p className="font-serif italic text-white/70 mt-2 text-sm uppercase tracking-widest">sites entregues</p>
+              <p className="font-serif italic text-white mt-3 text-sm uppercase tracking-widest font-medium drop-shadow-sm">sites entregues</p>
             </div>
             <div className="flex flex-col items-center relative overflow-hidden group">
-              <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent relative z-10">
+              <h3 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md relative z-10">
                 <Counter target={7} />
               </h3>
-              <p className="font-serif italic text-white/70 mt-2 text-sm uppercase tracking-widest">dias para entrega</p>
+              <p className="font-serif italic text-white mt-3 text-sm uppercase tracking-widest font-medium drop-shadow-sm">dias para entrega</p>
             </div>
             <div className="flex flex-col items-center relative overflow-hidden group">
-              <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent relative z-10">
+              <h3 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md relative z-10">
                 <Counter target={10} prefix="+" />
               </h3>
-              <p className="font-serif italic text-white/70 mt-2 text-sm uppercase tracking-widest">nichos atendidos</p>
+              <p className="font-serif italic text-white mt-3 text-sm uppercase tracking-widest font-medium drop-shadow-sm">nichos atendidos</p>
             </div>
           </div>
         </div>

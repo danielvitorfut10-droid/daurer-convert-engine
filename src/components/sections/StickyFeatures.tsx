@@ -8,44 +8,44 @@ const features = [
     title: "Performance e Otimização",
     label: "Páginas rápidas",
     labelColor: "emerald",
-    description: "Desenvolvemos ecossistemas digitais com carregamento instantâneo para garantir que nenhum lead seja perdido. Um sistema rápido é a base para o sucesso de qualquer campanha, reduzindo drasticamente o seu custo por clique e aumentando a retenção de cada visitante que chega através dos nossos anúncios.",
+    description: "Criamos páginas rápidas, leves e bem estruturadas para que seu cliente não desista antes de conhecer sua oferta.",
     imageUrl: "/dashboard-novo.png.png",
     metrics: [
-      { label: "Custo por Clique", value: "Reduzido", color: "text-red-500", trend: "down" },
-      { label: "Taxa de Retenção", value: "Aumentada", color: "text-emerald-400", trend: "up" }
+      { label: "TEMPO DE CARREGAMENTO", value: "Reduzido", color: "text-red-500", trend: "down" },
+      { label: "EXPERIÊNCIA DO CLIENTE", value: "Melhorada", color: "text-emerald-400", trend: "up" }
     ]
   },
   {
     title: "E-commerces & Landing Pages",
     label: "Texto para vendas",
     labelColor: "amber",
-    description: "Desenvolvemos ecossistemas digitais completos e adaptáveis para absolutamente qualquer segmento de mercado. Seja através de e-commerces robustos desenhados para escalar a venda de produtos, ou de landing pages de alta performance focadas em quem vende serviços, conhecimento ou a própria imagem. Entregamos a tecnologia exata e a arquitetura sob medida para transformar a sua presença online em uma verdadeira máquina de conversão, independentemente da sua área de atuação.",
+    description: "Criamos páginas claras, bonitas e com estratégias pensadas para vender. Seja para produtos ou serviços, o foco é transformar visitantes em clientes.",
     imageUrl: "/foto-card2.jpg.png",
     metrics: [
-      { label: "Taxa de Cliques", value: "8.4%", color: "text-emerald-400", trend: "up" },
-      { label: "Conversão", value: "Alta", color: "text-emerald-400", trend: "up" }
+      { label: "CLAREZA", value: "Maior", color: "text-emerald-400", trend: "up" },
+      { label: "CONVERSÃO", value: "Alta", color: "text-emerald-400", trend: "up" }
     ]
   },
   {
     title: "Tráfego Pago e Performance",
     label: "Gestão de Anúncios",
     labelColor: "purple",
-    description: "Nossa agência conta com especialistas em tráfego para gerir suas campanhas e atrair o público exato para o seu novo sistema. Não entregamos apenas uma vitrine, entregamos o motor de vendas completo. Planejamos, executamos e otimizamos seus anúncios para garantir que sua oferta chegue a quem realmente quer comprar.",
+    description: "Planejamos e gerenciamos seus anúncios para atrair pessoas com real interesse no seu serviço. O foco é investir melhor, gerar mais contatos e transformar cliques em oportunidades de venda.",
     imageUrl: "/integracoes.png",
     metrics: [
-      { label: "Alcance", value: "Qualificado", color: "text-emerald-400", trend: "up" },
-      { label: "ROI (Retorno)", value: "Focado em Escala", color: "text-emerald-400", trend: "up" }
+      { label: "PÚBLICO", value: "Qualificado", color: "text-emerald-400", trend: "plus" },
+      { label: "INVESTIMENTO", value: "Otimizado", color: "text-emerald-400", trend: "plus" }
     ]
   },
   {
     title: "Consultoria e Gestão Pro",
     label: "Parceria Estratégica",
     labelColor: "blue",
-    description: "Você terá o suporte direto do nosso time de especialistas, participando de reuniões estratégicas para alinhar cada passo do seu crescimento digital. Cuidamos desde a hospedagem e segurança do seu site até a evolução constante das suas campanhas. Uma parceria completa para você focar na gestão do seu negócio enquanto nós cuidamos da sua escala.",
+    description: "Cuidamos da parte digital para você focar no seu negócio. Acompanhamos site, campanhas e resultados de perto, sempre buscando melhorar sua presença e gerar mais oportunidades.",
     imageUrl: "/dashboard-suporte.png",
     metrics: [
-      { label: "Acompanhamento", value: "Estratégico", color: "text-emerald-400", trend: "up" },
-      { label: "Disponibilidade", value: "Monitorada", color: "text-emerald-400", trend: "up" }
+      { label: "ACOMPANHAMENTO", value: "Estratégico", color: "text-emerald-400", trend: "up" },
+      { label: "RESULTADOS", value: "Monitorados", color: "text-emerald-400", trend: "up" }
     ]
   }
 ];
@@ -92,13 +92,6 @@ const AnimatedHeader = () => {
           E não palpites!
         </span>
       </h2>
-      <p 
-        ref={pRef as any}
-        className={`text-base md:text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed transition-all duration-700 ease-out delay-200 ${pInView ? 'animate-reveal-left' : 'opacity-0'}`}
-        style={{ transformStyle: 'preserve-3d' }}
-      >
-        Mais retenção, mais engajamento, mais resultados. Seu projeto deixa de ser um custo estético para ser um investimento de alta performance.
-      </p>
     </div>
   );
 };
@@ -179,7 +172,7 @@ export const StickyFeatures = () => {
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20">
                     <div className="flex flex-col">
-                      <p className="text-gray-200 text-xs md:text-base leading-relaxed mb-6 md:mb-10 max-w-lg font-medium opacity-100">
+                      <p className="text-gray-200 text-sm md:text-lg leading-[1.8] md:leading-loose mb-6 md:mb-10 max-w-lg font-medium opacity-100">
                         {feature.description}
                       </p>
 
@@ -188,20 +181,22 @@ export const StickyFeatures = () => {
                           {feature.metrics.map((metric, idx) => (
                             <div key={idx} className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-3 md:p-4 min-w-[120px] md:min-w-[144px] w-fit transition-all duration-300 hover:border-emerald-500/10 shadow-xl">
                               <p className="text-[8px] md:text-[9px] text-gray-500 mb-1 md:mb-2 uppercase tracking-[0.05em] font-bold">{metric.label}</p>
-                              <div className="flex flex-col gap-0.5">
+                              <div className={`flex ${metric.trend === 'plus' ? 'flex-row items-center gap-1.5' : 'flex-col gap-0.5'}`}>
                                 <span className={`text-base md:text-xl font-extrabold ${metric.color}`}>
                                   {metric.value}
                                 </span>
                                 <motion.div 
-                                  animate={{ y: [0, metric.trend === 'up' ? -3 : 3, 0] }}
+                                  animate={{ y: [0, metric.trend === 'plus' ? -3 : metric.trend === 'up' ? -3 : 3, 0] }}
                                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                                  className={`${metric.color} text-xs`}
+                                  className={`${metric.color} ${metric.trend === 'plus' ? 'text-xl md:text-2xl font-black' : 'text-xs'}`}
                                 >
                                   {metric.trend === 'up' ? (
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                  ) : (
+                                  ) : metric.trend === 'down' ? (
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="rotate-180"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                  )}
+                                  ) : metric.trend === 'plus' ? (
+                                    "+"
+                                  ) : null}
                                 </motion.div>
                               </div>
                             </div>

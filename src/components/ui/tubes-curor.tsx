@@ -41,7 +41,7 @@ export default function TubesCursor({ children }: { children?: React.ReactNode }
         {children}
       </div>
       {/* Bottom black mask to ensure transition to pure black and hide the effect at the very bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/90 to-transparent z-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/90 to-transparent z-0 pointer-events-none" />
     </div>
   );
 }

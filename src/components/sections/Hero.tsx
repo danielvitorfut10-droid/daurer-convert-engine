@@ -14,59 +14,42 @@ export const Hero = () => {
     <section className="relative overflow-hidden">
       <TubesCursor>
         <div className="container relative z-10 px-4 min-h-screen flex flex-col justify-center py-24">
-          <div className="max-w-4xl mx-auto text-center flex flex-col items-center pt-10">
-            <h1 className="font-sans text-3xl md:text-5xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.2] mb-10 animate-reveal-fall text-white max-w-3xl">
-              Seu concorrente entrega menos,
-              <br className="hidden md:block" />
-              mas cobra mais caro. O que te falta
-              <br className="hidden md:block" />
-              não é qualidade. <span className="text-glow-animated italic font-['Lora',_serif] font-normal inline-block">É posicionamento.</span>
+          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+            <h1 className="font-sans text-3xl md:text-5xl lg:text-[3rem] font-semibold tracking-tight leading-[1.25] mb-6 animate-reveal-fall text-white max-w-3xl mx-auto">
+              Sites e anúncios feitos para transformar visitantes em{" "}
+              <span className="text-glow-animated italic font-['Lora',_serif] font-normal block mt-2 md:mt-0 md:inline-block text-[1.6em] md:text-[1.15em] leading-none">clientes</span>
             </h1>
 
-            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-16 leading-relaxed animate-reveal-right font-medium text-balance" style={{ animationDelay: "200ms" }}>
-              Enquanto sua presença digital não sustentar seu valor, 
-              <br className="hidden md:block" />
-              você continuará atraindo curiosos <span className="font-bold whitespace-nowrap">Não compradores.</span>
-              <br className="hidden md:block" />
-              Nós construímos estruturas feitas para escalar resultados.
+            <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto mb-14 leading-relaxed animate-reveal-right font-medium text-balance" style={{ animationDelay: "150ms" }}>
+              Criamos páginas profissionais e campanhas de tráfego pago para empresas que querem vender mais pelo digital.
             </p>
 
             <div className="relative inline-flex flex-col items-center justify-center gap-14 animate-fade-in-up" style={{ animationDelay: "240ms" }}>
               <div className="relative z-10 w-[90vw] sm:w-auto">
-                {/* Background fix para garantir PRETO TOTAL */}
-                <div className="absolute inset-0 bg-[#000000] rounded-full" style={{ backgroundColor: "#000000", opacity: 1 }} />
                 <ShinyButton 
                   onClick={handleCtaClick} 
-                  className="relative z-10 w-full px-4 md:px-10 py-5 text-[14px] md:text-base font-bold uppercase tracking-wider whitespace-nowrap !bg-[#000000]"
+                  className="relative z-10 w-full px-8 md:px-14 py-6 text-[16px] md:text-[19px] font-bold uppercase tracking-wider whitespace-nowrap"
                 >
-                  <span className="text-white">Melhorar meu posicionamento</span>
+                  <span className="text-white">Quero mais clientes!</span>
                 </ShinyButton>
               </div>
 
-              {/* Badges e info extra */}
-              <div className="flex flex-col items-center gap-10 mt-2">
-                <div className="bg-black/40 backdrop-blur-sm border border-white/10 px-5 py-2.5 rounded-full flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full border border-primary/50 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  </div>
-                  <p className="text-[12px] md:text-[13px] text-white/80">
-                    Projetos exclusivos com investimento a partir de <span className="text-white font-bold">R$ 497</span>
-                  </p>
-                </div>
-
-                <div className="text-center space-y-1.5">
+              {/* Textos de foco */}
+              <div className="flex flex-col items-center gap-8 mt-24 md:mt-2">
+                <div className="text-center space-y-1.5 px-4 md:px-0">
                   <p className="text-[16px] md:text-[18px] text-white font-medium">Pare de queimar seu tráfego.</p>
-                  <p className="text-[14px] md:text-[15px] text-white/60">Tenha uma estrutura que aproveita seu investimento.</p>
-                </div>
-
-                <div className="mt-4">
-                  <div className="w-12 h-12 rounded-full border-2 border-primary/40 bg-primary/10 flex items-center justify-center animate-bounce shadow-[0_0_15px_rgba(6,182,212,0.3)]">
-                    <svg viewBox="0 0 24 24" className="w-6 h-6 text-primary fill-none stroke-current" strokeWidth="2.5" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 13l5 5 5-5M7 6l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
+                  <p className="text-[14px] md:text-[15px] text-white/80 font-medium">Tenha uma estrutura que aproveita seu investimento.</p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Seta absolute no footer da Hero */}
+          <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-20 cursor-pointer" onClick={handleCtaClick}>
+            <div className="w-12 h-12 rounded-full bg-[#3B82F6] flex items-center justify-center animate-bounce shadow-[0_0_20px_rgba(59,130,246,0.3)] ring-[6px] ring-[#0B0D17]">
+              <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
             </div>
           </div>
         </div>

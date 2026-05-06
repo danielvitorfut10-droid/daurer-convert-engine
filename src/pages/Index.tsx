@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { ProjectsMarquee } from "@/components/sections/ProjectsMarquee";
 import { TrustBanner } from "@/components/sections/TrustBanner";
+import { DaurerMarquee } from "@/components/sections/DaurerMarquee";
 import { SkillsMarquee } from "@/components/sections/SkillsMarquee";
 import { Diferencial } from "@/components/sections/Diferencial";
 import { StickyFeatures } from "@/components/sections/StickyFeatures";
@@ -56,7 +57,7 @@ const Index = () => {
 
       <div className="relative z-10">
         <Hero />
-        <SkillsMarquee />
+        <DaurerMarquee />
         <TrustBanner />
         <ProjectsMarquee />
         <StickyFeatures />

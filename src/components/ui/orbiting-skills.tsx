@@ -68,13 +68,13 @@ SkillIcon.displayName = 'SkillIcon';
 
 const skillsConfig: SkillConfig[] = [
   // Inner Orbit
-  { id: 'framer', orbitRadius: 90, size: 40, speed: 1.2, iconType: 'framer', phaseShift: 0, glowColor: 'cyan', label: 'Framer' },
-  { id: 'chatgpt', orbitRadius: 90, size: 40, speed: 1.2, iconType: 'chatgpt', phaseShift: (2 * Math.PI) / 3, glowColor: 'cyan', label: 'ChatGPT' },
-  { id: 'figma', orbitRadius: 90, size: 40, speed: 1.2, iconType: 'figma', phaseShift: (4 * Math.PI) / 3, glowColor: 'cyan', label: 'Figma' },
+  { id: 'framer', orbitRadius: 90, size: 40, speed: 0, iconType: 'framer', phaseShift: Math.PI / 4, glowColor: 'cyan', label: 'Framer' },
+  { id: 'chatgpt', orbitRadius: 90, size: 40, speed: 0, iconType: 'chatgpt', phaseShift: Math.PI, glowColor: 'cyan', label: 'ChatGPT' },
+  { id: 'figma', orbitRadius: 90, size: 40, speed: 0, iconType: 'figma', phaseShift: -Math.PI / 4, glowColor: 'cyan', label: 'Figma' },
   // Outer Orbit
-  { id: 'wordpress', orbitRadius: 160, size: 45, speed: -0.8, iconType: 'wordpress', phaseShift: 0, glowColor: 'purple', label: 'WordPress' },
-  { id: 'code', orbitRadius: 160, size: 45, speed: -0.8, iconType: 'code', phaseShift: (2 * Math.PI) / 3, glowColor: 'purple', label: 'Development' },
-  { id: 'flame', orbitRadius: 160, size: 45, speed: -0.8, iconType: 'flame', phaseShift: (4 * Math.PI) / 3, glowColor: 'purple', label: 'Performance' },
+  { id: 'wordpress', orbitRadius: 160, size: 45, speed: 0, iconType: 'wordpress', phaseShift: Math.PI / 2.5, glowColor: 'purple', label: 'WordPress' },
+  { id: 'code', orbitRadius: 160, size: 45, speed: 0, iconType: 'code', phaseShift: Math.PI * 0.95, glowColor: 'purple', label: 'Development' },
+  { id: 'flame', orbitRadius: 160, size: 45, speed: 0, iconType: 'flame', phaseShift: -Math.PI / 4.5, glowColor: 'purple', label: 'Performance' },
 ];
 
 const OrbitingSkill = memo(({ config, angle }: OrbitingSkillProps) => {
@@ -137,32 +137,10 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'cyan', animationDelay = 0 
 GlowingOrbitPath.displayName = 'GlowingOrbitPath';
 
 export default function OrbitingSkills() {
-  const [time, setTime] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-
-    let animationFrameId: number;
-    let lastTime = performance.now();
-
-    const animate = (currentTime: number) => {
-      const deltaTime = (currentTime - lastTime) / 1000;
-      lastTime = currentTime;
-      setTime(prevTime => prevTime + deltaTime);
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animationFrameId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isPaused]);
-
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div 
         className="relative w-full aspect-square max-w-[400px] flex items-center justify-center"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
       >
         {/* Central Icon */}
         <div className="w-20 h-20 bg-black/80 border border-white/20 rounded-full flex items-center justify-center z-10 relative shadow-2xl backdrop-blur-md">
@@ -176,7 +154,7 @@ export default function OrbitingSkills() {
         <GlowingOrbitPath radius={160} glowColor="purple" animationDelay={1.5} />
 
         {skillsConfig.map((config) => {
-          const angle = time * config.speed + (config.phaseShift || 0);
+          const angle = config.phaseShift || 0;
           return <OrbitingSkill key={config.id} config={config} angle={angle} />;
         })}
       </div>
