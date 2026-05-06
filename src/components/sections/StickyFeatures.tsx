@@ -134,7 +134,7 @@ export const StickyFeatures = () => {
             <div 
               key={index} 
               ref={index === 2 ? card3Ref : null}
-              className="sticky w-full transition-all duration-300"
+              className="sticky w-full transition-all duration-300 transform-gpu will-change-transform"
               style={{ 
                 top: isMobile 
                   ? `${60 + (index * 45)}px` 
@@ -212,12 +212,13 @@ export const StickyFeatures = () => {
                           <OrbitingSkills />
                         </div>
                       ) : (
-                        <div className="relative transition-transform duration-700 group-hover/media:scale-[1.05] w-full flex justify-center">
+                        <div className="relative transition-transform duration-700 group-hover/media:scale-[1.05] w-full flex justify-center transform-gpu will-change-transform">
                             <img 
                               src={feature.imageUrl} 
                               alt={feature.title}
                               loading="lazy"
-                              className="max-w-full h-auto max-h-[260px] md:max-h-[460px] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.8)] rounded-2xl"
+                              decoding="async"
+                              className="max-w-full h-auto max-h-[260px] md:max-h-[460px] object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.8)] rounded-2xl transform-gpu"
                             />
                         </div>
                       )}

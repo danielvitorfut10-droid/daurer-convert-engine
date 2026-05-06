@@ -165,7 +165,9 @@ export const Projetos = () => {
                           <img 
                             src={projetos[index].image} 
                             alt={projetos[index].title} 
-                            className="w-full h-full object-cover object-top"
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover object-top transform-gpu"
                           />
                         </motion.a>
                       </AnimatePresence>

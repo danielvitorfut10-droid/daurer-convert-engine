@@ -24,14 +24,14 @@ export const Diferencial = () => {
             <div className={`max-w-4xl mb-16 ${visible ? "animate-fade-in-up" : "opacity-0"}`}>
               {/* Glowing Badge */}
               <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 md:px-5 md:py-2 mb-8 rounded-full border border-blue-400 bg-blue-900/20 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.6)] w-fit mx-auto max-w-[95vw]">
-                <div className="relative flex min-w-[8px] min-h-[8px] w-2 h-2 items-center justify-center flex-none mt-[1px]">
+                <div className="hidden sm:flex relative min-w-[8px] min-h-[8px] w-2 h-2 items-center justify-center flex-none mt-[1px]">
                   <span className="absolute block h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
                   <span className="relative block h-full w-full rounded-full bg-blue-500 shadow-[0_0_12px_#3b82f6]"></span>
                 </div>
                 <span className="text-[10px] xs:text-[11px] sm:text-[12px] md:text-sm font-bold text-blue-300 uppercase tracking-widest whitespace-normal sm:whitespace-nowrap leading-tight">Uma entrega diferente do mercado</span>
               </div>
 
-              <h2 className={`font-display text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6 md:whitespace-nowrap ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
+              <h2 className={`font-display text-3xl xs:text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 md:whitespace-nowrap ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
                 Seja sincero... <span className="font-['Playfair_Display'] italic font-medium">o que você prefere?</span>
               </h2>
               <p className={`text-lg md:text-xl text-slate-200 leading-relaxed font-medium ${visible ? "animate-reveal-left" : "opacity-0"}`} style={{ animationDelay: "150ms" }}>
@@ -40,15 +40,15 @@ export const Diferencial = () => {
             </div>
 
             <style>{`
-              .entr-left { opacity: 0; transform: translateX(-20px) scale(0.95); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+              .entr-left { opacity: 0; transform: translateX(-20px) scale(0.95); transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform, opacity; }
               @media (min-width: 1024px) { .entr-left { transform: translateX(-40px) scale(0.95); } }
               .entr-left.is-visible { opacity: 1; transform: translateX(0) scale(1); }
 
-              .entr-right { opacity: 0; transform: translateX(30px) scale(0.95); transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s; }
+              .entr-right { opacity: 0; transform: translateX(30px) scale(0.95); transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.1s; will-change: transform, opacity; }
               @media (min-width: 1024px) { .entr-right { transform: translateX(60px) scale(0.95); } }
               .entr-right.is-visible { opacity: 1; transform: translateX(0) scale(1); }
               
-              .entr-cta { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s; }
+              .entr-cta { opacity: 0; transform: translateY(30px); transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s; will-change: transform, opacity; }
               @media (min-width: 1024px) { .entr-cta { transform: translateY(50px); } }
               .entr-cta.is-visible { opacity: 1; transform: translateY(0); }
 

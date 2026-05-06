@@ -17,39 +17,74 @@ const MarqueeTrack = ({ images, speed }: MarqueeTrackProps) => {
     let scrollPos = 0;
     let isDragging = false;
     let startX = 0;
-    let currentTranslate = 0;
+    let lastScrollPos = 0;
     let rafId: number;
 
     const animate = () => {
-      scrollPos -= speed;
+      if (!isDragging) {
+        scrollPos -= speed;
+      }
       
       const halfWidth = items.scrollWidth / 2;
       
-      if (speed > 0 && Math.abs(scrollPos) >= halfWidth) {
-        scrollPos = 0;
-      } else if (speed < 0 && scrollPos >= 0) {
-        scrollPos = -halfWidth;
+      // Lógica de loop infinito resiliente para drag para os dois lados
+      if (scrollPos <= -halfWidth) {
+        scrollPos %= halfWidth;
+      } else if (scrollPos > 0) {
+        scrollPos = (scrollPos % halfWidth) - halfWidth;
       }
       
       items.style.transform = `translateX(${scrollPos}px)`;
       rafId = requestAnimationFrame(animate);
     };
 
+    const handlePointerDown = (e: PointerEvent) => {
+      isDragging = true;
+      startX = e.clientX;
+      lastScrollPos = scrollPos;
+      track.setPointerCapture(e.pointerId);
+      // Prevenir drag padrão da imagem
+      e.preventDefault();
+    };
+
+    const handlePointerMove = (e: PointerEvent) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      scrollPos = lastScrollPos + deltaX;
+    };
+
+    const handlePointerUp = (e: PointerEvent) => {
+      isDragging = false;
+      if (track.hasPointerCapture(e.pointerId)) {
+        track.releasePointerCapture(e.pointerId);
+      }
+    };
+
+    track.addEventListener('pointerdown', handlePointerDown);
+    track.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointerup', handlePointerUp);
+    track.addEventListener('pointercancel', handlePointerUp);
+
     rafId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(rafId);
+      track.removeEventListener('pointerdown', handlePointerDown);
+      track.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerup', handlePointerUp);
+      track.removeEventListener('pointercancel', handlePointerUp);
     };
   }, [speed]);
 
   return (
     <div 
       ref={trackRef} 
-      className="marquee-track flex overflow-hidden whitespace-nowrap w-full cursor-grab active:cursor-grabbing select-none"
+      className="marquee-track flex overflow-hidden whitespace-nowrap w-full cursor-grab active:cursor-grabbing select-none contain-paint"
     >
       <div 
         ref={itemsRef} 
-        className="marquee-items flex gap-[25px] will-change-transform"
+        style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+        className="marquee-items flex gap-[25px] transform-gpu will-change-transform"
       >
         {/* Renderizamos 2 vezes para o loop de 50% de largura funcionar */}
         {[...images, ...images].map((img, idx) => (
@@ -59,7 +94,8 @@ const MarqueeTrack = ({ images, speed }: MarqueeTrackProps) => {
             alt="Project" 
             loading="lazy"
             decoding="async"
-            className="w-[300px] md:w-[400px] h-auto rounded-[15px] select-none pointer-events-none border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+            style={{ WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
+            className="w-[300px] md:w-[400px] h-auto rounded-[15px] select-none pointer-events-none border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transform-gpu"
           />
         ))}
       </div>

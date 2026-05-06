@@ -138,7 +138,7 @@ function FeedbackCarousel({
               return (
                 <div
                   key={index}
-                  className="absolute flex items-center justify-center transition-all duration-500 ease-in-out"
+                  className="absolute flex items-center justify-center transition-all duration-500 ease-out transform-gpu will-change-transform"
                   style={{
                     transform: `
                       translateX(${position * 58}%)
@@ -155,6 +155,9 @@ function FeedbackCarousel({
                     src={image.src}
                     alt={image.alt}
                     draggable={false}
+                    loading="lazy"
+                    decoding="async"
+                    style={{ WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
                     className="
                       block
                       h-auto
@@ -165,6 +168,7 @@ function FeedbackCarousel({
                       rounded-[18px]
                       object-contain
                       shadow-[0_30px_90px_rgba(0,0,0,0.55)]
+                      transform-gpu
                       md:max-h-[500px]
                       md:max-w-[320px]
                     "
