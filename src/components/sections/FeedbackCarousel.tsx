@@ -83,17 +83,28 @@ function FeedbackCarousel({
       )}
       {...props}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,140,255,0.12),transparent_60%)]" />
-      <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.5) 1px, transparent 0), radial-gradient(1px 1px at 80% 40%, rgba(255,255,255,0.5) 1px, transparent 0), radial-gradient(1.5px 1.5px at 40% 70%, rgba(255,255,255,0.5) 1.5px, transparent 0), radial-gradient(1.5px 1.5px at 90% 85%, rgba(255,255,255,0.5) 1.5px, transparent 0), radial-gradient(2px 2px at 30% 10%, rgba(255,255,255,0.8) 2px, transparent 0)', backgroundSize: '150px 150px', opacity: 0.3 }} />
+      {/* Iluminação suave e segura */}
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.15),transparent_60%)]" />
+      </div>
+
+      {/* Grid de pontos (dots) uniforme e à prova de bugs no Safari/Mobile */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 opacity-40" 
+        style={{ 
+          backgroundImage: 'radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px)', 
+          backgroundSize: '30px 30px' 
+        }} 
+      />
 
       <div className="relative z-10 flex w-full max-w-7xl flex-col items-center text-center">
         <div className="mb-10 flex flex-col items-center w-full">
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 md:px-5 md:py-2 mb-8 rounded-full border border-blue-400/50 bg-blue-900/20 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-            <div className="relative flex h-2 w-2 items-center justify-center flex-shrink-0">
-               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-               <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_12px_#3b82f6]"></span>
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 md:px-5 md:py-2 mb-8 rounded-full border border-blue-400/50 bg-blue-900/20 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.5)] w-fit mx-auto max-w-[95vw]">
+            <div className="relative flex min-w-[8px] min-h-[8px] w-2 h-2 items-center justify-center flex-none mt-[1px]">
+               <span className="absolute block h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
+               <span className="relative block h-full w-full rounded-full bg-blue-500 shadow-[0_0_12px_#3b82f6]"></span>
             </div>
-            <span className="text-[11px] xs:text-[12px] md:text-sm font-bold text-blue-300 uppercase tracking-wider whitespace-nowrap">
+            <span className="text-[10px] xs:text-[11px] sm:text-[12px] md:text-sm font-bold text-blue-300 uppercase tracking-widest whitespace-normal sm:whitespace-nowrap leading-tight">
               CASES DE SUCESSO
             </span>
           </div>

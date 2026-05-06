@@ -21,12 +21,12 @@ export const CtaFinal = () => {
         <div className={`text-center max-w-4xl mx-auto mb-10 flex flex-col items-center ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
           
           {/* Badge "Mas nos diga..." */}
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 md:px-5 md:py-2 mb-8 rounded-full border border-blue-400 bg-blue-900/20 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.6)] max-w-[90vw]">
-            <div className="relative flex h-2 w-2 items-center justify-center flex-shrink-0">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_12px_#3b82f6]"></span>
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 md:px-5 md:py-2 mb-8 rounded-full border border-blue-400 bg-blue-900/20 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.6)] w-fit mx-auto max-w-[95vw]">
+            <div className="relative flex min-w-[8px] min-h-[8px] w-2 h-2 items-center justify-center flex-none mt-[1px]">
+              <span className="absolute block h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative block h-full w-full rounded-full bg-blue-500 shadow-[0_0_12px_#3b82f6]"></span>
             </div>
-            <span className="text-[11px] xs:text-[12px] md:text-sm font-bold text-blue-300 uppercase tracking-widest whitespace-nowrap">Mas nos diga...</span>
+            <span className="text-[10px] xs:text-[11px] sm:text-[12px] md:text-sm font-bold text-blue-300 uppercase tracking-widest whitespace-normal sm:whitespace-nowrap leading-tight">Mas nos diga...</span>
           </div>
 
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tighter leading-[0.9]">
