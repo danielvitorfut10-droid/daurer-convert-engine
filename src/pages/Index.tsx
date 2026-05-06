@@ -7,10 +7,11 @@ import { Diferencial } from "@/components/sections/Diferencial";
 import { StickyFeatures } from "@/components/sections/StickyFeatures";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Depoimentos } from "@/components/sections/Depoimentos";
+
 import { CtaFinal } from "@/components/sections/CtaFinal";
 import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
+import FeedbackImageCarousel from "@/components/sections/FeedbackCarousel";
 
 import { StarBackground } from "@/components/ui/star-background";
 
@@ -64,7 +65,8 @@ const Index = () => {
 
         <Diferencial />
         <SkillsMarquee variant="white" />
-        <Depoimentos />
+
+        <FeedbackImageCarousel />
         <CtaFinal />
         <Footer />
       </div>

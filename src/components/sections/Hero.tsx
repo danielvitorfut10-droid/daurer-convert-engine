@@ -14,13 +14,13 @@ export const Hero = () => {
     <section className="relative overflow-hidden">
       <TubesCursor>
         <div className="container relative z-10 px-4 min-h-screen flex flex-col justify-center py-24">
-          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-            <h1 className="font-sans text-3xl md:text-5xl lg:text-[3rem] font-semibold tracking-tight leading-[1.25] mb-6 animate-reveal-fall text-white max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto text-center flex flex-col items-center -translate-y-6 md:-translate-y-12">
+            <h1 className="font-sans text-[36px] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.1] mb-16 md:mb-24 animate-reveal-fall text-white max-w-4xl mx-auto drop-shadow-2xl">
               Sites e anúncios feitos para transformar visitantes em{" "}
-              <span className="text-glow-animated italic font-['Lora',_serif] font-normal block mt-2 md:mt-0 md:inline-block text-[1.6em] md:text-[1.15em] leading-none">clientes</span>
+              <span className="text-glow-animated italic font-['Lora',_serif] font-normal block mt-3 md:mt-0 md:inline-block text-[1.8em] sm:text-[1.5em] md:text-[1.15em] leading-[0.9]">clientes</span>
             </h1>
 
-            <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto mb-14 leading-relaxed animate-reveal-right font-medium text-balance" style={{ animationDelay: "150ms" }}>
+            <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed animate-reveal-right font-medium text-balance" style={{ animationDelay: "150ms" }}>
               Criamos páginas profissionais e campanhas de tráfego pago para empresas que querem vender mais pelo digital.
             </p>
 
@@ -34,13 +34,7 @@ export const Hero = () => {
                 </ShinyButton>
               </div>
 
-              {/* Textos de foco */}
-              <div className="flex flex-col items-center gap-8 mt-24 md:mt-2">
-                <div className="text-center space-y-1.5 px-4 md:px-0">
-                  <p className="text-[16px] md:text-[18px] text-white font-medium">Pare de queimar seu tráfego.</p>
-                  <p className="text-[14px] md:text-[15px] text-white/80 font-medium">Tenha uma estrutura que aproveita seu investimento.</p>
-                </div>
-              </div>
+
             </div>
           </div>
 

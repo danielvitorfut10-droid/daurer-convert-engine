@@ -70,6 +70,7 @@ export function ShinyButton({ children, onClick, className = "", style }: ShinyB
               var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
               transparent calc(var(--gradient-percent) * 4)
             ) border-box;
+          background-color: var(--shiny-cta-bg);
           box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
           transition: var(--transition);
           transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
