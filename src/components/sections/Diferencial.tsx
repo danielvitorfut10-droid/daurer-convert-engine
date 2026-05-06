@@ -240,8 +240,6 @@ export const Diferencial = () => {
                 </div>
               </div>
             </div>
-            
-            </div>
           </div>
         </div>
       </GridBackground>
