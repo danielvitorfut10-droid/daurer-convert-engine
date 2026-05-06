@@ -10,7 +10,7 @@ export const TrustBanner = () => {
     <section ref={ref} className="relative pt-8 pb-12 md:pt-12 md:pb-16 bg-transparent overflow-hidden">
       {/* Imagem de Fundo (Exclusiva da Mini Aba) */}
       <div 
-        className="absolute inset-0 z-0 opacity-25 mix-blend-screen pointer-events-none bg-center bg-cover bg-no-repeat"
+        className="absolute inset-0 z-0 opacity-60 md:opacity-25 mix-blend-screen pointer-events-none bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: "url('/fundo-miniaba.png')" }}
       />
       
