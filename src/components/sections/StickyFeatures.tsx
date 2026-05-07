@@ -5,14 +5,14 @@ import OrbitingSkills from '../ui/orbiting-skills';
 
 const features = [
   {
-    title: "Performance e Otimização",
-    label: "Páginas rápidas",
+    title: "Sua loja pronta para vender online",
+    label: "E-commerce profissional",
     labelColor: "emerald",
-    description: "Criamos páginas rápidas, leves e bem estruturadas para que seu cliente não desista antes de conhecer sua oferta.",
-    imageUrl: "/dashboard-novo.png.png",
+    description: "Criamos uma loja virtual estratégica, organizada e responsiva para seus produtos serem apresentados com confiança e clareza.",
+    imageUrl: "/Celular-ecomm.png",
     metrics: [
-      { label: "TEMPO DE CARREGAMENTO", value: "Reduzido", color: "text-red-500", trend: "down" },
-      { label: "EXPERIÊNCIA DO CLIENTE", value: "Melhorada", color: "text-emerald-400", trend: "up" }
+      { label: "LOJA ESTRUTURADA", value: "Otimizada", color: "text-emerald-400", trend: "up" },
+      { label: "COMPRA FACILITADA", value: "Conversão", color: "text-emerald-400", trend: "up" }
     ]
   },
   {

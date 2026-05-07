@@ -4,6 +4,7 @@ import { TrustBanner } from "@/components/sections/TrustBanner";
 import { DaurerMarquee } from "@/components/sections/DaurerMarquee";
 import { SkillsMarquee } from "@/components/sections/SkillsMarquee";
 import { Diferencial } from "@/components/sections/Diferencial";
+import { Alinhamento } from "@/components/sections/Alinhamento";
 import { StickyFeatures } from "@/components/sections/StickyFeatures";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -63,10 +64,9 @@ const Index = () => {
         <SectionProblema />
         <TrustBanner />
         <ProjectsMarquee />
-        <StickyFeatures />
 
         <Diferencial />
-        <SkillsMarquee variant="white" />
+        <Alinhamento />
 
         <FeedbackImageCarousel />
         <CtaFinal />

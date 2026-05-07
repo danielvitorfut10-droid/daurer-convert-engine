@@ -31,11 +31,11 @@ export const Diferencial = () => {
                 <span className="text-[10px] xs:text-[11px] sm:text-[12px] md:text-sm font-bold text-blue-300 uppercase tracking-widest whitespace-normal sm:whitespace-nowrap leading-tight">Uma entrega diferente do mercado</span>
               </div>
 
-              <h2 className={`font-display text-3xl xs:text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 md:whitespace-nowrap ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
-                Seja sincero... <span className="font-['Playfair_Display'] italic font-medium">o que você prefere?</span>
+              <h2 className={`font-display text-3xl xs:text-[32px] sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6 ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
+                Nós criamos a estrutura que conecta sua loja aos clientes certos.
               </h2>
-              <p className={`text-lg md:text-xl text-slate-200 leading-relaxed font-medium ${visible ? "animate-reveal-left" : "opacity-0"}`} style={{ animationDelay: "150ms" }}>
-                Dois tipos de entrega. Um único resultado que importa: <span className="font-bold text-white">vender.</span>
+              <p className={`text-base md:text-lg text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto ${visible ? "animate-reveal-left" : "opacity-0"}`} style={{ animationDelay: "150ms" }}>
+                A Daurer cria seu e-commerce e o conecta ao tráfego pago para atrair clientes e vender online com mais previsibilidade.
               </p>
             </div>
 
@@ -151,31 +151,35 @@ export const Diferencial = () => {
                   <div className="w-11 h-11 rounded-full border-[3px] border-red-500 text-red-500 flex items-center justify-center text-xl mb-3 font-bold">
                     ✖
                   </div>
-                  <h3 className="font-bold text-xl md:text-[22px] tracking-tight mb-5 mt-2">Entrega comum dos "Web Designers"</h3>
+                  <h3 className="font-bold text-xl md:text-[22px] tracking-tight mb-5 mt-2">Entrega comum de “site bonito”</h3>
                   <ul className="space-y-4 relative z-10">
                     <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">❌</span> 
-                      <span>Página que <b className="font-semibold text-black">desperdiça seu tráfego</b></span>
+                      <span className="flex-shrink-0 mt-0.5">✕</span> 
+                      <span>Loja virtual <b className="font-semibold text-black">sem estratégia de venda</b></span>
                     </li>
                     <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">❌</span> 
-                      <span>Site com <b className="font-semibold text-black">carregamento lento</b></span>
+                      <span className="flex-shrink-0 mt-0.5">✕</span> 
+                      <span>Produtos cadastrados <b className="font-semibold text-black">sem jornada de compra</b></span>
                     </li>
                     <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">❌</span> 
-                      <span>Copy que <b className="font-semibold text-black">não conecta o usuário</b></span>
+                      <span className="flex-shrink-0 mt-0.5">✕</span> 
+                      <span>Site que <b className="font-semibold text-black">não passa confiança suficiente</b></span>
                     </li>
                     <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">❌</span> 
-                      <span>Sem nenhuma <b className="font-semibold text-black">análise de dados</b></span>
+                      <span className="flex-shrink-0 mt-0.5">✕</span> 
+                      <span><b className="font-semibold text-black">Nenhum plano</b> para atrair clientes</span>
                     </li>
                     <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">❌</span> 
-                      <span>Sem nenhuma <b className="font-semibold text-black">otimização pós-entrega</b></span>
+                      <span className="flex-shrink-0 mt-0.5">✕</span> 
+                      <span>Tráfego pago <b className="font-semibold text-black">sem estrutura para converter</b></span>
                     </li>
-                    <li className="flex items-start gap-3 text-[15px] mt-4 font-bold uppercase text-red-600/90">
-                      <span className="flex-shrink-0">❌</span>
-                      <span>DESIGNER ENTREGA O LINK E SOME...</span>
+                    <li className="flex items-start gap-3 text-[15px] text-gray-800">
+                      <span className="flex-shrink-0 mt-0.5">✕</span> 
+                      <span>Você recebe o site e <b className="font-semibold text-black">precisa se virar sozinho</b></span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[15px] mt-4 font-bold uppercase text-red-600/90 whitespace-normal">
+                      <span className="flex-shrink-0">✕</span>
+                      <span>SITE ENTREGUE. VENDAS POR SUA CONTA.</span>
                     </li>
                   </ul>
                 </div>
@@ -194,18 +198,18 @@ export const Diferencial = () => {
                     </div>
                   </div>
                   <div className="text-center text-sm mb-6 text-white">
-                    Nós entregamos:<br/>
-                    <span className="text-xs text-white/50">Marque o que faz sentido pra você:</span>
+                    <span className="font-bold block text-lg mb-2">Estrutura Daurer para e-commerce</span>
+                    <span className="text-xs text-white/50">O que sua loja recebe com a gente:</span>
                   </div>
                   <ul className="space-y-4">
                     {[
-                      { title: "Página criada com MÉTODO", sub: "Não achismo..." },
-                      { title: "Estrutura que guia o usuário" },
-                      { title: "Copy que engaja e retém" },
-                      { title: "Performance Extrema" },
-                      { title: "Um parceiro estrategista" },
-                      { title: "Otimização com dados reais" },
-                      { title: "Suporte após a entrega", bold: true }
+                      { title: "E-commerce profissional e responsivo" },
+                      { title: "Jornada pensada para transformar visitas em pedidos" },
+                      { title: "Copy estratégica para apresentar seus produtos" },
+                      { title: "Estrutura preparada para tráfego pago" },
+                      { title: "Campanhas para atrair clientes certos" },
+                      { title: "Análise e otimização com base em dados" },
+                      { title: "Suporte para sua loja sair do improviso", bold: true }
                     ].map((item, idx) => {
                       const isSelected = selectedItems.includes(idx);
                       return (
@@ -217,7 +221,6 @@ export const Diferencial = () => {
                             <span className="check-box" />
                             <span>
                               {item.bold ? <b className="font-semibold">{item.title}</b> : item.title}
-                              {item.sub && <small className="block text-[11px] text-[#00ffa6] mt-0.5 opacity-90">{item.sub}</small>}
                             </span>
                           </button>
                         </li>
@@ -225,40 +228,29 @@ export const Diferencial = () => {
                     })}
                   </ul>
                   <p className="mt-6 text-center text-[13px] text-white/60">
-                    Se você valoriza pelo menos 3 desses pontos,<br/>
-                    já entendeu meu trabalho.
+                    Se você quer vender online com mais consistência, esse é o caminho.
                   </p>
                 </div>
               </div>
+            </div>
+            
+            <div className={`mt-10 md:mt-12 entr-cta ${visible ? "is-visible" : ""}`}>
+              <ShinyButton 
+                onClick={() => {
+                  const contactSection = document.getElementById("contato");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
+                  }
+                }} 
+                className="w-full sm:w-auto px-10 md:px-16 py-6 text-base md:text-lg font-bold uppercase tracking-[0.1em]"
+              >
+                Quero recuperar essas vendas
+              </ShinyButton>
             </div>
           </div>
         </div>
       </GridBackground>
 
-      {/* CTA SECTION OVERLAYING GRADIENT (MOVIDO PARA FORA DO MASK) */}
-      <div className={`container relative z-40 pb-24 md:pb-40 mt-20 md:mt-40 flex flex-col items-center entr-cta ${visible ? "is-visible" : ""}`}>
-        <p className="text-center text-[15px] md:text-lg lg:text-xl font-medium tracking-wide mb-10 text-white max-w-3xl text-balance">
-          Não é sobre apenas ter uma página. É sobre construir a estrutura certa para converter mais e escalar seus resultados.
-        </p>
-        <div className="relative group z-[100] px-4 flex justify-center w-full">
-          <div className="inline-flex">
-            <ShinyButton 
-              onClick={() => {
-                const contactSection = document.getElementById("contato");
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
-                }
-              }}
-              className="relative z-10 w-fit py-4 px-8 md:py-4 md:px-8 text-[14px] md:text-base font-bold uppercase tracking-widest text-white shadow-[0_0_50px_rgba(6,182,212,0.6)] active:scale-95 flex justify-center items-center whitespace-nowrap"
-            >
-            <span className="text-white mr-2 whitespace-nowrap">SOLICITAR ORÇAMENTO</span>
-            <svg className="w-5 h-5 text-white inline-block opacity-90" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            </ShinyButton>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
