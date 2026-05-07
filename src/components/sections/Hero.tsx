@@ -15,13 +15,13 @@ export const Hero = () => {
       <TubesCursor>
         <div className="container relative z-10 px-4 min-h-screen flex flex-col justify-center py-24">
           <div className="max-w-5xl mx-auto text-center flex flex-col items-center -translate-y-6 md:-translate-y-12">
-            <h1 className="font-display text-[32px] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[0.95] mb-12 md:mb-20 animate-reveal-fall text-white max-w-5xl mx-auto drop-shadow-2xl">
-              Se sua loja ainda não vende online, ela está deixando{" "}
-              <span className="text-glow-animated font-['Playfair_Display'] italic font-medium block mt-3 md:mt-0 md:inline-block text-[1.25em] sm:text-[1.15em] md:text-[1.12em] leading-[0.9] tracking-normal">dinheiro na mesa</span> todos os dias.
+            <h1 className="font-display text-[40px] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[1] mb-12 md:mb-16 animate-reveal-fall text-white max-w-5xl mx-auto drop-shadow-2xl">
+              Sua loja está perdendo vendas por não ter um site{" "}
+              <span className="text-glow-animated font-['Playfair_Display'] italic font-medium block mt-3 md:mt-0 md:inline-block text-[1.2em] md:text-[1.3em] leading-[0.9] tracking-normal">estruturado!</span>
             </h1>
 
-            <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed animate-reveal-right font-medium text-balance" style={{ animationDelay: "150ms" }}>
-              Criamos sua loja virtual e campanhas de tráfego pago para atrair clientes, gerar pedidos e fazer sua marca vender além do ponto físico.
+            <p className="text-sm md:text-base lg:text-lg text-white/70 max-w-[540px] mx-auto mb-12 leading-relaxed animate-reveal-right font-medium text-balance" style={{ animationDelay: "150ms" }}>
+              Criamos e-commerces estruturados para vender e campanhas de tráfego para sua marca vender online com mais clareza, confiança e previsibilidade.
             </p>
 
             <div className="relative inline-flex flex-col items-center justify-center gap-14 animate-fade-in-up" style={{ animationDelay: "240ms" }}>
@@ -30,7 +30,7 @@ export const Hero = () => {
                   onClick={handleCtaClick} 
                   className="relative z-10 w-full px-8 md:px-14 py-6 text-[16px] md:text-[19px] font-bold uppercase tracking-wider whitespace-nowrap"
                 >
-                  <span className="text-white">Quero recuperar essas vendas</span>
+                  <span className="text-white">Estruturar minha loja</span>
                 </ShinyButton>
               </div>
 

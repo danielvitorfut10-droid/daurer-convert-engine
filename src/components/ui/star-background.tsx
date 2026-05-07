@@ -17,7 +17,7 @@ export const StarBackground = () => {
     if (!ctx) return;
 
     let particles: Particle[] = [];
-    const particleCount = 17;
+    const particleCount = 8;
     let rafId: number;
 
     // Pré-renderiza um "sprite" de estrela com blur usando offscreen canvas (1x só)
@@ -66,7 +66,7 @@ export const StarBackground = () => {
         this.y = Math.random() * canvas.height;
         this.scale = Math.random() * 0.6 + 0.3; // 0.3x a 0.9x do sprite
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 0.5 + 0.2;
+        const speed = (Math.random() * 0.5 + 0.2) * 0.4;
         this.speedX = Math.cos(angle) * speed;
         this.speedY = Math.sin(angle) * speed;
         this.maxOpacity = Math.random() * 0.4 + 0.6;
