@@ -13,7 +13,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Inter", "system-ui", "sans-serif"],
+        display: ["Urbanist", "Inter", "system-ui", "sans-serif"],
+        problem: ["Lexend", "sans-serif"],
         body: ["Roboto", "Inter", "system-ui", "sans-serif"],
       },
       colors: {

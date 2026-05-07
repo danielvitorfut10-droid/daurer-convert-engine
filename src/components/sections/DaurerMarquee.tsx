@@ -26,10 +26,10 @@ export const DaurerMarquee = () => {
         .daurer-marquee {
           width: 100%;
           overflow: hidden;
-          background: #020617;
-          border-top: 1px solid rgba(0, 153, 255, 0.18);
-          border-bottom: 1px solid rgba(0, 153, 255, 0.18);
-          padding: 18px 0;
+          background: hsl(var(--background));
+          border-top: 1px solid hsl(var(--primary) / 0.15);
+          border-bottom: 1px solid hsl(var(--primary) / 0.15);
+          padding: 24px 0;
           position: relative;
         }
 
@@ -38,7 +38,7 @@ export const DaurerMarquee = () => {
           content: "";
           position: absolute;
           top: 0;
-          width: 120px;
+          width: 150px;
           height: 100%;
           z-index: 2;
           pointer-events: none;
@@ -46,51 +46,53 @@ export const DaurerMarquee = () => {
 
         .daurer-marquee::before {
           left: 0;
-          background: linear-gradient(to right, #020617, transparent);
+          background: linear-gradient(to right, hsl(var(--background)), transparent);
         }
 
         .daurer-marquee::after {
           right: 0;
-          background: linear-gradient(to left, #020617, transparent);
+          background: linear-gradient(to left, hsl(var(--background)), transparent);
         }
 
         .daurer-marquee-track {
           display: flex;
           align-items: center;
-          gap: 80px;
+          gap: 100px;
           width: max-content;
-          animation: daurerMarquee 60s linear infinite;
+          animation: daurerMarquee 50s linear infinite;
         }
 
         .daurer-marquee-item {
           display: flex;
           align-items: center;
-          gap: 14px;
+          gap: 16px;
           flex-shrink: 0;
         }
 
         .daurer-marquee-item p {
           margin: 0;
-          color: rgba(255, 255, 255, 0.72);
-          font-size: 15px;
-          font-weight: 700;
-          letter-spacing: 0.2px;
+          color: hsl(var(--foreground) / 0.85);
+          font-size: 16px;
+          font-weight: 800;
+          letter-spacing: -0.01em;
+          text-transform: uppercase;
           white-space: nowrap;
           font-family: inherit;
         }
 
         .daurer-check {
-          width: 34px;
-          height: 34px;
-          border: 3px solid #008cff;
-          border-radius: 999px;
-          color: #008cff;
+          width: 32px;
+          height: 32px;
+          background: hsl(var(--primary) / 0.1);
+          border: 1px solid hsl(var(--primary) / 0.3);
+          border-radius: 8px;
+          color: hsl(var(--primary));
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 18px;
-          font-weight: 900;
-          box-shadow: 0 0 18px rgba(0, 140, 255, 0.45);
+          font-size: 14px;
+          font-weight: 800;
+          box-shadow: 0 0 15px hsl(var(--primary) / 0.1);
           flex-shrink: 0;
         }
 

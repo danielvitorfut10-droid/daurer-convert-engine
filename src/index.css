@@ -194,18 +194,39 @@
   .text-glow-animated {
     background: linear-gradient(
       -45deg,
-      #06b6d4 35%,
-      #cffafe 50%,
-      #06b6d4 65%
+      #06b6d4 30%,
+      #22d3ee 45%,
+      #a5f3fc 50%,
+      #22d3ee 55%,
+      #06b6d4 70%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    animation: gradient-sweep 3s ease-in-out infinite;
+    animation: gradient-sweep 2.5s ease-in-out infinite;
     display: inline-block;
-    filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.5));
+    filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.7)) drop-shadow(0 0 30px rgba(6, 182, 212, 0.3));
+  }
+
+  .text-shimmer-gray {
+    background: linear-gradient(
+      -45deg,
+      #9ca3af 10%,
+      #e5e7eb 35%,
+      #ffffff 50%,
+      #e5e7eb 65%,
+      #9ca3af 90%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-sweep 2.2s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
   }
 
   /* Lenis Smooth Scroll Styles */

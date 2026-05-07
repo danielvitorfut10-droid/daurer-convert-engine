@@ -236,9 +236,9 @@ export const Diferencial = () => {
       </GridBackground>
 
       {/* CTA SECTION OVERLAYING GRADIENT (MOVIDO PARA FORA DO MASK) */}
-      <div className={`container relative z-40 pb-20 md:pb-32 mt-16 md:mt-32 flex flex-col items-center entr-cta ${visible ? "is-visible" : ""}`}>
-        <p className="text-center text-[15px] md:text-lg lg:text-xl font-medium tracking-wide mb-8 text-white max-w-3xl">
-          Não é sobre página. É sobre construir a estrutura certa para converter mais e aumentar suas conversões.
+      <div className={`container relative z-40 pb-24 md:pb-40 mt-20 md:mt-40 flex flex-col items-center entr-cta ${visible ? "is-visible" : ""}`}>
+        <p className="text-center text-[15px] md:text-lg lg:text-xl font-medium tracking-wide mb-10 text-white max-w-3xl text-balance">
+          Não é sobre apenas ter uma página. É sobre construir a estrutura certa para converter mais e escalar seus resultados.
         </p>
         <div className="relative group z-[100] px-4 flex justify-center w-full">
           <div className="inline-flex">

@@ -12,6 +12,7 @@ import { CtaFinal } from "@/components/sections/CtaFinal";
 import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
 import FeedbackImageCarousel from "@/components/sections/FeedbackCarousel";
+import { SectionProblema } from "@/components/sections/SectionProblema";
 
 import { StarBackground } from "@/components/ui/star-background";
 
@@ -59,6 +60,7 @@ const Index = () => {
       <div className="relative z-10">
         <Hero />
         <DaurerMarquee />
+        <SectionProblema />
         <TrustBanner />
         <ProjectsMarquee />
         <StickyFeatures />

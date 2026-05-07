@@ -15,13 +15,13 @@ export const Hero = () => {
       <TubesCursor>
         <div className="container relative z-10 px-4 min-h-screen flex flex-col justify-center py-24">
           <div className="max-w-5xl mx-auto text-center flex flex-col items-center -translate-y-6 md:-translate-y-12">
-            <h1 className="font-sans text-[36px] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.1] mb-16 md:mb-24 animate-reveal-fall text-white max-w-4xl mx-auto drop-shadow-2xl">
-              Sites e anúncios feitos para transformar visitantes em{" "}
-              <span className="text-glow-animated italic font-['Lora',_serif] font-normal block mt-3 md:mt-0 md:inline-block text-[1.8em] sm:text-[1.5em] md:text-[1.15em] leading-[0.9]">clientes</span>
+            <h1 className="font-display text-[32px] sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[0.95] mb-12 md:mb-20 animate-reveal-fall text-white max-w-5xl mx-auto drop-shadow-2xl">
+              Se sua loja ainda não vende online, ela está deixando{" "}
+              <span className="text-glow-animated font-['Playfair_Display'] italic font-medium block mt-3 md:mt-0 md:inline-block text-[1.25em] sm:text-[1.15em] md:text-[1.12em] leading-[0.9] tracking-normal">dinheiro na mesa</span> todos os dias.
             </h1>
 
             <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed animate-reveal-right font-medium text-balance" style={{ animationDelay: "150ms" }}>
-              Criamos páginas profissionais e campanhas de tráfego pago para empresas que querem vender mais pelo digital.
+              Criamos sua loja virtual e campanhas de tráfego pago para atrair clientes, gerar pedidos e fazer sua marca vender além do ponto físico.
             </p>
 
             <div className="relative inline-flex flex-col items-center justify-center gap-14 animate-fade-in-up" style={{ animationDelay: "240ms" }}>
@@ -30,7 +30,7 @@ export const Hero = () => {
                   onClick={handleCtaClick} 
                   className="relative z-10 w-full px-8 md:px-14 py-6 text-[16px] md:text-[19px] font-bold uppercase tracking-wider whitespace-nowrap"
                 >
-                  <span className="text-white">Quero mais clientes!</span>
+                  <span className="text-white">Quero recuperar essas vendas</span>
                 </ShinyButton>
               </div>
 

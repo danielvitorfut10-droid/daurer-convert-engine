@@ -81,17 +81,20 @@ const AnimatedHeader = () => {
   const [pRef, pInView] = useScrollAnimation();
 
   return (
-    <div className="text-center max-w-5xl mx-auto mb-10 md:mb-16 pb-8">
+    <div className="text-center max-w-4xl mx-auto mb-10 md:mb-16 pb-8">
       <h2 
         ref={headerRef as any}
-        className={`text-2xl md:text-5xl font-extrabold text-white leading-[1.1] mb-6 transition-all duration-700 ease-out ${headerInView ? 'animate-reveal-fall' : 'opacity-0'}`}
+        className={`text-2xl md:text-4xl lg:text-5xl font-black text-white leading-[1.1] mb-8 transition-all duration-700 ease-out tracking-tighter uppercase mx-auto max-w-[850px] ${headerInView ? 'animate-reveal-fall' : 'opacity-0'}`}
         style={{ transformStyle: 'preserve-3d' }}
       >
-        A verdadeira diferença é uma página projetada com fundamentos.{" "}
-        <span className="font-['Playfair_Display'] italic font-medium text-white block mt-2">
-          E não palpites!
-        </span>
+        Nós criamos a estrutura que conecta sua loja aos clientes certos.
       </h2>
+      <p 
+        ref={pRef as any}
+        className={`text-base md:text-lg text-gray-400 max-w-2xl mx-auto transition-all duration-700 delay-300 ${pInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+      >
+        A Daurer cria seu e-commerce e o conecta ao tráfego pago para atrair clientes e vender online com mais previsibilidade.
+      </p>
     </div>
   );
 };
@@ -163,11 +166,11 @@ export const StickyFeatures = () => {
                 <div className="relative z-10 w-full flex flex-col pt-4 md:pt-4">
 
                   {/* Title with horizontal line */}
-                  <div className="flex items-center gap-6 mb-6 w-full group/title">
-                     <h3 className="text-xl md:text-3xl font-['Playfair_Display'] italic font-medium text-white md:whitespace-nowrap leading-tight">
+                  <div className="flex items-center gap-6 mb-8 w-full group/title">
+                     <h3 className="text-2xl md:text-4xl font-bold tracking-tighter text-white md:whitespace-nowrap leading-[0.9] uppercase">
                        {feature.title}
                      </h3>
-                     <div className="h-[0.5px] flex-grow bg-white/10 transition-all duration-700 group-hover/title:bg-white/30" />
+                     <div className="h-[1px] flex-grow bg-white/10 transition-all duration-700 group-hover/title:bg-white/20" />
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20">
