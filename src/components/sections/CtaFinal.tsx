@@ -53,14 +53,14 @@ export const CtaFinal = () => {
           ))}
         </div>
 
-        <div className={`relative group z-[100] px-4 flex justify-center w-full ${visible ? "animate-reveal-fall" : "opacity-0"}`} style={{ animationDelay: '150ms' }}>
-          <div className="inline-flex">
+        <div className={`relative group z-[100] px-4 flex justify-center w-full pointer-events-auto ${visible ? "animate-reveal-fall" : "opacity-0"}`} style={{ animationDelay: '150ms' }}>
+          <div className="inline-flex relative z-10">
             <ShinyButton 
               onClick={() => {
                  const message = `Olá, vim pelo seu site e tenho o objetivo de ${activeTab.tab}. Como funciona a consultoria e o desenvolvimento de vocês?`;
-                 window.open(whatsappUrl(message), "_blank");
+                 window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
               }}
-              className="relative z-10 w-fit py-4 px-8 md:py-4 md:px-8 text-[14px] md:text-base font-bold uppercase tracking-widest text-white shadow-[0_0_50px_rgba(6,182,212,0.6)] active:scale-95 flex justify-center items-center whitespace-nowrap"
+              className="relative z-20 w-fit py-4 px-8 md:py-4 md:px-8 text-[14px] md:text-base font-bold uppercase tracking-widest text-white shadow-[0_0_50px_rgba(6,182,212,0.6)] active:scale-95 flex justify-center items-center whitespace-nowrap"
             >
               <span className="text-white mr-2 whitespace-nowrap">PRÓXIMO PASSO</span>
               <svg className="w-5 h-5 text-white inline-block opacity-90" viewBox="0 0 24 24" fill="currentColor">

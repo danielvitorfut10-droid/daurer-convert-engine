@@ -76,11 +76,13 @@
 
   html {
     scroll-behavior: auto;
+    position: relative;
   }
-
+  
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "ss01", "cv11";
+    position: relative;
   }
 
   ::selection {
