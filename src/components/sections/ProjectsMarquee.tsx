@@ -95,7 +95,7 @@ const MarqueeTrack = ({ images, speed }: MarqueeTrackProps) => {
             loading="lazy"
             decoding="async"
             style={{ WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
-            className="w-[300px] md:w-[400px] h-auto rounded-[15px] select-none pointer-events-none border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transform-gpu"
+            className="w-[280px] sm:w-[320px] md:w-[400px] h-auto rounded-[15px] select-none pointer-events-none border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transform-gpu"
           />
         ))}
       </div>

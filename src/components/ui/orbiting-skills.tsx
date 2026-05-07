@@ -66,16 +66,29 @@ const SkillIcon = memo(({ type }: SkillIconProps) => {
 });
 SkillIcon.displayName = 'SkillIcon';
 
-const skillsConfig: SkillConfig[] = [
-  // Inner Orbit
-  { id: 'framer', orbitRadius: 90, size: 40, speed: 0, iconType: 'framer', phaseShift: Math.PI / 4, glowColor: 'cyan', label: 'Framer' },
-  { id: 'chatgpt', orbitRadius: 90, size: 40, speed: 0, iconType: 'chatgpt', phaseShift: Math.PI, glowColor: 'cyan', label: 'ChatGPT' },
-  { id: 'figma', orbitRadius: 90, size: 40, speed: 0, iconType: 'figma', phaseShift: -Math.PI / 4, glowColor: 'cyan', label: 'Figma' },
-  // Outer Orbit
-  { id: 'wordpress', orbitRadius: 160, size: 45, speed: 0, iconType: 'wordpress', phaseShift: Math.PI / 2.5, glowColor: 'purple', label: 'WordPress' },
-  { id: 'code', orbitRadius: 160, size: 45, speed: 0, iconType: 'code', phaseShift: Math.PI * 0.95, glowColor: 'purple', label: 'Development' },
-  { id: 'flame', orbitRadius: 160, size: 45, speed: 0, iconType: 'flame', phaseShift: -Math.PI / 4.5, glowColor: 'purple', label: 'Performance' },
-];
+const useResponsiveConfig = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 480);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const scale = isMobile ? 0.7 : 1;
+
+  return [
+    // Inner Orbit
+    { id: 'framer', orbitRadius: 90 * scale, size: 40 * scale, speed: 0, iconType: 'framer' as IconType, phaseShift: Math.PI / 4, glowColor: 'cyan' as GlowColor, label: 'Framer' },
+    { id: 'chatgpt', orbitRadius: 90 * scale, size: 40 * scale, speed: 0, iconType: 'chatgpt' as IconType, phaseShift: Math.PI, glowColor: 'cyan' as GlowColor, label: 'ChatGPT' },
+    { id: 'figma', orbitRadius: 90 * scale, size: 40 * scale, speed: 0, iconType: 'figma' as IconType, phaseShift: -Math.PI / 4, glowColor: 'cyan' as GlowColor, label: 'Figma' },
+    // Outer Orbit
+    { id: 'wordpress', orbitRadius: 160 * scale, size: 45 * scale, speed: 0, iconType: 'wordpress' as IconType, phaseShift: Math.PI / 2.5, glowColor: 'purple' as GlowColor, label: 'WordPress' },
+    { id: 'code', orbitRadius: 160 * scale, size: 45 * scale, speed: 0, iconType: 'code' as IconType, phaseShift: Math.PI * 0.95, glowColor: 'purple' as GlowColor, label: 'Development' },
+    { id: 'flame', orbitRadius: 160 * scale, size: 45 * scale, speed: 0, iconType: 'flame' as IconType, phaseShift: -Math.PI / 4.5, glowColor: 'purple' as GlowColor, label: 'Performance' },
+  ] as SkillConfig[];
+};
 
 const OrbitingSkill = memo(({ config, angle }: OrbitingSkillProps) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -137,21 +150,25 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'cyan', animationDelay = 0 
 GlowingOrbitPath.displayName = 'GlowingOrbitPath';
 
 export default function OrbitingSkills() {
+  const skillsConfig = useResponsiveConfig();
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 480;
+  const scale = isMobile ? 0.7 : 1;
+
   return (
     <div className="w-full h-full flex items-center justify-center p-4">
       <div 
         className="relative w-full aspect-square max-w-[400px] flex items-center justify-center"
       >
         {/* Central Icon */}
-        <div className="w-20 h-20 bg-black/80 border border-white/20 rounded-full flex items-center justify-center z-10 relative shadow-2xl backdrop-blur-md">
+        <div className="w-14 h-14 md:w-20 md:h-20 bg-black/80 border border-white/20 rounded-full flex items-center justify-center z-10 relative shadow-2xl backdrop-blur-md">
           <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-xl animate-pulse"></div>
           <div className="relative z-10 text-white">
-            <Globe size={32} strokeWidth={1.5} />
+            <Globe className="w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
           </div>
         </div>
 
-        <GlowingOrbitPath radius={90} glowColor="cyan" animationDelay={0} />
-        <GlowingOrbitPath radius={160} glowColor="purple" animationDelay={1.5} />
+        <GlowingOrbitPath radius={90 * scale} glowColor="cyan" animationDelay={0} />
+        <GlowingOrbitPath radius={160 * scale} glowColor="purple" animationDelay={1.5} />
 
         {skillsConfig.map((config) => {
           const angle = config.phaseShift || 0;
