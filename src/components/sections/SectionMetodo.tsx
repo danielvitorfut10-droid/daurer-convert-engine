@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView, useVelocity } from 'framer-motion';
+import { BorderRotate } from '../ui/border-rotate';
 
 const steps = [
   {
@@ -59,65 +60,44 @@ const TimelineStep = ({ step, i, isEven }: { step: typeof steps[0], i: number, i
 
       {/* Step Card Content */}
       <div className={`w-full pl-16 pr-0 md:pl-0 md:pr-0 md:w-1/2 ${isEven ? 'md:pl-16 lg:pl-28' : 'md:pr-16 lg:pr-28'}`}>
-        <motion.div 
-          variants={{
-            inactive: { opacity: 0.2, scale: 0.95, filter: "brightness(0.3) grayscale(100%)" },
-            active:   { 
-              opacity: 1,   
-              scale: 1,    
-              filter: "brightness(1) grayscale(0%)",
-            }
-          }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="neon-border-wrapper group relative p-[1px] rounded-[2rem] transition-all duration-700"
+        <motion.div
+           animate={isInView ? { opacity: 1, scale: 1, filter: "brightness(1) grayscale(0%)" } : { opacity: 0.3, scale: 0.96, filter: "brightness(0.3) grayscale(100%)" }}
+           transition={{ duration: 0.6 }}
+           className="h-full"
         >
-          {/* Neon Border Trace (Animated rotation) - Disparado pela classe quando ativo */}
-          <div className="neon-border-trace group-[.active-neon]:animate-[spin-once_1.5s_cubic-bezier(0.4,0,0.2,1)_forwards]" />
-          
-          {/* Static Neon Border - Aparece após a volta e permanece ativa */}
-          <div className="static-neon-border" />
-          
-          <motion.div
-            className="absolute inset-0 z-[-1] opacity-0"
-            variants={{
-               inactive: { opacity: 0 },
-               active: { opacity: 1 }
-            }}
-            transition={{ duration: 1 }}
+          <BorderRotate
+            active={isInView}
+            animationMode="auto-rotate"
+            animationSpeed={6}
+            borderRadius={32}
+            backgroundColor="rgba(10, 13, 24, 0.95)"
+            className="group transition-all duration-700 h-full"
           >
-             <div className="neon-border-trace opacity-20 filter blur-xl" />
-          </motion.div>
-          
-          {/* Card Content Interior */}
-          <div className="relative z-10 p-8 md:p-12 rounded-[1.95rem] bg-gradient-to-br from-[#161D3F]/80 via-[#0F142A]/95 to-[#0A0D1E]/95 backdrop-blur-xl border border-white/5 group-hover:border-[#60A5FA]/30 group-hover:bg-gradient-to-br group-hover:from-[#1C2550]/80 group-hover:to-[#0F142A]/95 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.1)] transition-all duration-700 overflow-hidden h-full will-change-transform">
-            
-            {/* Ambient Internal Glows (3D feel) */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#3B82F6]/10 blur-[100px] rounded-full transition-opacity duration-700 opacity-50 group-hover:opacity-100" />
-            <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-[#3B82F6]/5 blur-[80px] rounded-full transition-opacity duration-700 opacity-30 group-hover:opacity-60" />
-            
-            {/* Subtle top-highlight for 3D edge effect */}
-            <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            
-            {/* Ray of Light (Shine Glint) */}
-            <motion.div 
-              initial={{ x: "-100%", skewX: -25 }}
-              animate={isInView ? { x: "200%" } : { x: "-100%" }}
-              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
-              className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/[0.05] to-transparent pointer-events-none z-20"
-            />
-            
-            <div className="relative z-10 flex flex-col gap-4 md:gap-6">
-              <span className="text-[#3B82F6] font-display text-5xl md:text-6xl font-bold select-none drop-shadow-md text-aurora w-fit">
-                {step.num}
-              </span>
-              <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
-                {step.title}
-              </h4>
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed font-medium">
-                {step.desc}
-              </p>
+            <div className="relative z-10 p-8 md:p-12 h-full">
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#3B82F6]/10 blur-[100px] rounded-full transition-opacity duration-700 opacity-50 group-hover:opacity-100" />
+              <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-[#3B82F6]/5 blur-[80px] rounded-full transition-opacity duration-700 opacity-30 group-hover:opacity-60" />
+              <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+              
+              <motion.div 
+                initial={{ x: "-100%", skewX: -25 }}
+                animate={isInView ? { x: "200%" } : { x: "-100%" }}
+                transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
+                className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/[0.05] to-transparent pointer-events-none z-20"
+              />
+              
+              <div className="relative z-10 flex h-full flex-col gap-4 md:gap-6">
+                <span className="text-[#3B82F6] font-display text-5xl md:text-6xl font-bold select-none drop-shadow-md text-aurora w-fit">
+                  {step.num}
+                </span>
+                <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
+                  {step.title}
+                </h4>
+                <p className="text-white/80 text-lg md:text-xl leading-relaxed font-medium">
+                  {step.desc}
+                </p>
+              </div>
             </div>
-          </div>
+          </BorderRotate>
         </motion.div>
       </div>
 
@@ -150,7 +130,7 @@ export const SectionMetodo = () => {
   const smoothRotation = useSpring(rocketRotation, { stiffness: 400, damping: 30 });
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-12 md:pt-24 pb-32">
+    <section className="relative z-10 bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-12 md:pt-24 pb-32">
       {/* Top light divider to separate from previous section */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3B82F6]/80 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]">
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-64 h-64 bg-[#3B82F6]/40 blur-[80px] rounded-full -translate-y-1/2" />
@@ -169,10 +149,21 @@ export const SectionMetodo = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#60A5FA]/40 bg-[#60A5FA]/10 text-[10px] md:text-xs text-[#60A5FA] font-bold tracking-[0.2em] mb-8 shadow-[0_0_20px_rgba(96,165,250,0.2)] uppercase"
+            className="mb-8"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] animate-pulse shadow-[0_0_10px_rgba(96,165,250,0.8)]" />
-            O QUE A DAURER FAZ?
+            <BorderRotate
+              active={true}
+              animationSpeed={4}
+              borderWidth={1}
+              borderRadius={999}
+              backgroundColor="#06080F"
+              className="inline-flex items-center"
+            >
+              <div className="px-5 py-1.5 flex items-center gap-2 text-[10px] md:text-xs text-[#60A5FA] font-bold tracking-[0.2em] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] animate-pulse shadow-[0_0_10px_rgba(96,165,250,0.8)]" />
+                O QUE A DAURER FAZ?
+              </div>
+            </BorderRotate>
           </motion.div>
           
           <motion.h2 
@@ -199,13 +190,13 @@ export const SectionMetodo = () => {
         {/* Interactive Timeline Area */}
         <div ref={containerRef} className="relative w-full max-w-5xl mx-auto pb-16">
           
-          {/* Base track: Pale/Inactive Line */}
-          <div className="absolute left-[24px] md:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#3B82F6]/30 via-[#3B82F6]/10 to-transparent -translate-x-1/2 rounded-full" />
+          {/* Base track: Pale/Inactive Line - Estendida até o fim */}
+          <div className="absolute left-[24px] md:left-1/2 top-4 bottom-[-100px] w-[2px] bg-gradient-to-b from-[#3B82F6]/30 via-[#3B82F6]/15 to-[#3B82F6]/5 -translate-x-1/2 rounded-full" />
 
           {/* Fill track: Glowing Active Line following scroll */}
           <motion.div 
             className="absolute left-[24px] md:left-1/2 top-4 w-[2px] bg-[#3B82F6] -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] origin-top z-10 will-change-[height]"
-            style={{ height: lineHeight }}
+            style={{ height: useTransform(smoothProgress, [0, 1], ["0%", "115%"]) }}
           >
             {/* Interactive Rocket at the tip */}
             <motion.div 
@@ -213,7 +204,7 @@ export const SectionMetodo = () => {
                 rotate: smoothRotation,
                 y: "-50%"
               }}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 text-2xl md:text-3xl z-30 select-none pointer-events-none drop-shadow-[0_0_15px_rgba(59,130,246,0.5)] will-change-transform"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 text-2xl md:text-3xl z-0 select-none pointer-events-none drop-shadow-[0_0_15px_rgba(59,130,246,0.5)] translate-z-[-1] will-change-transform"
             >
               🚀
             </motion.div>

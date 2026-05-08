@@ -22,11 +22,9 @@ export const Diferencial = () => {
         {/* Smoother Gradient fade from the previous section's end color */}
         <div className="w-full h-full bg-gradient-to-b from-[#0A1026] via-[#0A1026]/60 via-[#0A1026]/20 to-transparent" />
         
-        {/* Central Glow Effect */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-80 md:h-[500px] -translate-y-1/2 bg-cyan-500/10 blur-[120px] rounded-full" />
-        
-        {/* The "Half Dot" at the top divider */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-blue-400 rounded-full -translate-y-1/2 shadow-[0_0_20px_#3b82f6,0_0_40px_#3b82f6] z-30" />
+        {/* Smooth Glow Transition instead of solid dot */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-500/30 blur-[40px] rounded-full -translate-y-1/2 z-20" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-16 bg-blue-400/40 blur-[20px] rounded-full -translate-y-1/2 z-20" />
       </div>
 
       <GridBackground className="py-24 md:py-32" style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)" }}>
@@ -337,11 +335,12 @@ export const Diferencial = () => {
 
       {/* Bottom Transition & Light Point */}
       <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-20">
-        {/* Soft Ambient Radial Glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[500px] h-32 bg-blue-500/15 blur-[80px] rounded-full translate-y-1/2" />
+        {/* Soft Ambient Radial Glow - Intensificado */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-40 bg-blue-500/25 blur-[100px] rounded-full translate-y-1/2" />
 
-        {/* The "Half Dot" core at the bottom divider - High intensity semicircle */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-blue-400 rounded-full translate-y-1/2 shadow-[0_0_20px_#3b82f6,0_0_45px_#3b82f6] z-30" />
+        {/* Pure Glow Core (No solid dot) */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-500/40 blur-[40px] rounded-full translate-y-1/2 z-30" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-16 bg-blue-400/50 blur-[20px] rounded-full translate-y-1/2 z-30" />
       </div>
     </section>
   );
