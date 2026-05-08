@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /* Daurer Tech Design System — futurista, minimalista, premium.
    All colors MUST be HSL. */
@@ -71,7 +71,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   html {
@@ -80,7 +80,11 @@
   }
   
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "ss01", "cv11";
     position: relative;
   }
@@ -91,7 +95,8 @@
   }
 
   h1, h2, h3, h4, h5 {
-    @apply font-display tracking-tight;
+    font-family: var(--font-display, inherit);
+    letter-spacing: -0.025em;
   }
 }
 

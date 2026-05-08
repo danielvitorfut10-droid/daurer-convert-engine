@@ -28,8 +28,9 @@ const steps = [
 
 const TimelineStep = ({ step, i, isEven }: { step: typeof steps[0], i: number, isEven: boolean }) => {
   const ref = useRef(null);
-  // Ativação precisa sincronizada com a ponta da linha (60% do viewport)
-  const isInView = useInView(ref, { once: true, margin: "-60% 0% -40% 0%" });
+  // Ativação baseada na cobertura da linha: Ativo se estiver acima da ponta da linha (60% do viewport)
+  // A margem "100% 0% -40% 0%" captura tudo desde o topo até a linha de 60% (vinda do topo)
+  const isInView = useInView(ref, { once: false, margin: "100% 0% -40% 0%" });
 
   return (
     <motion.div 
@@ -82,7 +83,7 @@ const TimelineStep = ({ step, i, isEven }: { step: typeof steps[0], i: number, i
                inactive: { opacity: 0 },
                active: { opacity: 1 }
             }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ duration: 1 }}
           >
              <div className="neon-border-trace opacity-20 filter blur-xl" />
           </motion.div>
@@ -133,9 +134,9 @@ export const SectionMetodo = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-24 pb-32">
       {/* Top light divider to separate from previous section */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3B82F6]/40 to-transparent">
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-32 h-32 bg-[#3B82F6]/10 blur-3xl rounded-full -translate-y-1/2" />
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-2 h-2 bg-[#3B82F6] rounded-full -translate-y-1/2 shadow-[0_0_15px_#3B82F6,0_0_30px_#3B82F6]" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3B82F6]/60 to-transparent shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-48 h-48 bg-[#3B82F6]/30 blur-[60px] rounded-full -translate-y-1/2" />
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-3 h-3 bg-[#3B82F6] rounded-full -translate-y-1/2 shadow-[0_0_20px_#3B82F6,0_0_40px_#3B82F6,0_0_60px_rgba(59,130,246,0.8)]" />
       </div>
 
       {/* Background ambient glows */}
@@ -161,7 +162,7 @@ export const SectionMetodo = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl lg:text-[64px] font-bold tracking-tight text-white mb-6 max-w-4xl leading-[1.1]"
+            className="text-4xl md:text-6xl lg:text-[72px] font-bold tracking-tight text-white mb-6 max-w-5xl leading-[1.05]"
           >
             A Daurer cria o método que <span className="text-glow-animated font-['Lora'] italic whitespace-nowrap block md:inline">sua loja precisa</span> para vender
           </motion.h2>
