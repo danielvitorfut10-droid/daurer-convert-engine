@@ -73,7 +73,10 @@ export const SectionProblema = () => {
   ];
 
   return (
-    <section className="bg-black relative pt-16 md:pt-24 pb-8 md:pb-16">
+    <section 
+      className="bg-black relative pt-16 md:pt-24 pb-8 md:pb-16 content-visibility-auto"
+      style={{ containIntrinsicSize: '0 1200px' }}
+    >
 
       <div className="container mx-auto px-6 max-w-5xl">
         

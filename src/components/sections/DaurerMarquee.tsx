@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const trackItems = [
   "Copywriting Premium",
@@ -9,10 +9,36 @@ const trackItems = [
 ];
 
 export const DaurerMarquee = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.01 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
-      <section className="daurer-marquee z-10 relative">
-        <div className="daurer-marquee-track">
+      <section 
+        ref={sectionRef}
+        className="daurer-marquee z-10 relative content-visibility-auto"
+        style={{ contain: 'paint' }}
+      >
+        <div 
+          className="daurer-marquee-track transform-gpu will-change-transform"
+          style={{ 
+            animationPlayState: isVisible ? 'running' : 'paused',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden'
+          }}
+        >
           {[...trackItems, ...trackItems, ...trackItems, ...trackItems].map((item, index) => (
             <div className="daurer-marquee-item" key={index}>
               <span className="daurer-check">✓</span>
@@ -98,11 +124,11 @@ export const DaurerMarquee = () => {
 
         @keyframes daurerMarquee {
           from {
-            transform: translateX(0);
+            transform: translateX(0) translateZ(0);
           }
 
           to {
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateZ(0);
           }
         }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // Fileira 1 → esquerda
 const items = [
@@ -23,8 +23,27 @@ interface SkillsMarqueeProps {
 }
 
 export const SkillsMarquee = ({ variant = "blue" }: SkillsMarqueeProps) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.01 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const animationState = isVisible ? 'running' : 'paused';
+
   return (
     <section
+      ref={sectionRef}
+      className="content-visibility-auto"
       style={{
         width: "100%",
         overflow: "hidden",
@@ -35,6 +54,7 @@ export const SkillsMarquee = ({ variant = "blue" }: SkillsMarqueeProps) => {
         paddingTop: variant === "white" ? "30px" : "30px",
         paddingBottom: variant === "white" ? "30px" : "30px",
         zIndex: 5,
+        contain: 'paint'
       }}
     >
       {/* Fileira 1 — vai para a ESQUERDA */}
@@ -44,10 +64,12 @@ export const SkillsMarquee = ({ variant = "blue" }: SkillsMarqueeProps) => {
             display: "flex",
             gap: "14px",
             animation: "skills-scroll-left 60s linear infinite",
+            animationPlayState: animationState,
+            willChange: 'transform'
           }}
         >
           {/* Multi sets para garantir que nunca haja espaço vazio */}
-          {[...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items].map((item, i) => (
+          {[...items, ...items, ...items, ...items].map((item, i) => (
             <MarqueeItem key={`r1-${i}`} label={item} variant={variant} />
           ))}
         </div>
@@ -60,9 +82,11 @@ export const SkillsMarquee = ({ variant = "blue" }: SkillsMarqueeProps) => {
             display: "flex",
             gap: "14px",
             animation: "skills-scroll-right 70s linear infinite",
+            animationPlayState: animationState,
+            willChange: 'transform'
           }}
         >
-          {[...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2].map((item, i) => (
+          {[...itemsRow2, ...itemsRow2, ...itemsRow2, ...itemsRow2].map((item, i) => (
             <MarqueeItem key={`r2-${i}`} label={item} variant={variant} />
           ))}
         </div>
@@ -70,12 +94,12 @@ export const SkillsMarquee = ({ variant = "blue" }: SkillsMarqueeProps) => {
 
       <style>{`
         @keyframes skills-scroll-left {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+          from { transform: translateX(0) translateZ(0); }
+          to   { transform: translateX(-50%) translateZ(0); }
         }
         @keyframes skills-scroll-right {
-          from { transform: translateX(-50%); }
-          to   { transform: translateX(0); }
+          from { transform: translateX(-50%) translateZ(0); }
+          to   { transform: translateX(0) translateZ(0); }
         }
       `}</style>
     </section>
@@ -109,6 +133,7 @@ const MarqueeItem = ({ label, variant }: { label: string; variant: "blue" | "whi
         cursor: "default",
         flexShrink: 0,
         textTransform: "uppercase",
+        transform: 'translateZ(0)'
       }}
     >
       {label}

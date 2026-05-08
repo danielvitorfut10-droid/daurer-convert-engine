@@ -16,7 +16,12 @@ export const Diferencial = () => {
     );
   };
   return (
-    <section id="diferencial" ref={ref} className="relative min-h-[110vh] z-10 overflow-hidden">
+    <section 
+      id="diferencial" 
+      ref={ref} 
+      className="relative min-h-[110vh] z-10 overflow-hidden content-visibility-auto"
+      style={{ containIntrinsicSize: '0 1000px' }}
+    >
       {/* Top Transition Divider */}
       <div className="absolute top-0 left-0 right-0 h-64 md:h-96 z-0 pointer-events-none overflow-hidden">
         {/* Smoother Gradient fade from the previous section's end color */}

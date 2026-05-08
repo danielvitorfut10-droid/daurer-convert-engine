@@ -130,7 +130,7 @@ export const SectionMetodo = () => {
   const smoothRotation = useSpring(rocketRotation, { stiffness: 400, damping: 30 });
 
   return (
-    <section className="relative z-10 bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-12 md:pt-24 pb-32">
+    <section className="relative z-10 bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-12 md:pt-24 pb-32 content-visibility-auto" style={{ containIntrinsicSize: '0 1200px' }}>
       {/* Top light divider to separate from previous section */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3B82F6]/80 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]">
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-64 h-64 bg-[#3B82F6]/40 blur-[80px] rounded-full -translate-y-1/2" />

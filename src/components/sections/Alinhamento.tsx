@@ -162,7 +162,8 @@ export const Alinhamento = () => {
     <section 
       id="alinhamento"
       ref={containerRef}
-      className="relative overflow-hidden bg-black py-24 md:py-32"
+      className="relative overflow-hidden bg-black py-24 md:py-32 content-visibility-auto"
+      style={{ containIntrinsicSize: '0 800px' }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.08),transparent_32%),radial-gradient(circle_at_80%_70%,rgba(37,99,235,0.10),transparent_36%)]" />
 
