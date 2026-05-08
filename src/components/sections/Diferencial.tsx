@@ -17,24 +17,45 @@ export const Diferencial = () => {
   };
   return (
     <section id="diferencial" ref={ref} className="relative min-h-[110vh] z-10 overflow-hidden">
+      {/* Top Transition Divider */}
+      <div className="absolute top-0 left-0 right-0 h-64 md:h-96 z-0 pointer-events-none overflow-hidden">
+        {/* Smoother Gradient fade from the previous section's end color */}
+        <div className="w-full h-full bg-gradient-to-b from-[#0A1026] via-[#0A1026]/60 via-[#0A1026]/20 to-transparent" />
+        
+        {/* Central Glow Effect */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-80 md:h-[500px] -translate-y-1/2 bg-cyan-500/10 blur-[120px] rounded-full" />
+      </div>
+
       <GridBackground className="py-24 md:py-32" style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)" }}>
         <div className="container relative">
           <div className="flex flex-col items-center text-center">
             <div className={`max-w-4xl mb-16 ${visible ? "animate-fade-in-up" : "opacity-0"}`}>
               {/* Glowing Badge */}
-              <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 md:px-5 md:py-2 mb-8 rounded-full border border-blue-400 bg-blue-900/20 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.6)] w-fit mx-auto max-w-[95vw]">
-                <div className="hidden sm:flex relative min-w-[8px] min-h-[8px] w-2 h-2 items-center justify-center flex-none mt-[1px]">
-                  <span className="absolute block h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative block h-full w-full rounded-full bg-blue-500 shadow-[0_0_12px_#3b82f6]"></span>
-                </div>
-                <span className="text-[10px] xs:text-[11px] sm:text-[12px] md:text-sm font-bold text-blue-300 uppercase tracking-widest whitespace-normal sm:whitespace-nowrap leading-tight">Uma entrega diferente do mercado</span>
-              </div>
 
-              <h2 className={`font-display text-3xl xs:text-[32px] sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6 ${visible ? "animate-reveal-fall" : "opacity-0"}`}>
-                Nós criamos a estrutura que conecta sua loja aos clientes certos.
+
+              <h2 className={`font-display text-3xl xs:text-[32px] sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6 ${visible ? "animate-reveal-fall is-visible" : "opacity-0"}`}>
+                Página que tem fundamento, o cliente entende, confia e{" "}
+                <span className="select-highlight-word">
+                  <span className="select-highlight-box"></span>
+                  <span className="select-highlight-text">compra</span>
+                  <svg
+                    className="select-highlight-cursor"
+                    viewBox="0 0 26 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2 2L23 16.5L13.5 18.5L9.5 28L2 2Z"
+                      fill="#22D3EE"
+                      stroke="#A5F3FC"
+                      strokeWidth="1.2"
+                    />
+                  </svg>
+                </span>
+                .
               </h2>
               <p className={`text-base md:text-lg text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto ${visible ? "animate-reveal-left" : "opacity-0"}`} style={{ animationDelay: "150ms" }}>
-                A Daurer cria seu e-commerce e o conecta ao tráfego pago para atrair clientes e vender online com mais previsibilidade.
+                A Daurer não entrega só aparência. Entrega direção para sua loja vender online com mais clareza.
               </p>
             </div>
 
@@ -53,10 +74,94 @@ export const Diferencial = () => {
 
               .card-diferencial-dark { transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease; }
               @media (min-width: 1024px) {
-                .card-diferencial-dark:hover { transform: translateY(-8px) scale(1.04); box-shadow: 0 0 80px rgba(0, 255, 170, 0.25); }
+                .card-diferencial-dark:hover { transform: translateY(-8px) scale(1.04); box-shadow: 0 0 80px rgba(59, 130, 246, 0.25); }
               }
               @media (max-width: 1023px) {
-                .card-diferencial-dark:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 0 80px rgba(0, 255, 170, 0.25); }
+                .card-diferencial-dark:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 0 80px rgba(59, 130, 246, 0.25); }
+              }
+
+              .select-highlight-word {
+                position: relative;
+                display: inline-block;
+                padding: 0.02em 0.16em 0.04em;
+                color: #22d3ee;
+                white-space: nowrap;
+                isolation: isolate;
+                text-shadow:
+                  0 0-16px rgba(34, 211, 238, 0.55),
+                  0 0 36px rgba(34, 211, 238, 0.25);
+                transition: color 0.3s ease 0.4s;
+              }
+
+              .select-highlight-text {
+                position: relative;
+                z-index: 2;
+              }
+
+              .select-highlight-box {
+                position: absolute;
+                left: 0;
+                top: 0.02em;
+                width: 100%;
+                height: 0.94em;
+                z-index: 1;
+                background: rgba(34, 211, 238, 0.18);
+                border: 1px solid rgba(34, 211, 238, 0.75);
+                box-shadow:
+                  0 0 22px rgba(34, 211, 238, 0.22),
+                  inset 0 0 16px rgba(34, 211, 238, 0.08);
+                clip-path: inset(0 100% 0 0);
+              }
+
+              .select-highlight-cursor {
+                position: absolute;
+                z-index: 5;
+                left: -0.12em;
+                bottom: -0.42em;
+                width: 1.2rem;
+                height: auto;
+                opacity: 0;
+                filter:
+                  drop-shadow(0 0 8px rgba(34, 211, 238, 0.9))
+                  drop-shadow(0 0 18px rgba(34, 211, 238, 0.35));
+                transform: translate(-10px, 8px);
+                pointer-events: none;
+              }
+
+              .is-visible .select-highlight-box {
+                animation: selectBoxDrag 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+              }
+
+              .is-visible .select-highlight-cursor {
+                animation: mouseDragSelect 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+              }
+
+              @keyframes selectBoxDrag {
+                0% { clip-path: inset(0 100% 100% 0); opacity: 0; }
+                10% { opacity: 1; }
+                100% { clip-path: inset(0 0 0 0); opacity: 1; }
+              }
+
+              @keyframes mouseDragSelect {
+                0% { 
+                  opacity: 0; 
+                  left: -0.15em; 
+                  top: -0.2em; 
+                  transform: translate(-10px, -10px); 
+                }
+                10% { opacity: 1; }
+                100% { 
+                  opacity: 1; 
+                  left: 100%; 
+                  top: 0.85em; 
+                  transform: translate(-8px, 0); 
+                }
+              }
+
+              @media (max-width: 768px) {
+                .select-highlight-cursor {
+                  width: 0.9rem;
+                }
               }
 
               /* Removida interferência azul de fundo */
@@ -122,40 +227,42 @@ export const Diferencial = () => {
 
             <div className="w-full max-w-[900px] mx-auto flex flex-col lg:flex-row items-center justify-center relative z-10 gap-6 mt-4 lg:pb-[60px]">
               {/* CARD ESQUERDO */}
-              <div className={`relative z-10 w-full lg:w-[360px] self-center entr-left ${visible ? "is-visible" : ""}`}>
+              <div className={`relative z-10 w-full lg:w-[440px] self-center entr-left ${visible ? "is-visible" : ""}`}>
                 <div className="w-full h-full rounded-[22px] p-8 md:p-9 bg-[#e8e8e8] text-gray-900 shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-2 text-left">
-                  <div className="w-11 h-11 rounded-full border-[3px] border-red-500 text-red-500 flex items-center justify-center text-xl mb-3 font-bold">
-                    ✖
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-11 h-11 rounded-full border-[3px] border-red-500 text-red-500 flex items-center justify-center text-xl font-bold flex-shrink-0">
+                      ✖
+                    </div>
+                    <h3 className="font-bold text-lg md:text-xl tracking-tight leading-tight">Entrega comum, sem direção e fundamentos</h3>
                   </div>
-                  <h3 className="font-bold text-xl md:text-[22px] tracking-tight mb-5 mt-2">Entrega comum de “site bonito”</h3>
-                  <ul className="space-y-4 relative z-10">
-                    <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">✕</span> 
-                      <span>Loja virtual <b className="font-semibold text-black">sem estratégia de venda</b></span>
+                  <ul className="space-y-5 relative z-10">
+                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+                      <span>Página bonita, <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>mas sem lógica de venda</span></span>
                     </li>
-                    <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">✕</span> 
-                      <span>Produtos cadastrados <b className="font-semibold text-black">sem jornada de compra</b></span>
+                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+                      <span>Produtos exibidos <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>sem jornada clara de compra</span></span>
                     </li>
-                    <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">✕</span> 
-                      <span>Site que <b className="font-semibold text-black">não passa confiança suficiente</b></span>
+                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+                      <span>Textos genéricos <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>que não valorizam sua oferta</span></span>
                     </li>
-                    <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">✕</span> 
-                      <span><b className="font-semibold text-black">Nenhum plano</b> para atrair clientes</span>
+                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+                      <span>Visual que <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>não transmite confiança suficiente</span></span>
                     </li>
-                    <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">✕</span> 
-                      <span>Tráfego pago <b className="font-semibold text-black">sem estrutura para converter</b></span>
+                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+                      <span>Botões e seções <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>sem foco em conversão</span></span>
                     </li>
-                    <li className="flex items-start gap-3 text-[15px] text-gray-800">
-                      <span className="flex-shrink-0 mt-0.5">✕</span> 
-                      <span>Você recebe o site e <b className="font-semibold text-black">precisa se virar sozinho</b></span>
+                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+                      <span>Tráfego enviado para <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>uma página despreparada</span></span>
                     </li>
-                    <li className="flex items-start gap-3 text-[15px] mt-4 font-bold uppercase text-red-600/90 whitespace-normal">
+                    <li className="flex items-start gap-2.5 text-[16px] mt-6 font-bold uppercase text-red-600 whitespace-normal">
                       <span className="flex-shrink-0">✕</span>
-                      <span>SITE ENTREGUE. VENDAS POR SUA CONTA.</span>
+                      <span>SITE ENTREGUE. VENDAS POR SUA CONTA</span>
                     </li>
                   </ul>
                 </div>
@@ -163,8 +270,8 @@ export const Diferencial = () => {
 
               {/* CARD DIREITO */}
               <div className={`relative z-30 w-full lg:w-[480px] entr-right ${visible ? "is-visible" : ""}`}>
-                <div className="w-full h-full rounded-[22px] p-8 md:p-9 bg-[#050510] border border-[#00ffaa]/15 text-white shadow-[0_0_60px_rgba(0,255,170,0.15)] card-diferencial-dark text-left">
-                  <div className="flex justify-center mb-0">
+                <div className="w-full h-full rounded-[22px] p-8 md:p-9 bg-[#050510] border border-blue-500/15 text-white shadow-[0_0_60px_rgba(59,130,246,0.15)] card-diferencial-dark text-left">
+                  <div className="flex flex-col items-center mb-6">
                     <div className="w-full max-w-[240px] flex items-center justify-center">
                       <img 
                         src="/daurer-logo.png" 
@@ -174,18 +281,18 @@ export const Diferencial = () => {
                     </div>
                   </div>
                   <div className="text-center text-sm mb-6 text-white">
-                    <span className="font-bold block text-lg mb-2">Estrutura Daurer para e-commerce</span>
-                    <span className="text-xs text-white/50">O que sua loja recebe com a gente:</span>
+                    <span className="font-bold block text-lg mb-1">O que nós entregamos!</span>
+                    <span className="text-xs text-white/70 block mb-4">Marque o que faz sentido para sua loja:</span>
                   </div>
                   <ul className="space-y-4">
                     {[
-                      { title: "E-commerce profissional e responsivo" },
-                      { title: "Jornada pensada para transformar visitas em pedidos" },
-                      { title: "Copy estratégica para apresentar seus produtos" },
-                      { title: "Estrutura preparada para tráfego pago" },
-                      { title: "Campanhas para atrair clientes certos" },
-                      { title: "Análise e otimização com base em dados" },
-                      { title: "Suporte para sua loja sair do improviso", bold: true }
+                      { title: "Uma loja online fácil de entender" },
+                      { title: "Produtos organizados para o cliente comprar com menos dúvida" },
+                      { title: "Textos que mostram melhor o valor da sua marca" },
+                      { title: "Visual mais profissional e confiável" },
+                      { title: "Botões claros para transformar interesse em pedido" },
+                      { title: "Anúncios levando clientes para uma página preparada" },
+                      { title: "Mais clareza para vender sem depender só do Instagram" }
                     ].map((item, idx) => {
                       const isSelected = selectedItems.includes(idx);
                       return (
@@ -195,16 +302,14 @@ export const Diferencial = () => {
                             className={`select-item ${isSelected ? "is-selected" : ""}`}
                           >
                             <span className="check-box" />
-                            <span>
-                              {item.bold ? <b className="font-semibold">{item.title}</b> : item.title}
-                            </span>
+                            <span>{item.title}</span>
                           </button>
                         </li>
                       );
                     })}
                   </ul>
-                  <p className="mt-6 text-center text-[13px] text-white/60">
-                    Se você quer vender online com mais consistência, esse é o caminho.
+                  <p className="mt-6 text-center text-[12px] leading-relaxed text-white/60 px-4">
+                    Se 2 ou mais desses pontos fazem sentido para sua loja, você já entendeu a diferença da nossa entrega.
                   </p>
                 </div>
               </div>
@@ -220,13 +325,13 @@ export const Diferencial = () => {
                 }} 
                 className="w-full sm:w-auto px-10 md:px-16 py-6 text-base md:text-lg font-bold uppercase tracking-[0.1em]"
               >
-                Quero recuperar essas vendas
+                Quero uma entrega assim
               </ShinyButton>
             </div>
           </div>
         </div>
       </GridBackground>
-
     </section>
   );
 };
+

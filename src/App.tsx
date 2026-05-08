@@ -17,7 +17,7 @@ const App = () => (
       <SmoothScroll />
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <div className="relative w-full">
           <Routes>
             <Route path="/" element={<Index />} />
