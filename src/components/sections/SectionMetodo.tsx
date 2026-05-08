@@ -89,9 +89,14 @@ const TimelineStep = ({ step, i, isEven }: { step: typeof steps[0], i: number, i
           </motion.div>
           
           {/* Card Content Interior */}
-          <div className="relative z-10 p-8 md:p-12 rounded-[1.95rem] bg-[#0F142A]/90 backdrop-blur-xl border border-[#3B82F6]/10 group-hover:border-[#3B82F6]/30 group-hover:bg-[#151D3A]/90 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-500 overflow-hidden h-full">
-            {/* Subtle Internal Glow highlighting the card number */}
-            <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#3B82F6]/10 blur-[60px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+          <div className="relative z-10 p-8 md:p-12 rounded-[1.95rem] bg-gradient-to-br from-[#161D3F]/80 via-[#0F142A]/95 to-[#0A0D1E]/95 backdrop-blur-2xl border border-white/5 group-hover:border-[#3B82F6]/30 group-hover:bg-gradient-to-br group-hover:from-[#1C2550]/80 group-hover:to-[#0F142A]/95 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.1)] transition-all duration-700 overflow-hidden h-full">
+            
+            {/* Ambient Internal Glows (3D feel) */}
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#3B82F6]/10 blur-[100px] rounded-full transition-opacity duration-700 opacity-50 group-hover:opacity-100" />
+            <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-[#3B82F6]/5 blur-[80px] rounded-full transition-opacity duration-700 opacity-30 group-hover:opacity-60" />
+            
+            {/* Subtle top-highlight for 3D edge effect */}
+            <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             
             <div className="relative z-10 flex flex-col gap-4 md:gap-6">
               <span className="text-[#3B82F6] font-display text-5xl md:text-6xl font-bold select-none drop-shadow-md text-aurora w-fit">
