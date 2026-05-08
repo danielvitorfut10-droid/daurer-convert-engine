@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, useSpring, useInView, useVelocity, useMotionValueEvent } from 'framer-motion';
 
 const steps = [
   {
@@ -131,6 +131,23 @@ export const SectionMetodo = () => {
 
   const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
+  // Rocket Direction Logic
+  const scrollVelocity = useVelocity(scrollYProgress);
+  const [rocketRotation, setRocketRotation] = useState(135); // Default pointing down
+
+  useMotionValueEvent(scrollVelocity, "change", (latest) => {
+    if (latest > 0.01) {
+      setRocketRotation(135); // Pointing down (relative to original emoji 45deg)
+    } else if (latest < -0.01) {
+      setRocketRotation(-45); // Pointing up
+    }
+  });
+
+  const smoothRotation = useSpring(rocketRotation, {
+    stiffness: 300,
+    damping: 30
+  });
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-24 pb-32">
       {/* Top light divider to separate from previous section */}
@@ -188,7 +205,18 @@ export const SectionMetodo = () => {
           <motion.div 
             className="absolute left-[24px] md:left-1/2 top-4 w-[2px] bg-[#3B82F6] -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] origin-top z-10"
             style={{ height: lineHeight }}
-          />
+          >
+            {/* Interactive Rocket at the tip */}
+            <motion.div 
+              style={{ 
+                rotate: smoothRotation,
+                y: "-50%"
+              }}
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 text-2xl md:text-3xl z-30 select-none pointer-events-none drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+            >
+              🚀
+            </motion.div>
+          </motion.div>
 
           {/* Timeline Steps */}
           <div className="flex flex-col gap-12 md:gap-32 w-full relative z-20">
