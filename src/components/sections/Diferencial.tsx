@@ -17,7 +17,6 @@ export const Diferencial = () => {
   };
   return (
     <section id="diferencial" ref={ref} className="relative min-h-[110vh] z-10 overflow-hidden">
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full h-[200px] bg-blue-400/15 blur-[100px] rounded-full pointer-events-none z-0" />
       <GridBackground className="py-24 md:py-32" style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)" }}>
         <div className="container relative">
           <div className="flex flex-col items-center text-center">
@@ -60,30 +59,7 @@ export const Diferencial = () => {
                 .card-diferencial-dark:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 0 80px rgba(0, 255, 170, 0.25); }
               }
 
-              #diferencial {
-                 mask-image: linear-gradient(to bottom, transparent 0%, black 150px);
-                 -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 150px);
-              }
-
-               #diferencial::before {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 400px;
-                background: linear-gradient(
-                  to bottom,
-                  transparent 0%,
-                  rgba(0, 71, 255, 0.1) 30%,
-                  rgba(59, 130, 246, 0.4) 60%,
-                  rgba(6, 182, 212, 0.7) 85%,
-                  rgba(6, 182, 212, 0.9) 100%
-                );
-                filter: blur(50px);
-                pointer-events: none;
-                z-index: 0;
-              }
+              /* Removida interferência azul de fundo */
 
               /* Selectable checkboxes for the right card */
               .select-item {

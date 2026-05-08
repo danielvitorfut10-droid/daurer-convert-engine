@@ -81,8 +81,6 @@ export const Projetos = () => {
          <FloatingPaths position={-1} />
       </div>
 
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none z-0" />
-
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
           

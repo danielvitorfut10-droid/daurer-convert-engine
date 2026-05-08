@@ -10,10 +10,10 @@ export const GridBackground = ({ className, style, children }: { className?: str
         style={{
           background: "transparent",
           backgroundImage: `
-            linear-gradient(to right, rgba(75, 85, 99, 0.04) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(75, 85, 99, 0.04) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px)
           `,
-          backgroundSize: "40px 40px",
+          backgroundSize: "70px 70px",
         }}
       />
       {/* Your Content/Components */}
