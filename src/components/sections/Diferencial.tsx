@@ -319,10 +319,8 @@ export const Diferencial = () => {
             <div className={`mt-10 md:mt-12 entr-cta ${visible ? "is-visible" : ""}`}>
               <ShinyButton 
                 onClick={() => {
-                  const contactSection = document.getElementById("contato");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
-                  }
+                  const message = "Olá, vim pelo site da Daurer. Vi a diferença entre um site comum e uma entrega pensada para vender, e quero entender como isso poderia funcionar para minha loja.";
+                  window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
                 }} 
                 className="w-full sm:w-auto px-10 md:px-16 py-6 text-base md:text-lg font-bold uppercase tracking-[0.1em]"
               >

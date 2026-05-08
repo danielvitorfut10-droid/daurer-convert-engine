@@ -191,12 +191,18 @@ export const SectionMetodo = () => {
         <div ref={containerRef} className="relative w-full max-w-5xl mx-auto pb-16">
           
           {/* Base track: Pale/Inactive Line - Estendida até o fim */}
-          <div className="absolute left-[24px] md:left-1/2 top-4 bottom-[-100px] w-[2px] bg-gradient-to-b from-[#3B82F6]/30 via-[#3B82F6]/15 to-[#3B82F6]/5 -translate-x-1/2 rounded-full" />
+          <motion.div 
+            style={{ opacity: useTransform(smoothProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0]) }}
+            className="absolute left-[24px] md:left-1/2 top-4 bottom-[-100px] w-[2px] bg-gradient-to-b from-[#3B82F6]/30 via-[#3B82F6]/15 to-[#3B82F6]/5 -translate-x-1/2 rounded-full" 
+          />
 
           {/* Fill track: Glowing Active Line following scroll */}
           <motion.div 
             className="absolute left-[24px] md:left-1/2 top-4 w-[2px] bg-[#3B82F6] -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] origin-top z-10 will-change-[height]"
-            style={{ height: useTransform(smoothProgress, [0, 1], ["0%", "115%"]) }}
+            style={{ 
+              height: useTransform(smoothProgress, [0, 1], ["0%", "115%"]),
+              opacity: useTransform(smoothProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0])
+            }}
           >
             {/* Interactive Rocket at the tip */}
             <motion.div 

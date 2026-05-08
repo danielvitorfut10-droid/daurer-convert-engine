@@ -34,7 +34,8 @@ const problemCardsData: ProblemCardData[] = [
 
 export const SectionProblema = () => {
   const handleCtaClick = () => {
-    window.open(whatsappUrl(), "_blank");
+    const message = "Olá, vim pelo site da Daurer. Vi que minha loja pode estar perdendo vendas por falta de um método mais claro, e quero entender como posso resolver isso.";
+    window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
   };
 
   // Helper to render bold text
@@ -195,7 +196,7 @@ export const SectionProblema = () => {
               '--shiny-cta-highlight-subtle': '#60a5fa',
             } as React.CSSProperties}
           >
-            Saiba mais+
+            RESOLVER AGORA!
           </ShinyButton>
         </div>
 

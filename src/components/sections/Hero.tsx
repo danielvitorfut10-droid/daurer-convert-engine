@@ -4,10 +4,8 @@ import { ShinyButton } from "@/components/ui/shiny-button";
 
 export const Hero = () => {
   const handleCtaClick = () => {
-    const contactSection = document.getElementById("contato");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+    const message = "Olá, vim pelo site da Daurer. Tenho uma loja e quero entender como criar uma estrutura melhor para vender online com mais clareza e confiança.";
+    window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
   };
 
   return (

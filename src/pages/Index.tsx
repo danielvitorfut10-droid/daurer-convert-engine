@@ -10,7 +10,7 @@ import { Footer } from "@/components/sections/Footer";
 import FeedbackImageCarousel from "@/components/sections/FeedbackCarousel";
 import { SectionProblema } from "@/components/sections/SectionProblema";
 import { SectionMetodo } from "@/components/sections/SectionMetodo";
-
+import { SkillsMarquee } from "@/components/sections/SkillsMarquee";
 import { StarBackground } from "@/components/ui/star-background";
 
 const Index = () => {
@@ -28,6 +28,7 @@ const Index = () => {
 
         <ProjectsMarquee />
         <FeedbackImageCarousel />
+        <SkillsMarquee variant="white" />
         <Alinhamento />
         <CtaFinal />
         <Footer />
