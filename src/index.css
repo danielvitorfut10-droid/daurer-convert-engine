@@ -286,4 +286,63 @@
   .animate-marquee-vertical {
     animation: marquee-vertical var(--duration) linear infinite;
   }
+
+  /* --- NOVOS ESTILOS PARA SECTION METODO --- */
+
+  .neon-border-wrapper {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .neon-border-trace {
+    position: absolute;
+    inset: -50%;
+    z-index: -1;
+    background: conic-gradient(from 0deg, transparent 0% 75%, #3B82F6 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    filter: blur(8px);
+  }
+
+  .active-neon .neon-border-trace {
+    animation: spin-once 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes spin-once {
+    0% { transform: rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: rotate(360deg); opacity: 0; }
+  }
+
+  /* Borda neon estática que permanece após a volta */
+  .active-neon .static-neon-border {
+    opacity: 1;
+    transition: opacity 1s ease 1s; /* Entra suavemente após a volta */
+  }
+
+  .static-neon-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.2), 0 0 10px rgba(59, 130, 246, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Overlay para recortar a borda e manter o fundo do card */
+  .neon-border-content {
+    background: inherit;
+    border-radius: inherit;
+    height: 100%;
+    width: 100%;
+  }
+
+  .text-aurora {
+    @apply text-glow-animated;
+    filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.8));
+  }
 }
