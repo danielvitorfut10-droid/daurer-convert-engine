@@ -26,7 +26,7 @@ const Index = () => {
   });
 
   return (
-    <main ref={containerRef} className="min-h-screen bg-black text-foreground relative">
+    <main ref={containerRef} className="min-h-screen bg-black text-foreground relative overflow-x-hidden">
       <StarBackground />
       <div className="relative z-10">
         <Hero />

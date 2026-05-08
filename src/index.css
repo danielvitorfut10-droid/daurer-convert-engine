@@ -77,7 +77,8 @@
   html {
     scroll-behavior: auto;
     position: relative;
-    /* overflow-x: hidden removed as it can break position: sticky in some browsers */
+    overflow-x: clip;
+    width: 100%;
   }
   
   body {
@@ -88,7 +89,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "ss01", "cv11";
     position: relative;
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
   }
 
