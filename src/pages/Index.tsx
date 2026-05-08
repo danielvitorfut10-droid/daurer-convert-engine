@@ -14,6 +14,7 @@ import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
 import FeedbackImageCarousel from "@/components/sections/FeedbackCarousel";
 import { SectionProblema } from "@/components/sections/SectionProblema";
+import { SectionMetodo } from "@/components/sections/SectionMetodo";
 
 import { StarBackground } from "@/components/ui/star-background";
 
@@ -62,6 +63,7 @@ const Index = () => {
         <Hero />
         <DaurerMarquee />
         <SectionProblema />
+        <SectionMetodo />
         <TrustBanner />
         <ProjectsMarquee />
 

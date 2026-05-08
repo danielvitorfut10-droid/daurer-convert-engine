@@ -89,7 +89,7 @@ export const SectionProblema = () => {
             <div className="sticky top-16 md:top-20 z-0 w-full flex flex-col justify-start h-[calc(70vh+96px)] md:h-[calc(80vh+112px)] border border-transparent">
               <h2 className="text-[32px] md:text-5xl lg:text-[4rem] font-bold text-center tracking-tight leading-[1.15] text-white/95 pt-4">
                 O Problema não é <br />
-                o <span className="text-[#ff2a2a]">produto</span>... é o <br />
+                o <span className="text-white">produto</span>... é o <br />
                 <span className="text-glow-animated font-['Lora'] italic font-medium block mt-3 md:mt-4 text-[1.2em] md:text-[1.3em] drop-shadow-[0_0_20px_rgba(59,130,246,0.3)]">Método de vendas!</span>
               </h2>
             </div>
