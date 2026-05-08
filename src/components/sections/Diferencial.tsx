@@ -23,7 +23,7 @@ export const Diferencial = () => {
         <div className="w-full h-full bg-gradient-to-b from-[#0A1026] via-[#0A1026]/60 via-[#0A1026]/20 to-transparent" />
         
         {/* Central Glow Effect */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-80 md:h-[500px] -translate-y-1/2 bg-cyan-500/10 blur-[120px] rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-80 md:h-[500px] -translate-y-1/2 bg-cyan-500/10 blur-[120px] rounded-full" />
       </div>
 
       <GridBackground className="py-24 md:py-32" style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)" }}>
@@ -33,7 +33,7 @@ export const Diferencial = () => {
               {/* Glowing Badge */}
 
 
-              <h2 className={`font-display text-3xl xs:text-[32px] sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6 ${visible ? "animate-reveal-fall is-visible" : "opacity-0"}`}>
+              <h2 className={`font-display text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6 ${visible ? "animate-reveal-fall is-visible" : "opacity-0"}`}>
                 Página que tem fundamento, o cliente entende, confia e{" "}
                 <span className="select-highlight-word">
                   <span className="select-highlight-box"></span>
@@ -225,10 +225,10 @@ export const Diferencial = () => {
               }
             `}</style>
 
-            <div className="w-full max-w-[900px] mx-auto flex flex-col lg:flex-row items-center justify-center relative z-10 gap-6 mt-4 lg:pb-[60px]">
+            <div className="w-full max-w-[1000px] mx-auto flex flex-col lg:flex-row items-center justify-center relative z-10 gap-8 mt-4 lg:pb-[60px] px-4">
               {/* CARD ESQUERDO */}
-              <div className={`relative z-10 w-full lg:w-[440px] self-center entr-left ${visible ? "is-visible" : ""}`}>
-                <div className="w-full h-full rounded-[22px] p-8 md:p-9 bg-[#e8e8e8] text-gray-900 shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-2 text-left">
+              <div className={`relative z-10 w-full lg:w-[440px] max-w-full self-center entr-left ${visible ? "is-visible" : ""}`}>
+                <div className="w-full h-full rounded-[22px] p-6 md:p-9 bg-[#e8e8e8] text-gray-900 shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-2 text-left">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-11 h-11 rounded-full border-[3px] border-red-500 text-red-500 flex items-center justify-center text-xl font-bold flex-shrink-0">
                       ✖
@@ -269,8 +269,8 @@ export const Diferencial = () => {
               </div>
 
               {/* CARD DIREITO */}
-              <div className={`relative z-30 w-full lg:w-[480px] entr-right ${visible ? "is-visible" : ""}`}>
-                <div className="w-full h-full rounded-[22px] p-8 md:p-9 bg-[#050510] border border-blue-500/15 text-white shadow-[0_0_60px_rgba(59,130,246,0.15)] card-diferencial-dark text-left">
+              <div className={`relative z-30 w-full lg:w-[440px] max-w-full entr-right ${visible ? "is-visible" : ""}`}>
+                <div className="w-full h-full rounded-[22px] p-6 md:p-9 bg-[#050510] border border-blue-500/15 text-white shadow-[0_0_60px_rgba(59,130,246,0.15)] card-diferencial-dark text-left">
                   <div className="flex flex-col items-center mb-6">
                     <div className="w-full max-w-[240px] flex items-center justify-center">
                       <img 
