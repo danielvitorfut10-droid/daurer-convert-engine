@@ -12,8 +12,16 @@ export const Alinhamento = () => {
       ref={ref}
       className="relative py-24 md:py-32 overflow-hidden bg-black"
     >
+      {/* Top Transition & Light Point (Matching Skills/Diferencial style) */}
+      <div className="absolute top-0 left-0 right-0 h-64 pointer-events-none z-20">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-64 bg-blue-500/10 blur-[100px] rounded-full -translate-y-1/2" />
+        
+        {/* The "Half Dot" core at the top divider */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-blue-400 rounded-full -translate-y-1/2 shadow-[0_0_20px_#3b82f6,0_0_45px_#3b82f6] z-30" />
+      </div>
+
       {/* Background Decor */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-900/10 blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-900/10 blur-[150px] rounded-full pointer-events-none z-0 opacity-50" />
       
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">

@@ -133,10 +133,20 @@ export const SectionProblema = () => {
 
           {/* Camada 2: Cards Físicos. mt- reduzido para começarem mais cedo no scroll. */}
           <div className="col-start-1 row-start-1 w-full mt-12 md:mt-16 relative z-10">
-            {problemCardsData.map((card, i) => (
-              <ScrollCardItem key={i} stickyTop="top-40 md:top-48" className="z-10">
+            {problemCardsData.map((card, i) => {
+              const zValues = ["z-10", "z-20", "z-30", "z-40", "z-50"];
+              // Offsets progressivos para criar o efeito de "maço de cartas"
+              const topOffsets = [
+                "top-32 md:top-40",
+                "top-36 md:top-44",
+                "top-40 md:top-48",
+                "top-44 md:top-52",
+                "top-48 md:top-56"
+              ];
+              return (
+              <ScrollCardItem key={i} stickyTop={topOffsets[i]} className={zValues[i]}>
                 <article
-                  className={`relative h-[300px] md:h-[380px] w-full max-w-2xl mx-auto rounded-3xl ${card.rotation} p-8 md:p-12 flex flex-col justify-center gap-6 bg-[#0B0D17] border ${neonBorders[i]} ${neonShadows[i]} transition-all duration-700 overflow-hidden group will-change-transform`}
+                  className={`relative h-[320px] md:h-[400px] w-full max-w-2xl mx-auto rounded-3xl ${card.rotation} p-8 md:p-12 flex flex-col justify-center gap-6 bg-[#0B0D17] border ${neonBorders[i]} ${neonShadows[i]} transition-all duration-700 overflow-hidden group will-change-transform`}
                 >
                   {/* Central Radial Light — ponto de luz central forte */}
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(59,130,246,0.22),transparent_65%)] pointer-events-none" />
@@ -165,7 +175,8 @@ export const SectionProblema = () => {
                   </p>
                 </article>
               </ScrollCardItem>
-            ))}
+              );
+            })}
           </div>
 
         </div>
@@ -173,7 +184,7 @@ export const SectionProblema = () => {
         {/* CTA Button Estático -> Fixo no final da aba em relação ao fluxo natural da página. 
             Ele não é "sticky", então o uso de margem negativa o puxa para perto do último card preenchendo o vazio da figura 80vh. */}
         {/* CTA Button Estático */}
-        <div className="relative z-20 flex flex-col items-center justify-center -mt-12 md:-mt-24 pb-12">
+        <div className="relative z-20 flex flex-col items-center justify-center pt-20 pb-12">
           <ShinyButton 
             onClick={handleCtaClick}
             className="px-14 py-5 text-xl md:text-2xl font-semibold shadow-[0_0_80px_rgba(59,130,246,0.55)] transition-all"

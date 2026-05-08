@@ -179,6 +179,12 @@ function FeedbackCarousel({
           </div>
         </div>
       </div>
+
+      {/* Bottom Transition & Light Point */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-20">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[500px] h-32 bg-blue-500/15 blur-[80px] rounded-full translate-y-1/2" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-blue-400 rounded-full translate-y-1/2 shadow-[0_0_20px_#3b82f6,0_0_45px_#3b82f6] z-30" />
+      </div>
     </section>
   );
 }
