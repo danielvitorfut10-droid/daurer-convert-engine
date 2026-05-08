@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView, useVelocity, useMotionValueEvent } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring, useInView, useVelocity } from 'framer-motion';
 
 const steps = [
   {
@@ -89,7 +89,7 @@ const TimelineStep = ({ step, i, isEven }: { step: typeof steps[0], i: number, i
           </motion.div>
           
           {/* Card Content Interior */}
-          <div className="relative z-10 p-8 md:p-12 rounded-[1.95rem] bg-gradient-to-br from-[#161D3F]/80 via-[#0F142A]/95 to-[#0A0D1E]/95 backdrop-blur-2xl border border-white/5 group-hover:border-[#3B82F6]/30 group-hover:bg-gradient-to-br group-hover:from-[#1C2550]/80 group-hover:to-[#0F142A]/95 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.1)] transition-all duration-700 overflow-hidden h-full">
+          <div className="relative z-10 p-8 md:p-12 rounded-[1.95rem] bg-gradient-to-br from-[#161D3F]/80 via-[#0F142A]/95 to-[#0A0D1E]/95 backdrop-blur-xl border border-white/5 group-hover:border-[#60A5FA]/30 group-hover:bg-gradient-to-br group-hover:from-[#1C2550]/80 group-hover:to-[#0F142A]/95 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.1)] transition-all duration-700 overflow-hidden h-full will-change-transform">
             
             {/* Ambient Internal Glows (3D feel) */}
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#3B82F6]/10 blur-[100px] rounded-full transition-opacity duration-700 opacity-50 group-hover:opacity-100" />
@@ -136,22 +136,10 @@ export const SectionMetodo = () => {
 
   const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
-  // Rocket Direction Logic
-  const scrollVelocity = useVelocity(scrollYProgress);
-  const [rocketRotation, setRocketRotation] = useState(135); // Default pointing down
-
-  useMotionValueEvent(scrollVelocity, "change", (latest) => {
-    if (latest > 0.01) {
-      setRocketRotation(135); // Pointing down (relative to original emoji 45deg)
-    } else if (latest < -0.01) {
-      setRocketRotation(-45); // Pointing up
-    }
-  });
-
-  const smoothRotation = useSpring(rocketRotation, {
-    stiffness: 300,
-    damping: 30
-  });
+  // Performance Optimization: Reactive transform avoids React rerenders during scroll
+  const scrollVelocity = useVelocity(smoothProgress);
+  const rocketRotation = useTransform(scrollVelocity, [ -0.001, 0, 0.001 ], [ -45, 135, 135 ]);
+  const smoothRotation = useSpring(rocketRotation, { stiffness: 400, damping: 30 });
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-24 pb-32">
@@ -173,9 +161,9 @@ export const SectionMetodo = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#3B82F6]/30 bg-[#3B82F6]/10 text-xs md:text-sm text-[#3B82F6] font-medium tracking-wide mb-8 shadow-[0_0_20px_rgba(59,130,246,0.15)]"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#60A5FA]/40 bg-[#60A5FA]/10 text-[10px] md:text-xs text-[#60A5FA] font-bold tracking-[0.2em] mb-8 shadow-[0_0_20px_rgba(96,165,250,0.2)] uppercase"
           >
-            <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] animate-pulse shadow-[0_0_10px_rgba(96,165,250,0.8)]" />
             O QUE A DAURER FAZ?
           </motion.div>
           
@@ -208,7 +196,7 @@ export const SectionMetodo = () => {
 
           {/* Fill track: Glowing Active Line following scroll */}
           <motion.div 
-            className="absolute left-[24px] md:left-1/2 top-4 w-[2px] bg-[#3B82F6] -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] origin-top z-10"
+            className="absolute left-[24px] md:left-1/2 top-4 w-[2px] bg-[#3B82F6] -translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] origin-top z-10 will-change-[height]"
             style={{ height: lineHeight }}
           >
             {/* Interactive Rocket at the tip */}
@@ -217,7 +205,7 @@ export const SectionMetodo = () => {
                 rotate: smoothRotation,
                 y: "-50%"
               }}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 text-2xl md:text-3xl z-30 select-none pointer-events-none drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 text-2xl md:text-3xl z-30 select-none pointer-events-none drop-shadow-[0_0_15px_rgba(59,130,246,0.5)] will-change-transform"
             >
               🚀
             </motion.div>
