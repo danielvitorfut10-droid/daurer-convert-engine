@@ -98,6 +98,14 @@ const TimelineStep = ({ step, i, isEven }: { step: typeof steps[0], i: number, i
             {/* Subtle top-highlight for 3D edge effect */}
             <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             
+            {/* Ray of Light (Shine Glint) */}
+            <motion.div 
+              initial={{ x: "-100%", skewX: -25 }}
+              animate={isInView ? { x: "200%" } : { x: "-100%" }}
+              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
+              className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/[0.05] to-transparent pointer-events-none z-20"
+            />
+            
             <div className="relative z-10 flex flex-col gap-4 md:gap-6">
               <span className="text-[#3B82F6] font-display text-5xl md:text-6xl font-bold select-none drop-shadow-md text-aurora w-fit">
                 {step.num}
@@ -105,7 +113,7 @@ const TimelineStep = ({ step, i, isEven }: { step: typeof steps[0], i: number, i
               <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
                 {step.title}
               </h4>
-              <p className="text-white/70 text-base md:text-lg leading-relaxed font-medium">
+              <p className="text-white/80 text-lg md:text-xl leading-relaxed font-medium">
                 {step.desc}
               </p>
             </div>
@@ -144,9 +152,9 @@ export const SectionMetodo = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-24 pb-32">
       {/* Top light divider to separate from previous section */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3B82F6]/60 to-transparent shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-48 h-48 bg-[#3B82F6]/30 blur-[60px] rounded-full -translate-y-1/2" />
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-3 h-3 bg-[#3B82F6] rounded-full -translate-y-1/2 shadow-[0_0_20px_#3B82F6,0_0_40px_#3B82F6,0_0_60px_rgba(59,130,246,0.8)]" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3B82F6]/80 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-64 h-64 bg-[#3B82F6]/40 blur-[80px] rounded-full -translate-y-1/2" />
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full -translate-y-1/2 shadow-[0_0_30px_#3B82F6,0_0_60px_#3B82F6,0_0_100px_rgba(59,130,246,0.9)]" />
       </div>
 
       {/* Background ambient glows */}
