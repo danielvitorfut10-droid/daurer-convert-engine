@@ -36,9 +36,8 @@ const Index = () => {
         <Diferencial />
 
         <ProjectsMarquee />
-        <Alinhamento />
-
         <FeedbackImageCarousel />
+        <Alinhamento />
         <CtaFinal />
         <Footer />
       </div>

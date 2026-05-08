@@ -28,7 +28,7 @@ interface ScrollCardItemProps {
 
 export const ScrollCardItem = ({ children, className, stickyTop = "top-24 md:top-32" }: ScrollCardItemProps) => {
   return (
-    <figure className={cn(`sticky ${stickyTop} h-[70vh] md:h-[80vh] grid place-content-center w-full px-4`, className)}>
+    <figure className={cn(`sticky ${stickyTop} min-h-[60vh] md:h-[80vh] flex items-center justify-center w-full px-4 mb-[20vh] md:mb-0`, className)}>
       {children}
     </figure>
   );

@@ -24,6 +24,9 @@ export const Diferencial = () => {
         
         {/* Central Glow Effect */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-80 md:h-[500px] -translate-y-1/2 bg-cyan-500/10 blur-[120px] rounded-full" />
+        
+        {/* The "Half Dot" at the top divider */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-blue-400 rounded-full -translate-y-1/2 shadow-[0_0_20px_#3b82f6,0_0_40px_#3b82f6] z-30" />
       </div>
 
       <GridBackground className="py-24 md:py-32" style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)" }}>
@@ -33,7 +36,7 @@ export const Diferencial = () => {
               {/* Glowing Badge */}
 
 
-              <h2 className={`font-display text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6 ${visible ? "animate-reveal-fall is-visible" : "opacity-0"}`}>
+              <h2 className={`font-display text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6 ${visible ? "animate-reveal-fall is-visible" : "opacity-0"}`}>
                 Página que tem fundamento, o cliente entende, confia e{" "}
                 <span className="select-highlight-word">
                   <span className="select-highlight-box"></span>
@@ -331,6 +334,15 @@ export const Diferencial = () => {
           </div>
         </div>
       </GridBackground>
+
+      {/* Bottom Transition & Light Point */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-20">
+        {/* Soft Ambient Radial Glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[500px] h-32 bg-blue-500/15 blur-[80px] rounded-full translate-y-1/2" />
+
+        {/* The "Half Dot" core at the bottom divider - High intensity semicircle */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-blue-400 rounded-full translate-y-1/2 shadow-[0_0_20px_#3b82f6,0_0_45px_#3b82f6] z-30" />
+      </div>
     </section>
   );
 };
