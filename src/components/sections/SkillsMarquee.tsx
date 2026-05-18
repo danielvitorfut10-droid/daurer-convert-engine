@@ -120,23 +120,26 @@ const MarqueeItem = ({ label, variant }: { label: string; variant: "blue" | "whi
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "9999px",
-        border: isWhite ? "1px solid rgba(255, 255, 255, 0.1)" : "1.5px solid rgba(0, 212, 255, 0.5)",
-        background: isWhite ? "#ffffff" : "rgba(0, 212, 255, 0.05)",
+        border: isWhite ? "1px solid rgba(255, 255, 255, 0.1)" : "1.5px solid rgba(0, 212, 255, 0.4)",
+        background: isWhite ? "#ffffff" : "rgba(0, 212, 255, 0.04)",
         color: isWhite ? "#000000" : "#e0f8ff",
         fontSize: "13px",
-        letterSpacing: "1.5px",
+        letterSpacing: "1.2px",
         fontWeight: 900,
         whiteSpace: "nowrap",
         backdropFilter: isWhite ? "none" : "blur(12px)",
+        WebkitBackdropFilter: isWhite ? "none" : "blur(12px)",
         boxShadow: isWhite ? "0 8px 24px rgba(0,0,0,0.12)" : "0 0 14px rgba(0,212,255,0.18), inset 0 0 8px rgba(0,212,255,0.07)",
         transition: "all 0.4s cubic-bezier(0.23, 1, 0.32, 1)",
         cursor: "default",
         flexShrink: 0,
         textTransform: "uppercase",
-        transform: 'translateZ(0)'
+        transform: 'translateZ(0)',
+        backfaceVisibility: 'hidden'
       }}
     >
       {label}
     </span>
   );
 };
+

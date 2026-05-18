@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, memo } from "react";
 import {
   PackageCheck,
   CircleHelp,
@@ -7,7 +7,7 @@ import {
   Clock3,
   LucideIcon,
 } from "lucide-react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 
 const alignmentCards = [
   {
@@ -52,17 +52,17 @@ const alignmentCards = [
   },
 ];
 
-function MeteorCard({
+const MeteorCard = memo(({
   children,
   className = "",
   meteorColor = "rgba(37, 99, 235, 0.95)", // Blue
-  glowColor = "rgba(37, 99, 235, 0.12)"     // blueish glow
+  glowColor = "rgba(37, 99, 235, 0.1)"     // blueish glow
 }: {
   children: React.ReactNode;
   className?: string;
   meteorColor?: string;
   glowColor?: string;
-}) {
+}) => {
   return (
     <div className={`meteor-card ${className}`}>
       <div className="meteor-card-inner">{children}</div>
@@ -81,10 +81,8 @@ function MeteorCard({
           overflow: hidden;
           isolation: isolate;
           background: rgba(255, 255, 255, 0.04);
-          box-shadow:
-            0 18px 50px rgba(0, 0, 0, 0.35),
-            inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-          transition: all 0.3s ease;
+          box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.3);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .meteor-card::before {
@@ -95,15 +93,15 @@ function MeteorCard({
           background:
             conic-gradient(
               from var(--meteor-angle),
-              transparent 0deg,
-              transparent 245deg,
-              ${glowColor} 285deg,
-              ${meteorColor} 330deg,
-              rgba(255, 255, 255, 0.95) 345deg,
-              ${meteorColor} 355deg,
+              transparent 250deg,
+              ${glowColor} 280deg,
+              ${meteorColor} 320deg,
+              rgba(255, 255, 255, 0.8) 340deg,
+              ${meteorColor} 350deg,
               transparent 360deg
             );
-          animation: meteor-border-spin 5.5s linear infinite;
+          animation: meteor-border-spin 6s linear infinite;
+          will-change: transform;
         }
 
         .meteor-card::after {
@@ -114,7 +112,7 @@ function MeteorCard({
           border-radius: 21px;
           background:
             radial-gradient(circle at 20% 0%, ${glowColor}, transparent 34%),
-            linear-gradient(135deg, rgba(8, 13, 28, 0.96), rgba(3, 6, 18, 0.98));
+            linear-gradient(135deg, rgba(8, 13, 28, 0.98), rgba(3, 6, 18, 1));
         }
 
         .meteor-card-inner {
@@ -124,24 +122,19 @@ function MeteorCard({
           border-radius: 21px;
           background: rgba(4, 8, 20, 0.72);
           backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
           padding: 22px;
           border: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         .meteor-card:hover {
-          box-shadow:
-            0 22px 70px rgba(0, 0, 0, 0.45),
-            0 0 34px rgba(37, 99, 235, 0.15);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
           transform: translateY(-2px);
         }
 
         @keyframes meteor-border-spin {
-          from {
-            --meteor-angle: 0deg;
-          }
-          to {
-            --meteor-angle: 360deg;
-          }
+          from { --meteor-angle: 0deg; }
+          to { --meteor-angle: 360deg; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -152,11 +145,13 @@ function MeteorCard({
       `}</style>
     </div>
   );
-}
+});
+
+MeteorCard.displayName = "MeteorCard";
 
 export const Alinhamento = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const isInView = useInView(containerRef, { once: true, margin: "-50px" });
 
   return (
     <section 
@@ -165,13 +160,13 @@ export const Alinhamento = () => {
       className="relative overflow-hidden bg-black py-24 md:py-32 content-visibility-auto"
       style={{ containIntrinsicSize: '0 800px' }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.08),transparent_32%),radial-gradient(circle_at_80%_70%,rgba(37,99,235,0.10),transparent_36%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.06),transparent_32%),radial-gradient(circle_at_80%_70%,rgba(37,99,235,0.08),transparent_36%)]" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <motion.div
-           initial={{ opacity: 0, x: -30 }}
+        <m.div
+           initial={{ opacity: 0, x: -20 }}
            animate={isInView ? { opacity: 1, x: 0 } : {}}
-           transition={{ duration: 0.6 }}
+           transition={{ duration: 0.5 }}
         >
           <div className="mb-5 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">
             Alinhamento estratégico
@@ -184,23 +179,20 @@ export const Alinhamento = () => {
           <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-400 md:text-lg">
             Antes de criar seu e-commerce ou investir em tráfego pago, veja se sua loja está no momento certo para vender online com mais direção.
           </p>
-
-
-        </motion.div>
+        </m.div>
 
         <div className="flex flex-col gap-4">
           {alignmentCards.map((card, index) => {
             const Icon = card.icon;
-
             const meteorColor = "rgba(37, 99, 235, 0.95)";
-            const glowColor = "rgba(37, 99, 235, 0.15)";
+            const glowColor = "rgba(37, 99, 235, 0.1)";
 
             return (
-              <motion.div
+              <m.div
                 key={card.step}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <MeteorCard 
                   meteorColor={meteorColor}
@@ -229,7 +221,7 @@ export const Alinhamento = () => {
                     </div>
                   </div>
                 </MeteorCard>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>
@@ -237,3 +229,4 @@ export const Alinhamento = () => {
     </section>
   );
 };
+

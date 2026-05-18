@@ -28,8 +28,8 @@ export const Diferencial = () => {
         <div className="w-full h-full bg-gradient-to-b from-[#0A1026] via-[#0A1026]/60 via-[#0A1026]/20 to-transparent" />
         
         {/* Smooth Glow Transition instead of solid dot */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-500/30 blur-[40px] rounded-full -translate-y-1/2 z-20" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-16 bg-blue-400/40 blur-[20px] rounded-full -translate-y-1/2 z-20" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-500/25 blur-[30px] rounded-full -translate-y-1/2 z-20" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-16 bg-blue-400/30 blur-[15px] rounded-full -translate-y-1/2 z-20" />
       </div>
 
       <GridBackground className="py-24 md:py-32" style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)" }}>
@@ -276,12 +276,14 @@ export const Diferencial = () => {
 
               {/* CARD DIREITO */}
               <div className={`relative z-30 w-full lg:w-[440px] max-w-full entr-right ${visible ? "is-visible" : ""}`}>
-                <div className="w-full h-full rounded-[22px] p-6 md:p-9 bg-[#050510] border border-blue-500/15 text-white shadow-[0_0_60px_rgba(59,130,246,0.15)] card-diferencial-dark text-left">
+                <div className="w-full h-full rounded-[22px] p-6 md:p-9 bg-[#050510] border border-blue-500/15 text-white shadow-[0_0_40px_rgba(59,130,246,0.1)] card-diferencial-dark text-left">
                   <div className="flex flex-col items-center mb-6">
                     <div className="w-full max-w-[240px] flex items-center justify-center">
                       <img 
                         src="/daurer-logo.png" 
                         alt="Daurer Logo" 
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-auto object-contain"
                       />
                     </div>
@@ -342,8 +344,8 @@ export const Diferencial = () => {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-40 bg-blue-500/25 blur-[100px] rounded-full translate-y-1/2" />
 
         {/* Pure Glow Core (No solid dot) */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-500/40 blur-[40px] rounded-full translate-y-1/2 z-30" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-16 bg-blue-400/50 blur-[20px] rounded-full translate-y-1/2 z-30" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-500/35 blur-[30px] rounded-full translate-y-1/2 z-30" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-16 bg-blue-400/40 blur-[15px] rounded-full translate-y-1/2 z-30" />
       </div>
     </section>
   );
