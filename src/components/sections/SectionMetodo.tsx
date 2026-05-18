@@ -106,20 +106,18 @@ export const SectionMetodo = () => {
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 70%", "end 60%"] 
+    offset: ["start 80%", "end 50%"] 
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 25,
-    restDelta: 0.001
+    stiffness: 70,
+    damping: 30,
+    restDelta: 0.0001
   });
 
-  const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
-
   const scrollVelocity = useVelocity(smoothProgress);
-  const rocketRotation = useTransform(scrollVelocity, [ -0.001, 0, 0.001 ], [ -45, 135, 135 ]);
-  const smoothRotation = useSpring(rocketRotation, { stiffness: 300, damping: 30 });
+  const rocketRotation = useTransform(scrollVelocity, [ -0.01, 0, 0.01 ], [ -45, 135, 135 ]);
+  const smoothRotation = useSpring(rocketRotation, { stiffness: 150, damping: 40 });
 
   return (
     <section className="relative z-10 bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-12 md:pt-24 pb-32 content-visibility-auto overflow-hidden" style={{ containIntrinsicSize: '0 1000px' }}>
@@ -192,9 +190,13 @@ export const SectionMetodo = () => {
             <m.div 
               style={{ 
                 rotate: smoothRotation,
-                y: "-50%"
+                y: "-50%",
+                transformOrigin: "center center",
+                WebkitBackfaceVisibility: "hidden",
+                backfaceVisibility: "hidden",
+                transform: "translateZ(0)"
               }}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 text-2xl md:text-3xl z-0 select-none pointer-events-none drop-shadow-[0_0_10px_rgba(59,130,246,0.4)] translate-z-0 will-change-transform"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 text-2xl md:text-3xl z-0 select-none pointer-events-none drop-shadow-[0_0_10px_rgba(59,130,246,0.4)] will-change-transform"
             >
               🚀
             </m.div>
