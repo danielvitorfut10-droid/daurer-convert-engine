@@ -338,7 +338,8 @@ export const Diferencial = () => {
                   const message = "Olá, vim pelo site da Daurer. Vi a diferença entre um site comum e uma entrega pensada para vender, e quero entender como isso poderia funcionar para minha loja.";
                   window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
                 }} 
-                className="w-full sm:w-auto px-10 md:px-16 py-6 text-base md:text-lg font-bold uppercase tracking-[0.1em]"
+                className="w-full sm:w-auto px-10 md:px-16 py-6 text-base md:text-lg font-black uppercase tracking-[0.15em] whitespace-nowrap"
+                style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.4)" }}
               >
                 Quero uma entrega assim
               </ShinyButton>

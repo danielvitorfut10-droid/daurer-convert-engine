@@ -83,9 +83,10 @@ function FeedbackCarousel({
       )}
       {...props}
     >
-      {/* Iluminação suave e segura */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.15),transparent_60%)]" />
+      {/* Iluminação central ainda mais intensa para contraste máximo */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.35),transparent_75%)] blur-[60px]" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.25),transparent_65%)] blur-[30px]" />
       </div>
 
       {/* Grid de pontos (dots) uniforme e à prova de bugs no Safari/Mobile */}
@@ -180,11 +181,6 @@ function FeedbackCarousel({
         </div>
       </div>
 
-      {/* Bottom Transition & Light Point */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-20">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[500px] h-32 bg-blue-500/15 blur-[80px] rounded-full translate-y-1/2" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-blue-400 rounded-full translate-y-1/2 shadow-[0_0_20px_#3b82f6,0_0_45px_#3b82f6] z-30" />
-      </div>
     </section>
   );
 }

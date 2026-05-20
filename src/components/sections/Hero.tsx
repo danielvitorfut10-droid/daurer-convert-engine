@@ -26,9 +26,10 @@ export const Hero = () => {
               <div className="relative z-10 w-[90vw] sm:w-auto">
                 <ShinyButton 
                   onClick={handleCtaClick} 
-                  className="relative z-10 w-full px-8 md:px-14 py-6 text-[16px] md:text-[19px] font-bold uppercase tracking-wider whitespace-nowrap"
+                  className="relative z-10 w-full px-8 md:px-14 py-6 text-[16px] md:text-[19px] font-black uppercase tracking-[0.15em] whitespace-nowrap"
+                  style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.4)" }}
                 >
-                  <span className="text-white">Estruturar minha loja</span>
+                  Estruturar minha loja
                 </ShinyButton>
               </div>
 
