@@ -107,6 +107,8 @@ export const BorderRotate = memo(({
           box-shadow:
             0 0 0 1px rgba(255, 255, 255, 0.04),
             0 24px 80px -20px rgba(0, 0, 0, 0.4);
+          contain: paint;
+          transform: translateZ(0);
         }
 
         .daurer-gradient-border-component::before {
@@ -119,6 +121,8 @@ export const BorderRotate = memo(({
           opacity: 0.3;
           filter: blur(12px);
           transition: opacity 300ms ease;
+          pointer-events: none;
+          will-change: opacity;
         }
 
         .daurer-gradient-border-component:hover::before {

@@ -83,6 +83,8 @@ const MeteorCard = memo(({
           background: rgba(255, 255, 255, 0.04);
           box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.3);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
+          contain: paint;
+          transform: translateZ(0);
         }
 
         .meteor-card::before {
@@ -102,6 +104,7 @@ const MeteorCard = memo(({
             );
           animation: meteor-border-spin 6s linear infinite;
           will-change: transform;
+          pointer-events: none;
         }
 
         .meteor-card::after {

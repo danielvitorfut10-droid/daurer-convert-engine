@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { useReveal } from "@/hooks/use-reveal";
 import { GridBackground } from "@/components/ui/grid-background";
 import { ShiningText } from "@/components/ui/shining-text";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { whatsappUrl } from "@/lib/site";
 
-export const Diferencial = () => {
-  const { ref, visible } = useReveal();
-
+const DaurerDeliveryCard = memo(() => {
   const [selectedItems, setSelectedItems] = useState<number[]>([0, 1, 2, 3, 4]);
 
   const toggleItem = (idx: number) => {
@@ -15,6 +13,105 @@ export const Diferencial = () => {
       prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]
     );
   };
+
+  const deliveryItems = [
+    { title: "Uma loja online fácil de entender" },
+    { title: "Produtos organizados para o cliente comprar com menos dúvida" },
+    { title: "Textos que mostram melhor o valor da sua marca" },
+    { title: "Visual mais profissional e confiável" },
+    { title: "Botões claros para transformar interesse em pedido" },
+    { title: "Anúncios levando clientes para uma página preparada" },
+    { title: "Mais clareza para vender sem depender só do Instagram" }
+  ];
+
+  return (
+    <div className="w-full h-full rounded-[22px] p-6 md:p-9 bg-[#050510] border border-blue-500/15 text-white shadow-[0_0_40px_rgba(59,130,246,0.1)] card-diferencial-dark text-left">
+      <div className="flex flex-col items-center mb-6">
+        <div className="w-full max-w-[240px] flex items-center justify-center">
+          <img 
+            src="/daurer-logo.png" 
+            alt="Daurer Logo" 
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+      </div>
+      <div className="text-center text-sm mb-6 text-white">
+        <span className="font-bold block text-lg mb-1">O que nós entregamos!</span>
+        <span className="text-xs text-white/70 block mb-4">Marque o que faz sentido para sua loja:</span>
+      </div>
+      <ul className="space-y-4">
+        {deliveryItems.map((item, idx) => {
+          const isSelected = selectedItems.includes(idx);
+          return (
+            <li key={idx}>
+              <button
+                onClick={() => toggleItem(idx)}
+                className={`select-item ${isSelected ? "is-selected" : ""}`}
+              >
+                <span className="check-box" />
+                <span>{item.title}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+      <p className="mt-6 text-center text-[12px] leading-relaxed text-white/60 px-4">
+        Se 2 ou mais desses pontos fazem sentido para sua loja, você já entendeu a diferença da nossa entrega.
+      </p>
+    </div>
+  );
+});
+
+DaurerDeliveryCard.displayName = "DaurerDeliveryCard";
+
+const CommonDeliveryCard = memo(() => (
+  <div className="w-full h-full rounded-[22px] p-6 md:p-9 bg-[#e8e8e8] text-gray-900 shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-2 text-left">
+    <div className="flex items-center gap-4 mb-6">
+      <div className="w-11 h-11 rounded-full border-[3px] border-red-500 text-red-500 flex items-center justify-center text-xl font-bold flex-shrink-0">
+        ✖
+      </div>
+      <h3 className="font-bold text-lg md:text-xl tracking-tight leading-tight">Entrega comum, sem direção e fundamentos</h3>
+    </div>
+    <ul className="space-y-5 relative z-10">
+      <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+        <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+        <span>Página bonita, <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>mas sem lógica de venda</span></span>
+      </li>
+      <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+        <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+        <span>Produtos exibidos <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>sem jornada clara de compra</span></span>
+      </li>
+      <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+        <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+        <span>Textos genéricos <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>que não valorizam sua oferta</span></span>
+      </li>
+      <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+        <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+        <span>Visual que <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>não transmite confiança suficiente</span></span>
+      </li>
+      <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+        <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+        <span>Botões e seções <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>sem foco em conversão</span></span>
+      </li>
+      <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
+        <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
+        <span>Tráfego enviado para <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>uma página despreparada</span></span>
+      </li>
+      <li className="flex items-start gap-2.5 text-[16px] mt-6 font-bold uppercase text-red-600 whitespace-normal">
+        <span className="flex-shrink-0">✕</span>
+        <span>SITE ENTREGUE. VENDAS POR SUA CONTA</span>
+      </li>
+    </ul>
+  </div>
+));
+
+CommonDeliveryCard.displayName = "CommonDeliveryCard";
+
+export const Diferencial = () => {
+  const { ref, visible } = useReveal();
+
   return (
     <section 
       id="diferencial" 
@@ -36,9 +133,6 @@ export const Diferencial = () => {
         <div className="container relative">
           <div className="flex flex-col items-center text-center">
             <div className={`max-w-4xl mb-16 ${visible ? "animate-fade-in-up" : "opacity-0"}`}>
-              {/* Glowing Badge */}
-
-
               <h2 className={`font-display text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6 ${visible ? "animate-reveal-fall is-visible" : "opacity-0"}`}>
                 Página que tem fundamento, o cliente entende, confia e{" "}
                 <span className="select-highlight-word">
@@ -170,9 +264,6 @@ export const Diferencial = () => {
                 }
               }
 
-              /* Removida interferência azul de fundo */
-
-              /* Selectable checkboxes for the right card */
               .select-item {
                 width: 100%;
                 display: flex;
@@ -232,94 +323,12 @@ export const Diferencial = () => {
             `}</style>
 
             <div className="w-full max-w-[1000px] mx-auto flex flex-col lg:flex-row items-center justify-center relative z-10 gap-8 mt-4 lg:pb-[60px] px-4">
-              {/* CARD ESQUERDO */}
               <div className={`relative z-10 w-full lg:w-[440px] max-w-full self-center entr-left ${visible ? "is-visible" : ""}`}>
-                <div className="w-full h-full rounded-[22px] p-6 md:p-9 bg-[#e8e8e8] text-gray-900 shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-2 text-left">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-11 h-11 rounded-full border-[3px] border-red-500 text-red-500 flex items-center justify-center text-xl font-bold flex-shrink-0">
-                      ✖
-                    </div>
-                    <h3 className="font-bold text-lg md:text-xl tracking-tight leading-tight">Entrega comum, sem direção e fundamentos</h3>
-                  </div>
-                  <ul className="space-y-5 relative z-10">
-                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
-                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
-                      <span>Página bonita, <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>mas sem lógica de venda</span></span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
-                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
-                      <span>Produtos exibidos <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>sem jornada clara de compra</span></span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
-                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
-                      <span>Textos genéricos <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>que não valorizam sua oferta</span></span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
-                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
-                      <span>Visual que <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>não transmite confiança suficiente</span></span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
-                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
-                      <span>Botões e seções <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>sem foco em conversão</span></span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-[15px] sm:text-[16px] text-gray-950 font-semibold whitespace-normal sm:whitespace-nowrap">
-                      <span className="flex-shrink-0 mt-1 text-red-500 font-bold">✕</span> 
-                      <span>Tráfego enviado para <span className="relative inline-block"><span className="absolute bottom-0.5 left-0 w-full h-[2px] bg-red-500/60"></span>uma página despreparada</span></span>
-                    </li>
-                    <li className="flex items-start gap-2.5 text-[16px] mt-6 font-bold uppercase text-red-600 whitespace-normal">
-                      <span className="flex-shrink-0">✕</span>
-                      <span>SITE ENTREGUE. VENDAS POR SUA CONTA</span>
-                    </li>
-                  </ul>
-                </div>
+                <CommonDeliveryCard />
               </div>
 
-              {/* CARD DIREITO */}
               <div className={`relative z-30 w-full lg:w-[440px] max-w-full entr-right ${visible ? "is-visible" : ""}`}>
-                <div className="w-full h-full rounded-[22px] p-6 md:p-9 bg-[#050510] border border-blue-500/15 text-white shadow-[0_0_40px_rgba(59,130,246,0.1)] card-diferencial-dark text-left">
-                  <div className="flex flex-col items-center mb-6">
-                    <div className="w-full max-w-[240px] flex items-center justify-center">
-                      <img 
-                        src="/daurer-logo.png" 
-                        alt="Daurer Logo" 
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-auto object-contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="text-center text-sm mb-6 text-white">
-                    <span className="font-bold block text-lg mb-1">O que nós entregamos!</span>
-                    <span className="text-xs text-white/70 block mb-4">Marque o que faz sentido para sua loja:</span>
-                  </div>
-                  <ul className="space-y-4">
-                    {[
-                      { title: "Uma loja online fácil de entender" },
-                      { title: "Produtos organizados para o cliente comprar com menos dúvida" },
-                      { title: "Textos que mostram melhor o valor da sua marca" },
-                      { title: "Visual mais profissional e confiável" },
-                      { title: "Botões claros para transformar interesse em pedido" },
-                      { title: "Anúncios levando clientes para uma página preparada" },
-                      { title: "Mais clareza para vender sem depender só do Instagram" }
-                    ].map((item, idx) => {
-                      const isSelected = selectedItems.includes(idx);
-                      return (
-                        <li key={idx}>
-                          <button
-                            onClick={() => toggleItem(idx)}
-                            className={`select-item ${isSelected ? "is-selected" : ""}`}
-                          >
-                            <span className="check-box" />
-                            <span>{item.title}</span>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <p className="mt-6 text-center text-[12px] leading-relaxed text-white/60 px-4">
-                    Se 2 ou mais desses pontos fazem sentido para sua loja, você já entendeu a diferença da nossa entrega.
-                  </p>
-                </div>
+                <DaurerDeliveryCard />
               </div>
             </div>
             
@@ -340,10 +349,7 @@ export const Diferencial = () => {
 
       {/* Bottom Transition & Light Point */}
       <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-20">
-        {/* Soft Ambient Radial Glow - Intensificado */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-40 bg-blue-500/25 blur-[100px] rounded-full translate-y-1/2" />
-
-        {/* Pure Glow Core (No solid dot) */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-cyan-500/35 blur-[30px] rounded-full translate-y-1/2 z-30" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-16 bg-blue-400/40 blur-[15px] rounded-full translate-y-1/2 z-30" />
       </div>

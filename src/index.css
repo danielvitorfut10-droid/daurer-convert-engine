@@ -155,11 +155,15 @@
   .scene .floor {
     background: radial-gradient(ellipse at center, rgba(6,182,212,0.6) 0%, transparent 65%);
     animation: floorGlow 4s ease-in-out infinite;
+    will-change: transform, opacity;
+    transform: translateZ(0);
   }
   
   .scene .main-column {
     background: linear-gradient(to right, transparent, rgba(6,182,212,0.2), transparent);
     animation: mainGlow 4s ease-in-out infinite alternate;
+    will-change: opacity, filter;
+    transform: translateZ(0);
   }
   
   .scene .light-beam {
@@ -173,6 +177,9 @@
     animation-name: rise, fade;
     animation-timing-function: linear, linear;
     animation-iteration-count: infinite, infinite;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   @keyframes rise {

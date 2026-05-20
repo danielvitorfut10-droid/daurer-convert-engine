@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, memo } from 'react';
-import { m, useScroll, useTransform, useSpring, useInView, useVelocity } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { BorderRotate } from '../ui/border-rotate';
 
 const steps = [
@@ -27,25 +27,26 @@ const steps = [
   }
 ];
 
-const TimelineStep = memo(({ step, i, isEven }: { step: typeof steps[0], i: number, isEven: boolean }) => {
+const TimelineStep = memo(({ step, i, isEven, isLast }: { step: typeof steps[0], i: number, isEven: boolean, isLast: boolean }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "100% 0% -30% 0%" });
 
   return (
-    <m.div 
+    <div 
       ref={ref}
-      initial="inactive"
-      animate={isInView ? "active" : "inactive"}
       className={`flex items-start md:items-center w-full relative ${
         isEven ? "md:flex-row-reverse" : "md:flex-row"
-      } flex-row ${isInView ? 'active-neon' : ''}`}
+      } flex-row`}
     >
       
       <div className="hidden md:block md:w-1/2" />
 
+      {/* Circle dot */}
       <div className={`absolute left-[24px] md:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#0A0D18] border-2 border-[#3B82F6]/30 z-20`}>
          <m.div 
           className="w-3 h-3 md:w-5 md:h-5 rounded-full bg-[#3B82F6]"
+          initial="inactive"
+          animate={isInView ? "active" : "inactive"}
           variants={{
              inactive: { scale: 0.5, opacity: 0.2, boxShadow: "0 0 0px rgba(59,130,246,0)" },
              active: { scale: 1, opacity: 1, boxShadow: "0 0 20px rgba(59,130,246,0.8), 0 0 8px rgba(255,255,255,0.6)" }
@@ -53,6 +54,22 @@ const TimelineStep = memo(({ step, i, isEven }: { step: typeof steps[0], i: numb
           transition={{ duration: 0.4 }}
          />
       </div>
+
+      {/* Segment Line (connecting to next) */}
+      {!isLast && (
+        <div className="absolute left-[24px] md:left-1/2 top-12 md:top-16 bottom-[-3rem] md:bottom-[-8rem] w-[2px] bg-[#3B82F6]/10 -translate-x-1/2 z-10 overflow-hidden">
+          <m.div 
+            className="w-full h-full bg-[#3B82F6] origin-top"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: isInView ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            style={{ 
+              boxShadow: "0 0 10px rgba(59,130,246,0.6)",
+              willChange: "transform"
+            }}
+          />
+        </div>
+      )}
 
       <div className={`w-full pl-16 pr-0 md:pl-0 md:pr-0 md:w-1/2 ${isEven ? 'md:pl-16 lg:pl-28' : 'md:pr-16 lg:pr-28'}`}>
         <m.div
@@ -95,7 +112,7 @@ const TimelineStep = memo(({ step, i, isEven }: { step: typeof steps[0], i: numb
         </m.div>
       </div>
 
-    </m.div>
+    </div>
   );
 });
 
@@ -104,21 +121,6 @@ TimelineStep.displayName = "TimelineStep";
 export const SectionMetodo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 80%", "end 50%"] 
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 70,
-    damping: 30,
-    restDelta: 0.0001
-  });
-
-  const scrollVelocity = useVelocity(smoothProgress);
-  const rocketRotation = useTransform(scrollVelocity, [ -0.01, 0, 0.01 ], [ -45, 135, 135 ]);
-  const smoothRotation = useSpring(rocketRotation, { stiffness: 150, damping: 40 });
-
   return (
     <section className="relative z-10 bg-gradient-to-b from-black via-[#040814] to-[#0A1026] pt-12 md:pt-24 pb-32 content-visibility-auto overflow-hidden" style={{ containIntrinsicSize: '0 1000px' }}>
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3B82F6]/60 to-transparent">
@@ -175,32 +177,8 @@ export const SectionMetodo = () => {
 
         <div ref={containerRef} className="relative w-full max-w-5xl mx-auto pb-16">
           
-          <m.div 
-            style={{ opacity: useTransform(smoothProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0]) }}
-            className="absolute left-[24px] md:left-1/2 top-4 bottom-[-60px] w-[2px] bg-gradient-to-b from-[#3B82F6]/20 via-[#3B82F6]/10 to-[#3B82F6]/5 -translate-x-1/2 rounded-full" 
-          />
-
-          <m.div 
-            className="absolute left-[24px] md:left-1/2 top-4 w-[2px] bg-[#3B82F6] -translate-x-1/2 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.6)] origin-top z-10 will-change-[height]"
-            style={{ 
-              height: useTransform(smoothProgress, [0, 1], ["0%", "110%"]),
-              opacity: useTransform(smoothProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0])
-            }}
-          >
-            <m.div 
-              style={{ 
-                rotate: smoothRotation,
-                y: "-50%",
-                transformOrigin: "center center",
-                WebkitBackfaceVisibility: "hidden",
-                backfaceVisibility: "hidden",
-                transform: "translateZ(0)"
-              }}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 text-2xl md:text-3xl z-0 select-none pointer-events-none drop-shadow-[0_0_10px_rgba(59,130,246,0.4)] will-change-transform"
-            >
-              🚀
-            </m.div>
-          </m.div>
+          {/* Background guide line (fixed) */}
+          <div className="absolute left-[24px] md:left-1/2 top-4 bottom-0 w-[2px] bg-[#3B82F6]/5 -translate-x-1/2 rounded-full" />
 
           <div className="flex flex-col gap-12 md:gap-32 w-full relative z-20">
             {steps.map((step, i) => (
@@ -209,6 +187,7 @@ export const SectionMetodo = () => {
                 step={step} 
                 i={i} 
                 isEven={i % 2 !== 0} 
+                isLast={i === steps.length - 1}
               />
             ))}
           </div>
