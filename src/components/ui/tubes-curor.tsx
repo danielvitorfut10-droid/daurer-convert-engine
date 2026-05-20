@@ -11,7 +11,10 @@ export default function TubesCursor({ children }: { children?: React.ReactNode }
         .then(module => {
           const TubesCursor = module.default;
           if (canvasRef.current) {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+            
             const app = TubesCursor(canvasRef.current, {
+              eventsEl: isMobile ? document.createElement('div') : canvasRef.current,
               tubes: {
                 colors: ["#06b6d4", "#3b82f6", "#0070ff"],
                 lights: {
