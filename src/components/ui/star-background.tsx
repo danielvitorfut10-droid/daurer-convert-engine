@@ -129,6 +129,7 @@ export const StarBackground = () => {
         particles[i].draw();
       }
       ctx.globalAlpha = 1;
+      if (isMobile) return;
       rafId = requestAnimationFrame(animate);
     };
 

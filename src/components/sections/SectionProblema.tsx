@@ -32,32 +32,38 @@ const problemCardsData: ProblemCardData[] = [
   },
 ];
 
-const ProblemCard = memo(({ card, i, neonBorders, neonShadows, neonGlows, renderText }: any) => (
-  <ScrollCardItem stickyTop={["top-32 md:top-40", "top-36 md:top-44", "top-40 md:top-48", "top-44 md:top-52", "top-48 md:top-56"][i]} className={["z-10", "z-20", "z-30", "z-40", "z-50"][i]}>
-    <article
-      className={`relative h-[320px] md:h-[400px] w-full max-w-2xl mx-auto rounded-3xl ${card.rotation} p-8 md:p-12 flex flex-col justify-center gap-6 bg-[#0B0D17] border ${neonBorders[i]} ${neonShadows[i]} transition-all duration-700 overflow-hidden group will-change-transform`}
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(59,130,246,0.22),transparent_65%)] pointer-events-none" />
-      <div className={`absolute -top-10 -right-10 w-56 h-56 ${neonGlows[i]} blur-[70px] rounded-full transition-opacity duration-1000 opacity-70 group-hover:opacity-100`} />
-      <div className={`absolute -bottom-10 -left-10 w-44 h-44 ${neonGlows[i]} blur-[55px] rounded-full transition-opacity duration-1000 opacity-40`} />
+const ProblemCard = memo(({ card, i, neonBorders, neonShadows, neonGlows, renderText }: any) => {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-      <m.div 
-        initial={{ x: "-100%", skewX: -25 }}
-        whileInView={{ x: "200%" }}
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 1.8, ease: "easeInOut", delay: 0.2 }}
-        className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent pointer-events-none z-20"
-      />
+  return (
+    <ScrollCardItem stickyTop={["top-32 md:top-40", "top-36 md:top-44", "top-40 md:top-48", "top-44 md:top-52", "top-48 md:top-56"][i]} className={["z-10", "z-20", "z-30", "z-40", "z-50"][i]}>
+      <article
+        className={`relative h-[320px] md:h-[400px] w-full max-w-2xl mx-auto rounded-3xl ${card.rotation} p-8 md:p-12 flex flex-col justify-center gap-6 bg-[#0B0D17] border ${neonBorders[i]} ${!isMobile ? neonShadows[i] : 'shadow-lg'} transition-all duration-700 overflow-hidden group will-change-transform`}
+        style={{ transform: 'translateZ(0)' }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(59,130,246,0.22),transparent_65%)] pointer-events-none" />
+        <div className={`absolute -top-10 -right-10 w-56 h-56 ${neonGlows[i]} blur-[70px] rounded-full transition-opacity duration-1000 opacity-70 group-hover:opacity-100`} />
+        
+        {!isMobile && (
+          <m.div 
+            initial={{ x: "-100%", skewX: -25 }}
+            whileInView={{ x: "200%" }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 1.8, ease: "easeInOut", delay: 0.2 }}
+            className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent pointer-events-none z-20"
+          />
+        )}
 
-      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] ${neonGlows[i]} blur-md`} />
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] ${neonGlows[i]} blur-md`} />
 
-      <p className="text-2xl md:text-3xl lg:text-4xl text-white/95 leading-tight font-bold text-center md:text-left relative z-10 drop-shadow-sm">
-        {renderText(card.text)}
-      </p>
-    </article>
-  </ScrollCardItem>
-));
+        <p className="text-2xl md:text-3xl lg:text-4xl text-white/95 leading-tight font-bold text-center md:text-left relative z-10 drop-shadow-sm">
+          {renderText(card.text)}
+        </p>
+      </article>
+    </ScrollCardItem>
+  );
+});
 
 ProblemCard.displayName = "ProblemCard";
 

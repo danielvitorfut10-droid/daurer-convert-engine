@@ -111,6 +111,12 @@ export const BorderRotate = memo(({
           transform: translateZ(0);
         }
 
+        @media (max-width: 768px) {
+          .daurer-gradient-border-auto {
+            animation: none !important;
+          }
+        }
+
         .daurer-gradient-border-component::before {
           content: "";
           position: absolute;

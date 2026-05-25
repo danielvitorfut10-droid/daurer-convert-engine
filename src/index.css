@@ -91,6 +91,7 @@
     position: relative;
     overflow-x: clip;
     width: 100%;
+    text-rendering: optimizeSpeed;
   }
 
   ::selection {
@@ -133,9 +134,15 @@
   }
 
   .glass {
-    background: hsl(var(--surface) / 0.6);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: hsl(var(--surface) / 0.85);
+  }
+
+  @media (min-width: 768px) {
+    .glass {
+      background: hsl(var(--surface) / 0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
   }
 
   .shadow-soft {
