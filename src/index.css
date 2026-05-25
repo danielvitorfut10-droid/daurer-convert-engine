@@ -75,7 +75,7 @@
   }
 
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
     position: relative;
     overflow-x: clip;
     width: 100%;
@@ -162,7 +162,7 @@
   .scene .main-column {
     background: linear-gradient(to right, transparent, rgba(6,182,212,0.2), transparent);
     animation: mainGlow 4s ease-in-out infinite alternate;
-    will-change: opacity, filter;
+    will-change: opacity;
     transform: translateZ(0);
   }
   
@@ -224,7 +224,7 @@
     animation: gradient-sweep 3s ease-in-out infinite;
     display: inline-block;
     filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.4));
-    will-change: background-position;
+    will-change: transform;
     transform: translateZ(0);
   }
 

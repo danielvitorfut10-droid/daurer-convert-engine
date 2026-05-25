@@ -17,7 +17,8 @@ export const StarBackground = () => {
     if (!ctx) return;
 
     let particles: Particle[] = [];
-    const particleCount = 8;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+    const particleCount = isMobile ? 4 : 8;
     let rafId: number;
 
     // Pré-renderiza um "sprite" de estrela com blur usando offscreen canvas (1x só)

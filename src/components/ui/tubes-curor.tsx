@@ -39,7 +39,7 @@ export default function TubesCursor({ children }: { children?: React.ReactNode }
 
   return (
     <div className="relative h-screen w-full bg-black font-['Montserrat',_sans-serif] overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none hidden md:block" />
       <div className="relative h-full flex flex-col items-center justify-center z-10 w-full">
         {children}
       </div>
