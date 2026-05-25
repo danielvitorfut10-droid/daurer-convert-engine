@@ -5,16 +5,17 @@ export default function TubesCursor({ children }: { children?: React.ReactNode }
   const appRef = useRef<any>(null);
 
   useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+    if (isMobile) return;
+
     const initTimer = setTimeout(() => {
       // @ts-ignore
       import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js')
         .then(module => {
           const TubesCursor = module.default;
           if (canvasRef.current) {
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
-            
             const app = TubesCursor(canvasRef.current, {
-              eventsEl: isMobile ? document.createElement('div') : canvasRef.current,
+              eventsEl: canvasRef.current,
               tubes: {
                 colors: ["#06b6d4", "#3b82f6", "#0070ff"],
                 lights: {
