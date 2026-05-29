@@ -135,10 +135,10 @@ export const SectionProblema = () => {
 
     // Card Seguinte (Espreitando na base)
     if (offset === 1) {
-      const yOffset = isMobile ? 68 : 78;
+      const yOffset = isMobile ? 85 : 78; // Push further on mobile
       return {
         transform: `translate(-50%, calc(-50% + ${yOffset}%)) scale(0.92)`,
-        opacity: 0.8,
+        opacity: isMobile ? 0 : 0.8,
         zIndex: 20,
         pointerEvents: "auto",
       };
@@ -146,10 +146,10 @@ export const SectionProblema = () => {
 
     // Card Anterior (Espreitando no topo)
     if (offset === -1) {
-      const yOffset = isMobile ? 68 : 78;
+      const yOffset = isMobile ? 85 : 78; // Push further on mobile
       return {
         transform: `translate(-50%, calc(-50% - ${yOffset}%)) scale(0.92)`,
-        opacity: 0.8,
+        opacity: isMobile ? 0 : 0.8,
         zIndex: 20,
         pointerEvents: "auto",
       };

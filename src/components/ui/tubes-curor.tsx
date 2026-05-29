@@ -14,10 +14,12 @@ export default function TubesCursor({ children }: { children?: React.ReactNode }
           const TubesComponent = module.default;
           if (canvasRef.current) {
             const app = TubesComponent(canvasRef.current, {
-              // On mobile, we use a dummy element to prevent it from following touch
+              // On mobile, we use a completely detached element to block interaction
               eventsEl: isMobile ? document.createElement('div') : canvasRef.current,
               tubes: {
-                colors: ["#06b6d4", "#3b82f6", "#0070ff"],
+                // Reduce movement/tracking on mobile if library supports internal flags
+                // (Using a detached element is the primary way to disable tracking)
+                colors: ["#11cdef", "#3b82f6", "#0070ff"],
                 lights: {
                   intensity: 200,
                   colors: ["#06b6d4", "#3b82f6", "#bbf7ff", "#11cdef"]
@@ -38,8 +40,20 @@ export default function TubesCursor({ children }: { children?: React.ReactNode }
     };
   }, []);
 
+  const blockEvents = (e: React.UIEvent) => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+    if (isMobile) {
+      e.stopPropagation();
+    }
+  };
+
   return (
-    <div className="relative h-screen w-full bg-black font-['Montserrat',_sans-serif] overflow-hidden">
+    <div 
+      className="relative h-screen w-full bg-black font-['Montserrat',_sans-serif] overflow-hidden"
+      onTouchStart={blockEvents}
+      onTouchMove={blockEvents}
+      onMouseDown={blockEvents}
+    >
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none block" />
       <div className="relative h-full flex flex-col items-center justify-center z-10 w-full">
         {children}
