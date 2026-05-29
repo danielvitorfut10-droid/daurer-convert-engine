@@ -160,8 +160,8 @@ export const SectionProblema = () => {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full bg-black text-white"
-      style={{ height: "450vh" }} // slightly more track for better pacing
+      className="relative w-full bg-black text-white transition-all duration-500"
+      style={{ height: isMobile ? "260vh" : "450vh" }} // Reduced mobile height for faster scroll progression
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
         {/* Subtle background glow */}
