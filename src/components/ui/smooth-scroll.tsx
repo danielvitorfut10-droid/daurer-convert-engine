@@ -19,6 +19,14 @@ export const SmoothScroll = () => {
       infinite: false,
     });
 
+    // Sync Lenis scroll position to window so Framer Motion useScroll works correctly
+    lenis.on("scroll", ({ scroll }: { scroll: number }) => {
+      // Fire a native scroll event so Framer Motion picks up the position
+      window.dispatchEvent(new Event("scroll", { bubbles: false }));
+      // Also keep document.documentElement.scrollTop in sync
+      // (Lenis handles this internally but we ensure FM sees it)
+    });
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
