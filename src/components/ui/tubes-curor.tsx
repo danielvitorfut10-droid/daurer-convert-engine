@@ -6,16 +6,16 @@ export default function TubesCursor({ children }: { children?: React.ReactNode }
 
   useEffect(() => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
-    if (isMobile) return;
 
     const initTimer = setTimeout(() => {
       // @ts-ignore
       import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js')
         .then(module => {
-          const TubesCursor = module.default;
+          const TubesComponent = module.default;
           if (canvasRef.current) {
-            const app = TubesCursor(canvasRef.current, {
-              eventsEl: canvasRef.current,
+            const app = TubesComponent(canvasRef.current, {
+              // On mobile, we use a dummy element to prevent it from following touch
+              eventsEl: isMobile ? document.createElement('div') : canvasRef.current,
               tubes: {
                 colors: ["#06b6d4", "#3b82f6", "#0070ff"],
                 lights: {
@@ -40,7 +40,7 @@ export default function TubesCursor({ children }: { children?: React.ReactNode }
 
   return (
     <div className="relative h-screen w-full bg-black font-['Montserrat',_sans-serif] overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none hidden md:block" />
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none block" />
       <div className="relative h-full flex flex-col items-center justify-center z-10 w-full">
         {children}
       </div>

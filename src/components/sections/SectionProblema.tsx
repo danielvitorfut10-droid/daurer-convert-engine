@@ -52,6 +52,7 @@ const cards: CardItem[] = [
 
 export const SectionProblema = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const activeIndexRef = React.useRef(0); // ref to track true index for clamping
   const [isMobile, setIsMobile] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -62,16 +63,19 @@ export const SectionProblema = () => {
   });
 
   // Calculate active index based on scroll progress
+  // Clamp to ±1 step at a time to prevent skipping on mobile fast-swipes
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // If we have 5 cards, progress is split into 5 segments
-    // 0-0.2, 0.2-0.4, 0.4-0.6, 0.6-0.8, 0.8-1.0
-    const index = Math.min(
+    const target = Math.min(
       Math.floor(latest * cards.length),
       cards.length - 1
     );
-    if (index !== activeIndex) {
-      setActiveIndex(index);
-    }
+    const current = activeIndexRef.current;
+    if (target === current) return;
+
+    // Clamp: only allow moving 1 step at a time
+    const next = target > current ? current + 1 : current - 1;
+    activeIndexRef.current = next;
+    setActiveIndex(next);
   });
 
   React.useEffect(() => {
@@ -91,7 +95,7 @@ export const SectionProblema = () => {
     const totalHeight = container.offsetHeight;
     const viewportHeight = window.innerHeight;
     const scrollableDistance = totalHeight - viewportHeight;
-    const targetProgress = index / (cards.length - 0.5); // Slightly offset to middle of segment
+    const targetProgress = (index + 0.5) / cards.length; // Center of the segment
     
     window.scrollTo({
       top: container.offsetTop + targetProgress * scrollableDistance,
@@ -161,7 +165,7 @@ export const SectionProblema = () => {
     <section 
       ref={containerRef} 
       className="relative w-full bg-black text-white transition-all duration-500"
-      style={{ height: isMobile ? "260vh" : "450vh" }} // Reduced mobile height for faster scroll progression
+      style={{ height: isMobile ? "350vh" : "450vh" }} // Adjusted for better stability on mobile
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
         {/* Subtle background glow */}
